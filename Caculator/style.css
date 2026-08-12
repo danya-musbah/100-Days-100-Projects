@@ -1,0 +1,454 @@
+/* ============================================================
+   DESIGN TOKENS
+   ============================================================ */
+:root{
+  color-scheme: dark;
+
+  --bg-0: #08090b;
+  --bg-1: #0f1013;
+  --surface: #1a1b1f;
+  --surface-edge: rgba(255,255,255,0.06);
+
+  --key-number: #2b2c31;
+  --key-number-hover: #37383e;
+  --key-number-active: #45464d;
+
+  --key-function: #3d3f46;
+  --key-function-hover: #494b53;
+  --key-function-active: #55575f;
+
+  --key-operator: #d8a441;
+  --key-operator-hover: #e3b25a;
+  --key-operator-active: #c99433;
+
+  --key-sci: #212227;
+  --key-sci-hover: #2b2d33;
+  --key-sci-active: #37383e;
+
+  --accent-teal: #49d3c4;
+
+  --text-primary: #f4f4f2;
+  --text-secondary: rgba(244,244,242,0.5);
+  --text-on-operator: #1a1206;
+  --text-dim: rgba(244,244,242,0.34);
+
+  --danger: #ff6b6a;
+
+  --radius-key: clamp(14px, 5vw, 24px);
+  --radius-panel: clamp(20px, 5vw, 32px);
+
+  --gap: clamp(8px, 2.4vw, 14px);
+  --pad-outer: clamp(12px, 4vw, 28px);
+
+  --font-display: 'Space Grotesk', 'SF Mono', ui-monospace, monospace;
+  --font-ui: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  --safe-t: env(safe-area-inset-top, 0px);
+  --safe-b: env(safe-area-inset-bottom, 0px);
+  --safe-l: env(safe-area-inset-left, 0px);
+  --safe-r: env(safe-area-inset-right, 0px);
+}
+
+/* ============================================================
+   RESET
+   ============================================================ */
+*, *::before, *::after{ box-sizing: border-box; }
+html, body{ height: 100%; }
+body{
+  margin: 0;
+  min-height: 100svh;
+  min-height: 100dvh;
+}
+button{
+  font-family: inherit;
+  border: none;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+button:focus-visible{
+  outline: 2px solid var(--accent-teal);
+  outline-offset: 2px;
+}
+
+/* ============================================================
+   PAGE / AMBIENT BACKGROUND
+   ============================================================ */
+.page{
+  min-height: 100svh;
+  min-height: 100dvh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding:
+    calc(var(--pad-outer) + var(--safe-t))
+    calc(var(--pad-outer) + var(--safe-r))
+    calc(var(--pad-outer) + var(--safe-b))
+    calc(var(--pad-outer) + var(--safe-l));
+  font-family: var(--font-ui);
+  color: var(--text-primary);
+}
+
+/* ============================================================
+   CALCULATOR SHELL
+   ============================================================ */
+.calculator{
+  direction: ltr;
+  width: min(100%, 420px);
+  height: min(100%, 750px);
+  max-height: 90vh;
+  background: linear-gradient(165deg, var(--surface) 0%, #16171b 100%);
+  border: 1px solid var(--surface-edge);
+  border-radius: var(--radius-panel);
+  padding: clamp(14px, 4vw, 22px);
+  display: grid;
+  overflow:hidden;
+  grid-template-areas:
+    "display"
+    "mode"
+    "sci"
+    "keypad";
+  grid-template-rows: auto auto auto minmax(0, 1fr);
+  gap: clamp(10px, 2.6vh, 16px);
+  box-shadow:
+    0 1px 0 rgba(255,255,255,0.05) inset,
+    0 30px 60px -20px rgba(0,0,0,0.6),
+    0 10px 24px -12px rgba(0,0,0,0.5);
+}
+
+@media (min-width: 700px){
+  .calculator{ width: min(92vw, 460px); }
+}
+
+/* ============================================================
+   DISPLAY
+   ============================================================ */
+.display-panel{
+  grid-area: display;
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  direction: ltr;
+  text-align: right;
+  padding: clamp(10px, 3vh, 22px) clamp(6px, 2vw, 10px) clamp(4px, 1vh, 8px);
+  min-height: clamp(72px, 16vh, 128px);
+  gap: 4px;
+}
+
+.backspace-btn{
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-dim);
+  border-radius: 10px;
+  transition: color .15s ease, background-color .15s ease, transform .1s ease;
+}
+.backspace-btn:hover{ color: var(--text-secondary); background: rgba(255,255,255,0.04); }
+.backspace-btn:active{ transform: scale(0.9); }
+
+.expression-line{
+  width: 100%;
+  min-height: 1.1em;
+  font-family: var(--font-display);
+  font-size: clamp(0.75rem, 2.6vw, 0.95rem);
+  color: var(--text-dim);
+  letter-spacing: 0.01em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  direction: ltr;
+  text-align: right;
+}
+
+.display{
+  width: 100%;
+  direction: ltr;
+  text-align: right;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  font-size: clamp(2.4rem, 11vw, 4.4rem);
+  line-height: 1;
+  color: var(--text-primary);
+  overflow: hidden;
+  text-overflow: clip;
+  white-space: nowrap;
+  transition: font-size .12s ease;
+}
+.display.is-error{ color: var(--danger); }
+.display.is-long{ font-size: clamp(1.5rem, 7vw, 2.6rem); }
+
+
+/* ============================================================
+   MODE ROW (scientific toggle + deg/rad)
+   ============================================================ */
+.mode-row{
+  grid-area: mode;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--gap);
+  padding: 0 2px;
+}
+
+.sci-toggle{
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: clamp(0.72rem, 2.4vw, 0.82rem);
+  font-weight: 500;
+  color: var(--text-secondary);
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--surface-edge);
+  transition: color .15s ease, background-color .15s ease, border-color .15s ease;
+}
+.sci-toggle-dot{
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--text-dim);
+  transition: background-color .15s ease, box-shadow .15s ease;
+}
+.sci-toggle[aria-pressed="true"]{
+  color: var(--text-primary);
+  background: rgba(73,211,196,0.12);
+  border-color: rgba(73,211,196,0.35);
+}
+.sci-toggle[aria-pressed="true"] .sci-toggle-dot{
+  background: var(--accent-teal);
+  box-shadow: 0 0 8px rgba(73,211,196,0.8);
+}
+.sci-toggle:hover{ background: rgba(255,255,255,0.07); }
+
+.deg-rad-toggle{
+  display: inline-flex;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--surface-edge);
+  padding: 3px;
+  gap: 2px;
+}
+.deg-rad-btn{
+  font-size: clamp(0.64rem, 2vw, 0.72rem);
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: var(--text-dim);
+  padding: 5px 10px;
+  border-radius: 999px;
+  transition: color .15s ease, background-color .15s ease;
+}
+.deg-rad-btn.active{
+  color: var(--text-on-operator);
+  background: var(--accent-teal);
+}
+
+
+/* ============================================================
+   BUTTON GRIDS — shared
+   ============================================================ */
+.keypad, .scientific-grid{
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--gap);
+}
+
+.keypad{ 
+  grid-area: keypad; 
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--gap);
+  height: 100%; 
+  overflow: hidden;
+}
+
+.scientific-grid{ grid-area: sci; }
+
+.scientific-grid[hidden],
+.deg-rad-toggle[hidden] {
+  display: none !important;
+}
+
+.key{
+  position: relative;
+  height: 8vh;
+  width: 100%;
+  border-radius: var(--radius-key);
+  font-family: var(--font-ui);
+  font-size: clamp(1.1rem, 5.2vw, 1.7rem);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform .08s ease, background-color .12s ease, filter .12s ease;
+  user-select: none;
+}
+.key:active{ transform: scale(0.94); }
+
+.key-number{
+  background: var(--key-number);
+  color: var(--text-primary);
+}
+.key-number:hover{ background: var(--key-number-hover); }
+.key-number:active{ background: var(--key-number-active); }
+
+.key-zero{
+  aspect-ratio: auto;
+  grid-column: span 2;
+  justify-content: flex-start;
+  padding-left: clamp(22px, 8vw, 34px);
+}
+
+.key-function{
+  background: var(--key-function);
+  color: var(--text-primary);
+  font-size: clamp(1rem, 4.4vw, 1.4rem);
+}
+.key-function:hover{ background: var(--key-function-hover); }
+.key-function:active{ background: var(--key-function-active); }
+
+.key-operator{
+  background: var(--key-operator);
+  color: var(--text-on-operator);
+  font-weight: 600;
+}
+.key-operator:hover{ background: var(--key-operator-hover); }
+.key-operator:active{ background: var(--key-operator-active); }
+.key-operator.is-active{
+  background: var(--text-primary);
+  color: var(--key-operator);
+  box-shadow: 0 0 0 2px var(--key-operator) inset;
+}
+
+.key-equals{ font-size: clamp(1.2rem, 5.4vw, 1.8rem); }
+
+.key-sci{
+  aspect-ratio: auto;
+  height: clamp(38px, 9vh, 52px);
+  background: var(--key-sci);
+  color: var(--text-secondary);
+  font-size: clamp(0.78rem, 3.2vw, 0.95rem);
+  font-weight: 500;
+  border: 1px solid var(--surface-edge);
+}
+.key-sci:hover{ background: var(--key-sci-hover); color: var(--text-primary); }
+.key-sci:active{ background: var(--key-sci-active); }
+.key-sci.is-active{
+  color: var(--accent-teal);
+  border-color: rgba(73,211,196,0.4);
+}
+.key-sci-fill{
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* ============================================================
+   RESPONSIVE — HEIGHT-CONSTRAINED (short viewports / landscape)
+   ============================================================ */
+@media (max-height: 560px){
+  :root{ --gap: clamp(5px, 1.4vh, 9px); }
+  .display-panel{ min-height: unset; padding-top: 4px; padding-bottom: 2px; }
+  .display{ font-size: clamp(1.8rem, 8vh, 3rem); }
+  .key-sci{ height: clamp(28px, 7vh, 40px); }
+}
+
+@media (max-height: 420px){
+  .page{ padding-top: calc(8px + var(--safe-t)); padding-bottom: calc(8px + var(--safe-t)); }
+  .calculator{ padding: 10px; gap: 6px; }
+  .mode-row{ display: none; }
+}
+
+/* ============================================================
+   RESPONSIVE — VERY NARROW PHONES
+   ============================================================ */
+@media (max-width: 340px){
+  :root{ --pad-outer: 8px; }
+  .key{ font-size: clamp(0.95rem, 6vw, 1.3rem); }
+}
+
+/* ============================================================
+   RESPONSIVE — WIDE LAYOUT: scientific panel becomes a sidebar
+   ============================================================ */
+@media (min-width: 620px) and (min-height: 520px){
+  .calculator.has-sci{
+    width: min(92vw, 640px);
+    grid-template-areas:
+      "display display"
+      "mode    mode"
+      "sci     keypad";
+    grid-template-columns: minmax(180px, 0.85fr) 1.15fr;
+    grid-template-rows: auto auto 1fr;
+    align-items: stretch;
+  }
+  .calculator.has-sci .scientific-grid{
+    grid-template-columns: repeat(2, minmax(0,1fr));
+    grid-template-rows: repeat(8, minmax(0,1fr));
+    align-content: stretch;
+  }
+  .calculator.has-sci .scientific-grid .key-sci{
+    height: auto;
+  }
+}
+
+@media (max-width: 619px) {
+  .calculator.has-sci {
+    grid-template-areas:
+      "display"
+      "mode"
+      "sci"
+      "keypad";
+    grid-template-rows: auto auto auto 1fr;
+  }
+
+  .calculator.has-sci .scientific-grid {
+    display: flex !important;
+    flex-direction: row;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    gap: 8px;
+    padding: 4px 2px 8px 2px;
+    scrollbar-width: none; 
+  }
+
+  .calculator.has-sci .scientific-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .calculator.has-sci .scientific-grid .key-sci {
+    flex: 0 0 54px;
+    height: 48px;
+    aspect-ratio: auto;
+  }
+  
+  .calculator.has-sci .scientific-grid .key-sci-fill {
+    display: none;
+  }
+}
+
+@media (orientation: landscape) and (max-height: 480px){
+  .calculator{ grid-template-rows: auto auto auto 1fr; }
+  .display{ font-size: clamp(1.6rem, 7vh, 2.6rem); }
+  .expression-line{ font-size: clamp(0.6rem, 2vh, 0.8rem); }
+}
+
+@media (min-width: 1100px){
+  .calculator{ max-height: 88vh; }
+}
+
+/* ============================================================
+   REDUCED MOTION
+   ============================================================ */
+@media (prefers-reduced-motion: reduce){
+  *{ transition-duration: 0.001ms !important; animation-duration: 0.001ms !important; }
+}

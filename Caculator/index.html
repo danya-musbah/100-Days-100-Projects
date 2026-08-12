@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Calculator</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body dir="ltr">
+<div class="page">
+  <main class="calculator" id="calculator" role="application" aria-label="Calculator">
+
+    <div class="display-panel">
+      <button type="button" class="backspace-btn" id="backspaceBtn" aria-label="Delete last digit">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M8.5 4h11A1.5 1.5 0 0 1 21 5.5v13a1.5 1.5 0 0 1-1.5 1.5h-11a1.5 1.5 0 0 1-1.1-.48L2 12l5.4-7.52c.28-.3.68-.48 1.1-.48Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M10.5 9.5l5 5m0-5l-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      </button>
+      <div class="expression-line" id="expressionLine" aria-hidden="true">&nbsp;</div>
+      <div class="display" id="display" aria-live="polite" aria-atomic="true">0</div>
+    </div>
+
+    <div class="mode-row">
+      <button type="button" class="sci-toggle" id="sciToggle" aria-pressed="false" aria-controls="scientificGrid">
+        <span class="sci-toggle-dot" aria-hidden="true"></span>
+        Scientific
+      </button>
+      <div class="deg-rad-toggle" id="degRadToggle" hidden>
+        <button type="button" class="deg-rad-btn active" data-mode="DEG" aria-pressed="true">DEG</button>
+        <button type="button" class="deg-rad-btn" data-mode="RAD" aria-pressed="false">RAD</button>
+      </div>
+    </div>
+
+    <div class="scientific-grid" id="scientificGrid" hidden aria-label="Scientific functions">
+      <button type="button" class="key key-sci" data-sci="lparen" aria-label="Open parenthesis">(</button>
+      <button type="button" class="key key-sci" data-sci="rparen" aria-label="Close parenthesis">)</button>
+      <button type="button" class="key key-sci" data-sci="pi" aria-label="Pi">π</button>
+      <button type="button" class="key key-sci" data-sci="e" aria-label="Euler's number">e</button>
+
+      <button type="button" class="key key-sci" data-sci="sin" aria-label="Sine">sin</button>
+      <button type="button" class="key key-sci" data-sci="cos" aria-label="Cosine">cos</button>
+      <button type="button" class="key key-sci" data-sci="tan" aria-label="Tangent">tan</button>
+      <button type="button" class="key key-sci" data-sci="sqrt" aria-label="Square root">√</button>
+
+      <button type="button" class="key key-sci" data-sci="asin" aria-label="Inverse sine">sin⁻¹</button>
+      <button type="button" class="key key-sci" data-sci="acos" aria-label="Inverse cosine">cos⁻¹</button>
+      <button type="button" class="key key-sci" data-sci="atan" aria-label="Inverse tangent">tan⁻¹</button>
+      <button type="button" class="key key-sci" data-sci="square" aria-label="Square">x²</button>
+
+      <button type="button" class="key key-sci" data-sci="ln" aria-label="Natural logarithm">ln</button>
+      <button type="button" class="key key-sci" data-sci="log" aria-label="Base ten logarithm">log</button>
+      <button type="button" class="key key-sci" data-sci="pow" aria-label="Power">xʸ</button>
+      <button type="button" class="key key-sci key-sci-fill" data-sci="none" aria-hidden="true" tabindex="-1"></button>
+    </div>
+
+    <div class="keypad" id="keypad">
+      <button type="button" class="key key-function" data-action="clear" aria-label="All clear">AC</button>
+      <button type="button" class="key key-function" data-action="sign" aria-label="Toggle sign">±</button>
+      <button type="button" class="key key-function" data-action="percent" aria-label="Percent">%</button>
+      <button type="button" class="key key-operator" data-op="÷" aria-label="Divide">÷</button>
+
+      <button type="button" class="key key-number" data-digit="7">7</button>
+      <button type="button" class="key key-number" data-digit="8">8</button>
+      <button type="button" class="key key-number" data-digit="9">9</button>
+      <button type="button" class="key key-operator" data-op="×" aria-label="Multiply">×</button>
+
+      <button type="button" class="key key-number" data-digit="4">4</button>
+      <button type="button" class="key key-number" data-digit="5">5</button>
+      <button type="button" class="key key-number" data-digit="6">6</button>
+      <button type="button" class="key key-operator" data-op="−" aria-label="Subtract">−</button>
+
+      <button type="button" class="key key-number" data-digit="1">1</button>
+      <button type="button" class="key key-number" data-digit="2">2</button>
+      <button type="button" class="key key-number" data-digit="3">3</button>
+      <button type="button" class="key key-operator" data-op="+" aria-label="Add">+</button>
+
+      <button type="button" class="key key-number key-zero" data-digit="0">0</button>
+      <button type="button" class="key key-number" data-action="decimal" aria-label="Decimal point">.</button>
+      <button type="button" class="key key-operator key-equals" data-action="equals" aria-label="Equals">=</button>
+    </div>
+
+  </main>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
