@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Hearth — Tend to what matters today</title>
+<meta name="description" content="A calm, focused to-do list that works instantly, with no account required.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="app-header">
+  <div class="header-row">
+    <div class="brand">
+      <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+        <defs>
+          <linearGradient id="flameGrad" x1="0" y1="1" x2="0" y2="0">
+            <stop offset="0%" stop-color="#8A3324"/>
+            <stop offset="55%" stop-color="#D36228"/>
+            <stop offset="100%" stop-color="#F2882F"/>
+          </linearGradient>
+        </defs>
+        <path d="M16 2c1 4-3 5-3 9a5 5 0 0 0 10 0c0-2-1-3-1-3 2 1 4 4 4 8a10 10 0 0 1-20 0C6 9 12 8 16 2Z" fill="url(#flameGrad)"/>
+      </svg>
+      <div class="brand-text">
+        <p class="brand-name">Hearth</p>
+        <p class="brand-tagline">Tend to what matters today</p>
+      </div>
+    </div>
+
+    <div class="account-area" id="accountArea">
+      <button type="button" class="btn-google" id="googleSignInBtn" hidden>
+        <svg viewBox="0 0 18 18" width="16" height="16" aria-hidden="true">
+          <path fill="#4285F4" d="M17.64 9.2c0-.64-.06-1.25-.16-1.84H9v3.48h4.84a4.14 4.14 0 0 1-1.8 2.72v2.26h2.9c1.7-1.56 2.7-3.87 2.7-6.62Z"/>
+          <path fill="#34A853" d="M9 18c2.43 0 4.47-.8 5.96-2.18l-2.9-2.26c-.8.54-1.84.86-3.06.86-2.35 0-4.34-1.59-5.05-3.72H.98v2.33A9 9 0 0 0 9 18Z"/>
+          <path fill="#FBBC05" d="M3.95 10.7A5.4 5.4 0 0 1 3.67 9c0-.59.1-1.17.28-1.7V4.97H.98A9 9 0 0 0 0 9c0 1.45.35 2.83.98 4.03l2.97-2.33Z"/>
+          <path fill="#EA4335" d="M9 3.58c1.32 0 2.51.46 3.44 1.35l2.58-2.58C13.46.89 11.42 0 9 0A9 9 0 0 0 .98 4.97l2.97 2.33C4.66 5.17 6.65 3.58 9 3.58Z"/>
+        </svg>
+        Sign in with Google
+      </button>
+      <div class="account-signed-in" id="accountSignedIn" hidden>
+        <img class="account-avatar" id="accountAvatar" src="" alt="">
+        <span class="account-name" id="accountName"></span>
+        <button type="button" class="btn-text" id="signOutBtn">Sign out</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="stats-row" id="statsRow" aria-label="Task summary">
+    <div class="stat">
+      <span class="stat-value" id="statTotal">0</span>
+      <span class="stat-label">Total</span>
+    </div>
+    <div class="stat">
+      <span class="stat-value" id="statActive">0</span>
+      <span class="stat-label">Active</span>
+    </div>
+    <div class="stat">
+      <span class="stat-value" id="statCompleted">0</span>
+      <span class="stat-label">Completed</span>
+    </div>
+    <div class="stat stat-due">
+      <span class="stat-value" id="statDueToday">0</span>
+      <span class="stat-label">Due today</span>
+    </div>
+  </div>
+</header>
+
+<!-- ============ CONTROLS BAR ============ -->
+<div class="controls-bar">
+  <div class="search-wrap">
+    <svg class="search-icon" viewBox="0 0 20 20" aria-hidden="true">
+      <circle cx="9" cy="9" r="6.5" fill="none" stroke="currentColor" stroke-width="1.6"/>
+      <line x1="13.6" y1="13.6" x2="18" y2="18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+    </svg>
+    <label for="searchInput" class="visually-hidden">Search tasks</label>
+    <input type="search" id="searchInput" placeholder="Search tasks..." autocomplete="off">
+  </div>
+
+  <div class="filter-sort-row">
+    <div class="filter-tabs" role="tablist" aria-label="Filter tasks">
+      <button type="button" class="filter-tab is-active" data-filter="all" role="tab" aria-selected="true">All</button>
+      <button type="button" class="filter-tab" data-filter="active" role="tab" aria-selected="false">Active</button>
+      <button type="button" class="filter-tab" data-filter="completed" role="tab" aria-selected="false">Completed</button>
+    </div>
+
+    <div class="sort-wrap">
+      <label for="sortSelect" class="visually-hidden">Sort tasks</label>
+      <select id="sortSelect">
+        <option value="newest">Newest</option>
+        <option value="oldest">Oldest</option>
+        <option value="dueDate">Due date</option>
+        <option value="priority">Priority</option>
+      </select>
+    </div>
+  </div>
+</div>
+
+<!-- ============ MAIN ============ -->
+<main class="app-main">
+  <section id="taskListSection" aria-label="Tasks">
+    <ul class="task-list" id="taskList"></ul>
+
+    <div class="empty-state" id="emptyState" hidden>
+      <svg class="empty-icon" viewBox="0 0 64 64" aria-hidden="true">
+        <path d="M32 4c2 8-6 10-6 18a10 10 0 0 0 20 0c0-4-2-6-2-6 4 2 8 8 8 16a20 20 0 0 1-40 0C12 18 24 16 32 4Z" fill="none" stroke="currentColor" stroke-width="2"/>
+      </svg>
+      <p class="empty-title" id="emptyTitle">Nothing on the hearth yet</p>
+      <p class="empty-body" id="emptyBody">Add a task to get the day going.</p>
+      <button type="button" class="btn-primary" id="emptyStateAddBtn">+ Add your first task</button>
+    </div>
+  </section>
+</main>
+
+<!-- ============ FLOATING ADD BUTTON ============ -->
+<button type="button" class="fab-add" id="fabAddBtn" aria-label="Add task">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><line x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+  <span>Add Task</span>
+</button>
+
+<!-- ============ TASK MODAL (Add/Edit) ============ -->
+<div class="modal-overlay" id="taskModalOverlay" hidden>
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="taskModalTitle">
+    <div class="modal-header">
+      <h2 id="taskModalTitle">Add Task</h2>
+      <button type="button" class="btn-icon" id="closeTaskModalBtn" aria-label="Close">
+        <svg viewBox="0 0 20 20" aria-hidden="true"><line x1="4" y1="4" x2="16" y2="16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><line x1="16" y1="4" x2="4" y2="16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+
+    <form class="modal-body" id="taskForm" novalidate>
+      <input type="hidden" id="taskId">
+
+      <div class="field">
+        <label for="taskTitle">Task title <span class="required">*</span></label>
+        <input type="text" id="taskTitle" maxlength="120" required autocomplete="off">
+        <p class="field-error" id="taskTitleError" hidden>Please enter a title.</p>
+      </div>
+
+      <div class="field">
+        <label for="taskDescription">Description</label>
+        <textarea id="taskDescription" rows="3" maxlength="500"></textarea>
+      </div>
+
+      <div class="field-grid">
+        <div class="field">
+          <label for="taskDueDate">Due date</label>
+          <input type="date" id="taskDueDate">
+        </div>
+        <div class="field">
+          <label for="taskPriority">Priority</label>
+          <select id="taskPriority">
+            <option value="low">Low</option>
+            <option value="medium" selected>Medium</option>
+            <option value="high">High</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="taskCategory">Category</label>
+        <select id="taskCategory">
+          <option value="personal">Personal</option>
+          <option value="work">Work</option>
+          <option value="study">Study</option>
+          <option value="shopping">Shopping</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+
+      <div class="modal-actions">
+        <button type="button" class="btn-secondary" id="cancelTaskBtn">Cancel</button>
+        <button type="submit" class="btn-primary" id="saveTaskBtn">Save Task</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- ============ DELETE CONFIRM DIALOG ============ -->
+<div class="modal-overlay" id="deleteModalOverlay" hidden>
+  <div class="modal modal-small" role="alertdialog" aria-modal="true" aria-labelledby="deleteModalTitle">
+    <div class="modal-body modal-body-confirm">
+      <h2 id="deleteModalTitle">Delete this task?</h2>
+      <p>This action cannot be undone.</p>
+      <div class="modal-actions">
+        <button type="button" class="btn-secondary" id="cancelDeleteBtn">Cancel</button>
+        <button type="button" class="btn-danger" id="confirmDeleteBtn">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- task card template -->
+<template id="taskCardTemplate">
+  <li class="task-card" data-id="">
+    <button type="button" class="task-check" aria-pressed="false">
+      <svg class="check-ring" viewBox="0 0 24 24" aria-hidden="true">
+        <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/>
+      </svg>
+      <svg class="check-mark" viewBox="0 0 24 24" aria-hidden="true">
+        <circle cx="12" cy="12" r="11" fill="currentColor"/>
+        <path d="M7 12.5l3 3 7-7" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+
+    <div class="task-content">
+      <p class="task-title"></p>
+      <p class="task-description"></p>
+      <div class="task-meta">
+        <span class="badge badge-priority"></span>
+        <span class="badge badge-category"></span>
+        <span class="badge badge-due"></span>
+      </div>
+    </div>
+
+    <div class="task-actions">
+      <button type="button" class="btn-icon task-edit" aria-label="Edit task">
+        <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M13.5 3.5l3 3L6 17H3v-3L13.5 3.5Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+      </button>
+      <button type="button" class="btn-icon task-delete" aria-label="Delete task">
+        <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 6h12M8 6V4h4v2M6 6l1 10h6l1-10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+  </li>
+</template>
+
+<div class="sr-live visually-hidden" id="srLive" aria-live="polite"></div>
+
+<!-- <script src="https://accounts.google.com/gsi/client" async defer></script> -->
+<script src="script.js"></script>
+</body>
+</html>
