@@ -4,7 +4,7 @@ A simple and modern Pomodoro timer built to help manage focus and break sessions
 
 ## Live Demo
 
-[View pomo](https://danya-musbah.github.io/100-Days-100-Projects/pomp/)
+[View pomo](https://danya-musbah.github.io/100-Days-100-Projects/pomo/)
 
 
 ## Features
