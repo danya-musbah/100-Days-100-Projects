@@ -1,0 +1,18 @@
+{
+  "name": "POMO — Focus better. Rest smarter.",
+  "short_name": "POMO",
+  "description": "A modern, focused Pomodoro timer.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#FFE1D7",
+  "theme_color": "#0259DD",
+  "icons": [
+    {
+      "src": "assets/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

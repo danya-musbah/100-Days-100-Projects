@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>25:00 — Focus | POMO</title>
+<meta name="description" content="POMO — a focused, friendly Pomodoro timer. Focus better. Rest smarter." />
+<meta name="theme-color" content="#0259DD" />
+<link rel="icon" href="assets/icon.svg" type="image/svg+xml" />
+<link rel="manifest" href="manifest.json" />
+<link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+<div class="bg-decor" aria-hidden="true">
+  <span class="shape shape-blue"></span>
+  <span class="shape shape-coral"></span>
+  <span class="shape shape-light"></span>
+  <span class="shape shape-outline"></span>
+</div>
+
+<div class="app-shell">
+
+  <header class="app-header">
+    <div class="brand">
+      <span class="brand-mark">POMO</span>
+    </div>
+    <button id="settingsBtn" class="icon-btn" type="button" aria-haspopup="dialog" aria-controls="settingsModal" aria-label="Open settings">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="3"></circle>
+        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+      </svg>
+    </button>
+  </header>
+
+  <main class="app-main">
+    <p class="tagline">Focus better. <span>Rest smarter.</span></p>
+
+    <div class="mode-selector" role="tablist" aria-label="Timer mode">
+      <button class="mode-btn is-active" data-mode="focus" role="tab" aria-selected="true" type="button">Focus</button>
+      <button class="mode-btn" data-mode="shortBreak" role="tab" aria-selected="false" type="button">Short Break</button>
+      <button class="mode-btn" data-mode="longBreak" role="tab" aria-selected="false" type="button">Long Break</button>
+    </div>
+
+    <div class="timer-card" data-mode="focus">
+      <svg class="timer-ring" viewBox="0 0 300 300" aria-hidden="true">
+        <circle class="ring-track" cx="150" cy="150" r="135"></circle>
+        <circle class="ring-progress" id="ringProgress" cx="150" cy="150" r="135"></circle>
+      </svg>
+      <div class="timer-face">
+        <span class="timer-time" id="timerTime" role="timer">25:00</span>
+        <span class="timer-status" id="timerStatus">Ready when you are.</span>
+      </div>
+    </div>
+
+    <div class="controls">
+      <button id="primaryBtn" class="btn btn-primary" type="button">
+        <svg id="primaryIconPlay" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg>
+        <svg id="primaryIconPause" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true" hidden><path d="M6 5h4v14H6zM14 5h4v14h-4z"></path></svg>
+        <span id="primaryLabel">Start</span>
+      </button>
+      <div class="controls-secondary">
+        <button id="resetBtn" class="btn btn-ghost" type="button" aria-label="Reset timer">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7"></path><path d="M3 4v5h5"></path></svg>
+          <span>Reset</span>
+        </button>
+        <button id="skipBtn" class="btn btn-ghost" type="button" aria-label="Skip to next session">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M6 5l10 7-10 7V5zM18 5h2v14h-2z"></path></svg>
+          <span>Skip</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="session-progress">
+      <p class="session-label" id="sessionLabel">Session 1 of 4</p>
+      <div class="session-dots" id="sessionDots" aria-hidden="true"></div>
+    </div>
+  </main>
+
+  <section class="stats-card" aria-label="Today's focus statistics">
+    <h2>Today's Focus</h2>
+    <div class="stats-row">
+      <div class="stat">
+        <span class="stat-value" id="statPomodoros">0</span>
+        <span class="stat-label">Pomodoros</span>
+      </div>
+      <div class="stat-divider" aria-hidden="true"></div>
+      <div class="stat">
+        <span class="stat-value" id="statMinutes">0</span>
+        <span class="stat-label">min focused</span>
+      </div>
+    </div>
+  </section>
+
+  <footer class="app-footer">
+    <button id="helpBtn" class="text-link" type="button">Keyboard shortcuts</button>
+  </footer>
+
+</div>
+
+<!-- Settings modal -->
+<div id="settingsModal" class="modal-overlay" hidden>
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="settingsTitle">
+    <div class="modal-header">
+      <h2 id="settingsTitle">Settings</h2>
+      <button id="closeSettingsBtn" class="icon-btn" type="button" aria-label="Close settings">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"></path></svg>
+      </button>
+    </div>
+
+    <form id="settingsForm" class="modal-body">
+      <fieldset class="field-group">
+        <legend>Durations (minutes)</legend>
+
+        <label class="field" for="focusInput">
+          <span>Focus</span>
+          <input type="number" id="focusInput" name="focus" min="1" max="180" required />
+        </label>
+
+        <label class="field" for="shortBreakInput">
+          <span>Short break</span>
+          <input type="number" id="shortBreakInput" name="shortBreak" min="1" max="60" required />
+        </label>
+
+        <label class="field" for="longBreakInput">
+          <span>Long break</span>
+          <input type="number" id="longBreakInput" name="longBreak" min="1" max="120" required />
+        </label>
+
+        <label class="field" for="intervalInput">
+          <span>Long break after</span>
+          <input type="number" id="intervalInput" name="longBreakInterval" min="1" max="12" required />
+        </label>
+      </fieldset>
+
+      <fieldset class="field-group">
+        <legend>Preferences</legend>
+
+        <label class="field field-toggle" for="soundToggle">
+          <span>Sound</span>
+          <input type="checkbox" id="soundToggle" name="soundEnabled" role="switch" />
+        </label>
+
+        <label class="field field-toggle" for="autoStartToggle">
+          <span>Auto start next session</span>
+          <input type="checkbox" id="autoStartToggle" name="autoStart" role="switch" />
+        </label>
+
+        <label class="field field-toggle" for="notificationsToggle">
+          <span>Notifications</span>
+          <input type="checkbox" id="notificationsToggle" name="notificationsEnabled" role="switch" />
+        </label>
+      </fieldset>
+
+      <p class="field-hint" id="settingsHint" aria-live="polite"></p>
+
+      <div class="modal-actions">
+        <button type="button" id="resetDefaultsBtn" class="btn btn-ghost">Reset to defaults</button>
+        <div class="modal-actions-primary">
+          <button type="button" id="cancelSettingsBtn" class="btn btn-ghost">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save settings</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Keyboard shortcuts modal -->
+<div id="shortcutsModal" class="modal-overlay" hidden>
+  <div class="modal modal-small" role="dialog" aria-modal="true" aria-labelledby="shortcutsTitle">
+    <div class="modal-header">
+      <h2 id="shortcutsTitle">Keyboard shortcuts</h2>
+      <button id="closeShortcutsBtn" class="icon-btn" type="button" aria-label="Close keyboard shortcuts">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"></path></svg>
+      </button>
+    </div>
+    <div class="modal-body">
+      <ul class="shortcut-list">
+        <li><kbd>Space</kbd><span>Start, pause, or resume</span></li>
+        <li><kbd>R</kbd><span>Reset the current session</span></li>
+        <li><kbd>S</kbd><span>Skip to the next session</span></li>
+        <li><kbd>1</kbd><span>Switch to Focus</span></li>
+        <li><kbd>2</kbd><span>Switch to Short Break</span></li>
+        <li><kbd>3</kbd><span>Switch to Long Break</span></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+<script type="module" src="js/app.js"></script>
+</body>
+</html>
