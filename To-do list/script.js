@@ -7,12 +7,6 @@
              Event Listeners, Initialization
    ========================================================================== */
 
-/* ============================== CONFIG ================================== */
-
-// To enable Google Sign-In, replace this with your own OAuth 2.0 Client ID
-// from https://console.cloud.google.com/apis/credentials.
-// See README.md for full setup instructions. Leave blank to keep the
-// Google button hidden — the rest of the app works fully without it.
 const GOOGLE_CLIENT_ID = '';
 
 const STORAGE_KEY = 'hearth.tasks.v1';
