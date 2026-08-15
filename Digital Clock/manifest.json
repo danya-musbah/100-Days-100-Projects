@@ -1,0 +1,19 @@
+{
+  "name": "Night Clock",
+  "short_name": "Night Clock",
+  "description": "A premium, minimalist digital clock with 12/24-hour format, timezone display, and fullscreen wall-clock mode.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#000F08",
+  "theme_color": "#000F08",
+  "icons": [
+    {
+      "src": "assets/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

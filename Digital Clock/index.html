@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#000F08">
+<meta name="description" content="Night Clock — a premium, minimalist digital clock with 12/24-hour format, timezone display, fullscreen mode and more.">
+<title>07:42 — NIGHT CLOCK</title>
+<link rel="stylesheet" href="css/styles.css">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+</head>
+<body>
+
+<!-- Atmospheric decorative background -->
+<div class="atmosphere" aria-hidden="true">
+  <div class="glow glow--amethyst"></div>
+  <div class="glow glow--teal"></div>
+  <div class="glow glow--tomato"></div>
+  <div class="grain"></div>
+
+  <div class="deco deco--ring" style="--x:8%; --y:18%; --s:120px;"></div>
+  <div class="deco deco--dot" style="--x:14%; --y:78%; --s:10px;"></div>
+  <div class="deco deco--rect" style="--x:88%; --y:20%; --s:64px; --rot:24deg;"></div>
+  <div class="deco deco--dot" style="--x:92%; --y:70%; --s:6px;"></div>
+  <div class="deco deco--star" style="--x:80%; --y:85%; --s:18px;"></div>
+</div>
+
+<div class="app" id="app">
+
+  <!-- Header -->
+  <header class="header">
+    <h1 class="brand">
+      <span class="brand__mark" aria-hidden="true">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/>
+          <path d="M12 7v5l3.2 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+      NIGHT CLOCK
+    </h1>
+
+    <div class="header__actions">
+      <button type="button" class="icon-btn" id="fullscreenBtn" aria-label="Enter fullscreen">
+        <svg class="icon icon--enter" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M9 4H4v5M15 4h5v5M9 20H4v-5M15 20h5v-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <svg class="icon icon--exit" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" hidden>
+          <path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <button type="button" class="icon-btn" id="settingsBtn" aria-label="Open settings" aria-haspopup="dialog" aria-expanded="false" aria-controls="settingsPanel">
+        <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.6"/>
+          <path d="M19.4 13.5a1.7 1.7 0 0 0 .34 1.87l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.7 1.7 0 0 0-1.87-.34 1.7 1.7 0 0 0-1.04 1.56V19.5a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.11-1.55 1.7 1.7 0 0 0-1.87.34l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.7 1.7 0 0 0 .34-1.87 1.7 1.7 0 0 0-1.56-1.04H4.5a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.55-1.11 1.7 1.7 0 0 0-.34-1.87l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.7 1.7 0 0 0 1.87.34H10.5a1.7 1.7 0 0 0 1.04-1.56V4.5a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1.04 1.56 1.7 1.7 0 0 0 1.87-.34l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.7 1.7 0 0 0-.34 1.87V10.5a1.7 1.7 0 0 0 1.56 1.04h.1a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.56 1.04Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main clock stage -->
+  <main class="stage">
+    <p class="stage__greeting" id="greeting" hidden>GOOD EVENING</p>
+
+    <p class="stage__day" id="dayLabel">THURSDAY</p>
+
+    <div class="clock" id="clock">
+      <span class="clock__time" id="timeMain">07:42</span><span class="clock__seconds" id="timeSeconds">:18</span>
+    </div>
+
+    <p class="stage__date" id="dateLabel">AUGUST 14, 2026</p>
+
+    <p class="stage__zone" id="zoneLabel">Africa/Tripoli</p>
+
+    <div class="stage__divider" aria-hidden="true"></div>
+
+    <div class="format-toggle" role="group" aria-label="Time format">
+      <button type="button" class="format-toggle__btn" id="btn24" data-format="24" aria-pressed="true">24H</button>
+      <button type="button" class="format-toggle__btn" id="btn12" data-format="12" aria-pressed="false">12H</button>
+    </div>
+  </main>
+
+  <!-- Screen-reader only status, updated sparingly -->
+  <div id="srStatus" class="sr-only" role="status" aria-live="polite"></div>
+
+  <footer class="footer">
+    <p>Local system time · updates automatically</p>
+  </footer>
+</div>
+
+<!-- Settings panel -->
+<div class="scrim" id="scrim" hidden></div>
+<aside class="settings" id="settingsPanel" role="dialog" aria-modal="true" aria-labelledby="settingsTitle" hidden>
+  <div class="settings__header">
+    <h2 id="settingsTitle">SETTINGS</h2>
+    <button type="button" class="icon-btn" id="closeSettingsBtn" aria-label="Close settings">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      </svg>
+    </button>
+  </div>
+
+  <div class="settings__body">
+    <section class="settings__section">
+      <h3 class="settings__label">Time format</h3>
+      <div class="format-toggle format-toggle--settings" role="group" aria-label="Time format">
+        <button type="button" class="format-toggle__btn" id="settingsBtn24" data-format="24" aria-pressed="true">24H</button>
+        <button type="button" class="format-toggle__btn" id="settingsBtn12" data-format="12" aria-pressed="false">12H</button>
+      </div>
+    </section>
+
+    <section class="settings__section">
+      <h3 class="settings__label">Display</h3>
+
+      <div class="switch-row">
+        <label class="switch-row__label" for="toggleSeconds">Show seconds <span class="kbd">S</span></label>
+        <button type="button" class="switch" id="toggleSeconds" role="switch" aria-checked="true"><span class="switch__thumb"></span></button>
+      </div>
+
+      <div class="switch-row">
+        <label class="switch-row__label" for="toggleDate">Show date <span class="kbd">D</span></label>
+        <button type="button" class="switch" id="toggleDate" role="switch" aria-checked="true"><span class="switch__thumb"></span></button>
+      </div>
+
+      <div class="switch-row">
+        <label class="switch-row__label" for="toggleTimezone">Show timezone <span class="kbd">T</span></label>
+        <button type="button" class="switch" id="toggleTimezone" role="switch" aria-checked="true"><span class="switch__thumb"></span></button>
+      </div>
+
+      <div class="switch-row">
+        <label class="switch-row__label" for="toggleGreeting">Show greeting</label>
+        <button type="button" class="switch" id="toggleGreeting" role="switch" aria-checked="false"><span class="switch__thumb"></span></button>
+      </div>
+
+      <div class="switch-row" id="wakeLockRow">
+        <label class="switch-row__label" for="toggleWakeLock">Keep screen awake</label>
+        <button type="button" class="switch" id="toggleWakeLock" role="switch" aria-checked="false"><span class="switch__thumb"></span></button>
+      </div>
+    </section>
+
+    <section class="settings__section">
+      <h3 class="settings__label">Shortcuts</h3>
+      <ul class="shortcuts">
+        <li><span class="kbd">S</span> Toggle seconds</li>
+        <li><span class="kbd">D</span> Toggle date</li>
+        <li><span class="kbd">T</span> Toggle timezone</li>
+        <li><span class="kbd">F</span> Toggle 12 / 24 hour</li>
+        <li><span class="kbd">Esc</span> Close settings</li>
+      </ul>
+    </section>
+
+    <button type="button" class="reset-btn" id="resetBtn">RESET SETTINGS</button>
+  </div>
+</aside>
+
+<script type="module" src="js/app.js"></script>
+<script>
+  // Optional PWA support — safe to fail silently (e.g. file:// or no HTTPS).
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker.register("service-worker.js").catch(() => {});
+    });
+  }
+</script>
+</body>
+</html>
