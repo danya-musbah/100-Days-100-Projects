@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en" data-weather="cloudy">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>SkyCast — Your weather, beautifully presented.</title>
+  <meta name="description" content="SkyCast is a fast, elegant weather app with live conditions, hourly and 7-day forecasts, and a theme that changes with the sky." />
+  <meta name="theme-color" content="#7E8A97" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" href="assets/icon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="assets/icon.svg" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <!-- Animated weather background, purely decorative -->
+  <div class="weather-scene" id="weatherScene" aria-hidden="true"></div>
+
+  <a class="visually-hidden" href="#main">Skip to main content</a>
+
+  <div class="app">
+    <header class="app__header">
+      <div class="brand">
+        <h1 class="brand__name">SkyCast</h1>
+        <p class="brand__tagline">Your weather, beautifully presented.</p>
+      </div>
+      <button id="settingsBtn" class="icon-btn" type="button" aria-haspopup="dialog" aria-controls="settingsPanel" aria-label="Open settings">
+        <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Z"/><path d="M19.4 13.5a1.7 1.7 0 0 0 .34 1.87l.06.06a2.06 2.06 0 1 1-2.92 2.92l-.06-.06a1.7 1.7 0 0 0-1.87-.34 1.7 1.7 0 0 0-1 1.55V20a2.06 2.06 0 1 1-4.12 0v-.09a1.7 1.7 0 0 0-1.1-1.55 1.7 1.7 0 0 0-1.87.34l-.06.06a2.06 2.06 0 1 1-2.92-2.92l.06-.06a1.7 1.7 0 0 0 .34-1.87 1.7 1.7 0 0 0-1.55-1H4a2.06 2.06 0 1 1 0-4.12h.09A1.7 1.7 0 0 0 5.64 8.7a1.7 1.7 0 0 0-.34-1.87l-.06-.06A2.06 2.06 0 1 1 8.16 3.85l.06.06a1.7 1.7 0 0 0 1.87.34H10a1.7 1.7 0 0 0 1-1.55V2.6a2.06 2.06 0 1 1 4.12 0v.09a1.7 1.7 0 0 0 1 1.55h.09a1.7 1.7 0 0 0 1.87-.34l.06-.06a2.06 2.06 0 1 1 2.92 2.92l-.06.06a1.7 1.7 0 0 0-.34 1.87V8.8a1.7 1.7 0 0 0 1.55 1H21a2.06 2.06 0 1 1 0 4.12h-.09a1.7 1.7 0 0 0-1.51 1.08Z"/></svg>
+      </button>
+    </header>
+
+    <!-- Search -->
+    <form class="search" role="search" autocomplete="off" onsubmit="return false;">
+      <label for="searchInput" class="visually-hidden">Search city</label>
+      <div class="search__field">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+        <input id="searchInput" class="search__input" type="search" placeholder="Search city…" aria-expanded="false" aria-controls="searchPanel" />
+      </div>
+      <button id="locateBtn" class="locate-btn" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/><circle cx="12" cy="12" r="5.5"/></svg>
+        <span>Use My Location</span>
+      </button>
+
+      <div id="searchPanel" class="search__panel" role="listbox" aria-label="City search results">
+        <h3>Results</h3>
+        <div id="searchResults"></div>
+      </div>
+    </form>
+
+    <!-- Recent searches -->
+    <section id="recentSection" aria-labelledby="recentTitle" style="display:none;">
+      <div style="display:flex;align-items:center;justify-content:space-between;">
+        <h2 id="recentTitle" class="section-title">Recent</h2>
+        <button id="clearRecentsBtn" type="button" style="background:none;border:0;font-size:.78rem;opacity:.6;cursor:pointer;text-decoration:underline;color:inherit;">Clear</button>
+      </div>
+      <div id="recentList" style="display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.5rem;"></div>
+    </section>
+
+    <main id="main" class="app__grid">
+      <!-- Current conditions -->
+      <section id="hero" class="hero" aria-live="polite">
+        <h2 id="heroLocation" class="hero__location">Loading…</h2>
+        <p id="heroLocationSub" class="hero__location-sub"></p>
+        <div class="hero__temp-row">
+          <span id="heroIcon" class="hero__icon" aria-hidden="true"></span>
+          <span id="heroTemp" class="hero__temp">--°</span>
+        </div>
+        <p id="heroCondition" class="hero__condition"></p>
+        <p id="heroFeels" class="hero__feels"></p>
+        <div class="hero__hilo">
+          <span id="heroHi"></span>
+          <span id="heroLo"></span>
+        </div>
+      </section>
+
+      <div class="app__stack">
+        <!-- Hourly forecast -->
+        <section aria-labelledby="hourlyTitle">
+          <h2 id="hourlyTitle" class="section-title">Hourly Forecast</h2>
+          <ul id="hourlyList" class="hourly" aria-label="Hourly forecast"></ul>
+        </section>
+
+        <!-- 7-day forecast -->
+        <section aria-labelledby="dailyTitle">
+          <h2 id="dailyTitle" class="section-title">7-Day Forecast</h2>
+          <ul id="dailyList" class="daily" aria-label="7 day forecast"></ul>
+        </section>
+
+        <!-- Details -->
+        <section aria-labelledby="detailsTitle">
+          <h2 id="detailsTitle" class="section-title">Conditions</h2>
+          <div id="detailsGrid" class="details" style="margin-top:.5rem;"></div>
+        </section>
+      </div>
+    </main>
+
+    <div id="statusBanner" class="status-banner" role="status" aria-live="assertive"></div>
+
+    <footer class="app__footer">
+    </footer>
+  </div>
+
+  <!-- Settings -->
+  <div id="settingsPanel" class="settings-panel" role="dialog" aria-modal="true" aria-labelledby="settingsTitle">
+    <div class="settings-sheet">
+      <div style="display:flex;align-items:center;justify-content:space-between;">
+        <h2 id="settingsTitle" style="font-size:1.1rem;">Settings</h2>
+        <button id="closeSettingsBtn" class="icon-btn" type="button" aria-label="Close settings">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
+      </div>
+
+      <div class="settings-row">
+        <span class="settings-row__label">Temperature Unit</span>
+        <div class="segmented" role="group" aria-label="Temperature unit">
+          <button type="button" data-unit-option="C" aria-pressed="true">°C</button>
+          <button type="button" data-unit-option="F" aria-pressed="false">°F</button>
+        </div>
+      </div>
+
+      <div class="settings-row">
+        <span class="settings-row__label">Theme</span>
+        <span style="opacity:.6;font-size:.85rem;">Auto (matches current weather)</span>
+      </div>
+
+      <div class="settings-row">
+        <span class="settings-row__label" id="notifLabel">Weather Notifications</span>
+        <button id="notifToggle" class="toggle" type="button" role="switch" aria-checked="false" aria-labelledby="notifLabel" aria-pressed="false"></button>
+      </div>
+
+      <div class="settings-row">
+        <span class="settings-row__label">Location Access</span>
+        <span style="opacity:.6;font-size:.85rem;">Requested on demand</span>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/weather.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/geolocation.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => {
+        navigator.serviceWorker.register("sw.js").catch(() => {
+          /* Offline support is a progressive enhancement — safe to ignore if it fails. */
+        });
+      });
+    }
+  </script>
+</body>
+</html>

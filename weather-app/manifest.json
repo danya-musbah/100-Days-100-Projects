@@ -1,0 +1,19 @@
+{
+  "name": "SkyCast — Your weather, beautifully presented.",
+  "short_name": "SkyCast",
+  "description": "A fast, elegant weather app with live conditions, hourly and 7-day forecasts, and a theme that changes with the sky.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#EEF2F5",
+  "theme_color": "#7E8A97",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "assets/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
