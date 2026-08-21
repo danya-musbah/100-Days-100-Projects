@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Titanic Data Analysis — Manifest Report</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="grain"></div>
+
+<header class="manifest-header">
+  <div class="header-inner">
+    <p class="eyebrow">Educational sample dataset &middot; Pandas data analysis</p>
+    <h1>Titanic Data Analysis</h1>
+    <p class="subtitle">A passenger manifest, read the way an analyst reads it — cleaned, tallied, and cross-checked.</p>
+    <p class="disclaimer">This report is built from <code>Titanic_Sample_Data.xlsx</code>, a 300-row educational sample dataset created for this project. It is <strong>not</strong> the official historical Titanic passenger record.</p>
+  </div>
+</header>
+
+<main>
+
+  <section class="ledger" aria-label="Summary statistics">
+    <div class="ledger-row">
+      <span class="ledger-label">Total passengers manifested</span>
+      <span class="ledger-leader"></span>
+      <span class="ledger-value" id="stat-total">—</span>
+    </div>
+    <div class="ledger-row">
+      <span class="ledger-label">Survived</span>
+      <span class="ledger-leader"></span>
+      <span class="ledger-value" id="stat-survivors">—</span>
+    </div>
+    <div class="ledger-row">
+      <span class="ledger-label">Did not survive</span>
+      <span class="ledger-leader"></span>
+      <span class="ledger-value" id="stat-nonsurvivors">—</span>
+    </div>
+    <div class="ledger-row highlight">
+      <span class="ledger-label">Overall survival rate</span>
+      <span class="ledger-leader"></span>
+      <span class="ledger-value" id="stat-rate">—</span>
+    </div>
+    <div class="ledger-row">
+      <span class="ledger-label">Average age</span>
+      <span class="ledger-leader"></span>
+      <span class="ledger-value" id="stat-age">—</span>
+    </div>
+    <div class="ledger-row">
+      <span class="ledger-label">Average fare paid</span>
+      <span class="ledger-leader"></span>
+      <span class="ledger-value" id="stat-fare">—</span>
+    </div>
+  </section>
+
+  <section class="chart-section">
+    <div class="section-head">
+      <span class="chart-tag">01</span>
+      <h2>Who survived, in raw numbers</h2>
+      <p>A straight count of the 300 passengers in the sample — before any grouping.</p>
+    </div>
+    <figure class="chart-figure">
+      <img src="assets/charts/01_survival_counts.png" alt="Bar chart comparing the count of survivors to non-survivors">
+    </figure>
+  </section>
+
+  <section class="chart-section split">
+    <div class="chart-col">
+      <div class="section-head">
+        <span class="chart-tag">02</span>
+        <h2>Survival by sex</h2>
+        <p>The clearest single divide in the manifest.</p>
+      </div>
+      <figure class="chart-figure">
+        <img src="assets/charts/02_survival_by_sex.png" alt="Bar chart of survival rate by sex">
+      </figure>
+    </div>
+    <div class="chart-col">
+      <div class="section-head">
+        <span class="chart-tag">03</span>
+        <h2>Survival by class</h2>
+        <p>First and second class edge out third class.</p>
+      </div>
+      <figure class="chart-figure">
+        <img src="assets/charts/03_survival_by_class.png" alt="Bar chart of survival rate by passenger class">
+      </figure>
+    </div>
+  </section>
+
+  <section class="chart-section split">
+    <div class="chart-col">
+      <div class="section-head">
+        <span class="chart-tag">04</span>
+        <h2>Age distribution</h2>
+        <p>Mostly adults in their twenties and thirties.</p>
+      </div>
+      <figure class="chart-figure">
+        <img src="assets/charts/04_age_distribution.png" alt="Histogram of passenger ages">
+      </figure>
+    </div>
+    <div class="chart-col">
+      <div class="section-head">
+        <span class="chart-tag">05</span>
+        <h2>Fare distribution</h2>
+        <p>A long tail of expensive tickets pulls the average up.</p>
+      </div>
+      <figure class="chart-figure">
+        <img src="assets/charts/05_fare_distribution.png" alt="Histogram of ticket fares">
+      </figure>
+    </div>
+  </section>
+
+  <section class="chart-section">
+    <div class="section-head">
+      <span class="chart-tag">06</span>
+      <h2>Survival by family size</h2>
+      <p>Travelling alone, in a pair, or in a larger group — grouped by SibSp + Parch + 1. The largest groups here represent very few passengers, so read those bars cautiously.</p>
+    </div>
+    <figure class="chart-figure">
+      <img src="assets/charts/06_survival_by_family_size.png" alt="Bar chart of survival rate by family size">
+    </figure>
+  </section>
+
+  <section class="chart-section">
+    <div class="section-head">
+      <span class="chart-tag">07</span>
+      <h2>Sex and class together</h2>
+      <p>The two strongest patterns in the manifest, side by side.</p>
+    </div>
+    <figure class="chart-figure">
+      <img src="assets/charts/07_survival_by_sex_and_class.png" alt="Bar chart of survival rate by sex and passenger class combined">
+    </figure>
+  </section>
+
+  <section class="chart-section">
+    <div class="section-head">
+      <span class="chart-tag">08</span>
+      <h2>Correlation between numeric variables</h2>
+      <p>How closely each numeric column moves with the others. Correlation only captures linear relationships, and does not imply causation.</p>
+    </div>
+    <figure class="chart-figure">
+      <img src="assets/charts/08_correlation_heatmap.png" alt="Correlation heatmap of numerical variables">
+    </figure>
+  </section>
+
+  <section class="findings">
+    <div class="section-head">
+      <span class="chart-tag">§</span>
+      <h2>Key findings</h2>
+    </div>
+    <ol class="findings-list" id="findings-list"></ol>
+    <p class="caveat">Figures are calculated directly from the sample workbook — see <code>notebooks/Titanic_Analysis.ipynb</code> for the full working. This is a 300-row educational dataset, not a historical record; treat these as patterns in this sample, not historical fact.</p>
+  </section>
+
+</main>
+
+<footer>
+  <p>Built with Python, Pandas, Matplotlib &amp; Seaborn for analysis · HTML, CSS &amp; JavaScript for this report.</p>
+</footer>
+
+<script src="data.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
