@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>إدارة الألعاب | منتزهات</title>
+<link rel="stylesheet" href="../css/main.css">
+<link rel="stylesheet" href="../css/components.css">
+<link rel="stylesheet" href="../css/pages.css">
+<link rel="stylesheet" href="../css/dashboard.css">
+<link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+<div class="dash-overlay" id="dashOverlay"></div>
+<div class="dash-shell">
+  <aside class="dash-sidebar" id="dashSidebar">
+    <div class="dash-brand">
+      <span class="brand-mark"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v2a2 2 0 0 0 0 4v2a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-2a2 2 0 0 0 0-4V8Z"/></svg></span>
+      منتزهات
+    </div>
+    <div class="dash-park-pill" id="dashParkPill">منتزهك الحالي</div>
+    <nav class="dash-nav">
+      <a href="park-dashboard.html">الرئيسية</a>
+      <a href="park-settings.html">معلومات المنتزه</a>
+      <a href="rides.html" class="active">الألعاب</a>
+      <a href="services.html">الخدمات</a>
+      <a href="tickets.html">التذاكر والأسعار</a>
+      <a href="bookings.html">الحجوزات</a>
+      <div class="divider"></div>
+      <a href="#" onclick="ppLogout(); return false;">تسجيل الخروج</a>
+    </nav>
+  </aside>
+
+  <div class="dash-main">
+    <button class="dash-mobile-toggle" id="dashMobileToggle" aria-label="فتح القائمة">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+    <div class="dash-topbar">
+      <div>
+        <h1>إدارة الألعاب</h1>
+        <p class="sub">أضف وعدّل وحدّث حالة ألعاب منتزهك</p>
+      </div>
+      <button class="btn btn-primary" onclick="ppOpenRideModal()">إضافة لعبة</button>
+    </div>
+
+    <div class="dash-panel" id="ridesTableWrap"></div>
+  </div>
+</div>
+
+<!-- Ride modal -->
+<div class="modal-overlay" id="rideModalOverlay">
+  <div class="modal" style="max-width:520px;">
+    <h3 id="rideModalTitle">إضافة لعبة</h3>
+    <form id="rideForm">
+      <div class="field">
+        <label for="rideName">اسم اللعبة</label>
+        <input type="text" id="rideName" name="name">
+      </div>
+      <div class="field">
+        <label for="rideDesc">الوصف</label>
+        <textarea id="rideDesc" name="description" rows="2"></textarea>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="rideCategory">الفئة</label>
+          <select id="rideCategory" name="category">
+            <option>عائلية</option><option>أفعوانية</option><option>مغامرات</option>
+            <option>إثارة</option><option>أطفال</option><option>مائية</option><option>بانورامية</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="rideThrill">مستوى الإثارة</label>
+          <select id="rideThrill" name="thrill_level">
+            <option>خفيف</option><option>متوسط</option><option>عالٍ</option>
+          </select>
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="rideAge">الفئة العمرية (الحد الأدنى)</label>
+          <input type="number" id="rideAge" name="age_min" min="0">
+        </div>
+        <div class="field">
+          <label for="rideHeight">الطول المطلوب (سم، 0 = بدون شرط)</label>
+          <input type="number" id="rideHeight" name="height_min" min="0">
+        </div>
+      </div>
+      <div class="field">
+        <label for="rideStatus">الحالة</label>
+        <select id="rideStatus" name="status">
+          <option>متاحة</option><option>متوقفة مؤقتًا</option><option>تحت الصيانة</option>
+        </select>
+      </div>
+      <div class="modal-actions">
+        <button type="submit" class="btn btn-primary">حفظ</button>
+        <button type="button" class="btn btn-outline" onclick="ppCloseRideModal()">إلغاء</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="../js/data.js"></script>
+<script src="../js/storage.js"></script>
+<script src="../js/components.js"></script>
+<script src="../js/park-admin.js"></script>
+<script>
+  ppInitAdminShell();
+  ppRenderAdminRides();
+  document.getElementById('rideForm').addEventListener('submit', ppSubmitRideForm);
+</script>
+</body>
+</html>

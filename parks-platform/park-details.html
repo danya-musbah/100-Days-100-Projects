@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تفاصيل المنتزه | منتزهات</title>
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/pages.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body data-active-link="المنتزهات">
+<a href="#main" class="skip-link">تخطَّ إلى المحتوى الرئيسي</a>
+<div id="navbar-root"></div>
+
+<main id="main">
+  <section class="section" style="padding-top:32px;">
+    <div class="container" id="parkDetailsRoot">
+      <div class="park-hero" id="parkHero">
+        <div class="skeleton" style="height:220px;border-radius:28px;"></div>
+      </div>
+
+      <div class="info-list" id="parkInfoList"></div>
+
+      <p style="max-width:760px;color:var(--muted);margin-bottom:36px;" id="parkDescription"></p>
+
+      <div class="details-tabs" role="tablist">
+        <button class="active" data-tab="tabRides" role="tab" aria-selected="true">الألعاب</button>
+        <button data-tab="tabServices" role="tab" aria-selected="false">الخدمات</button>
+        <button data-tab="tabTickets" role="tab" aria-selected="false">التذاكر والحجز</button>
+      </div>
+
+      <div class="tab-panel active" id="tabRides">
+        <div class="grid" id="ridesGrid"></div>
+      </div>
+
+      <div class="tab-panel" id="tabServices">
+        <div class="grid" id="servicesGrid"></div>
+      </div>
+
+      <div class="tab-panel" id="tabTickets">
+        <div style="display:grid;grid-template-columns:1.6fr 1fr;gap:28px;align-items:start;">
+          <div>
+            <h3 style="font-family:var(--font-body);font-weight:800;margin-bottom:16px;">اختر نوع التذكرة</h3>
+            <div style="display:grid;gap:14px;" id="ticketsGrid"></div>
+
+            <div class="field" style="margin-top:24px;">
+              <label for="visitDate">تاريخ الزيارة</label>
+              <input type="date" id="visitDate">
+            </div>
+            <div class="field">
+              <label for="ticketQty">عدد التذاكر</label>
+              <input type="number" id="ticketQty" min="1" value="1" max="10">
+            </div>
+          </div>
+
+          <div class="booking-summary" id="bookingSummaryWrap">
+            <h3>ملخص الحجز</h3>
+            <div id="bookingSummary"><p class="card-desc">اختر نوع التذكرة لعرض ملخص الحجز.</p></div>
+            <button class="btn btn-primary btn-block" id="confirmBookingBtn" style="margin-top:18px;" disabled>تأكيد الحجز</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="footer-root"></div>
+
+<script src="js/data.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/components.js"></script>
+<script src="js/park-details.js"></script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>حجوزاتي | منتزهات</title>
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/pages.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body data-active-link="حجوزاتي">
+<a href="#main" class="skip-link">تخطَّ إلى المحتوى الرئيسي</a>
+<div id="navbar-root"></div>
+
+<main id="main">
+  <section class="section" style="padding-top:36px;">
+    <div class="container" style="max-width:900px;">
+      <div class="section-header">
+        <div>
+          <span class="section-eyebrow">حسابي</span>
+          <h2 class="section-title">حجوزاتي</h2>
+        </div>
+      </div>
+
+      <div class="chip-group" style="margin-bottom:24px;">
+        <button class="chip active" data-tab="upcoming">القادمة</button>
+        <button class="chip" data-tab="past">السابقة</button>
+        <button class="chip" data-tab="cancelled">الملغاة</button>
+      </div>
+
+      <div id="bookingsList"></div>
+    </div>
+  </section>
+</main>
+
+<div id="footer-root"></div>
+
+<script src="js/data.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/components.js"></script>
+<script src="js/bookings.js"></script>
+</body>
+</html>

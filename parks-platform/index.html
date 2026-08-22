@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>منتزهات | اكتشف متعة لا تُنسى</title>
+<meta name="description" content="اكتشف أفضل المنتزهات الترفيهية في ليبيا، تعرف على الألعاب والخدمات، واحجز تذكرتك بسهولة.">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/pages.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body data-active-link="الرئيسية">
+<a href="#main" class="skip-link">تخطَّ إلى المحتوى الرئيسي</a>
+<div id="navbar-root"></div>
+
+<main id="main">
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <span class="hero-eyebrow">🎢 أكثر من 12 منتزهًا بانتظارك</span>
+          <h1>اكتشف متعة <em>لا تُنسى</em></h1>
+          <p class="lead">اكتشف أفضل المنتزهات الترفيهية، تعرف على الألعاب والخدمات، وخطط لزيارتك واحجز تذكرتك بسهولة.</p>
+
+          <form class="hero-search" id="heroSearchForm" role="search">
+            <label for="heroSearchInput" class="visually-hidden">ابحث عن منتزه أو مدينة</label>
+            <span aria-hidden="true" style="display:flex;color:var(--muted);margin:0 14px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></span>
+            <input type="text" id="heroSearchInput" placeholder="ابحث عن منتزه أو مدينة...">
+            <button type="submit" class="btn btn-primary btn-sm">بحث</button>
+          </form>
+
+          <div class="hero-actions">
+            <a href="parks.html" class="btn btn-primary">استكشف المنتزهات</a>
+            <a href="parks.html" class="btn btn-outline">احجز تذكرتك</a>
+          </div>
+
+          <div class="hero-stats" id="homeStats"></div>
+        </div>
+
+        <div class="hero-visual">
+          <span class="hero-badge-float">✓ حجز فوري بدون تعقيد</span>
+          <div class="hero-ticket">
+            <div class="row">
+              <span class="park-name">عالم المرح</span>
+              <span style="opacity:.7;font-size:.85rem;">طرابلس</span>
+            </div>
+            <div style="display:flex;gap:20px;opacity:.85;font-size:.88rem;">
+              <span>📅 25 أغسطس 2026</span>
+              <span>🎫 تذكرتان</span>
+            </div>
+            <div class="perforation"></div>
+            <div style="display:flex;justify-content:space-between;align-items:center;">
+              <div>
+                <div style="opacity:.65;font-size:.78rem;">رقم الحجز</div>
+                <div style="font-family:var(--font-display);font-size:1.3rem;">PK-2026-001245</div>
+              </div>
+              <div class="qr-mock"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Parks -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <span class="section-eyebrow">الأعلى تقييمًا</span>
+          <h2 class="section-title">منتزهات مقترحة لك</h2>
+          <p class="section-sub">اختيارات مميزة بناءً على تقييمات الزوار</p>
+        </div>
+        <a href="parks.html" class="btn btn-outline">عرض الكل</a>
+      </div>
+      <div class="grid" id="featuredParks">
+        <div class="skeleton" style="height:280px;"></div>
+        <div class="skeleton" style="height:280px;"></div>
+        <div class="skeleton" style="height:280px;"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Promo strip -->
+  <section class="section">
+    <div class="container">
+      <div class="promo-strip">
+        <div>
+          <h3>خطط ليوم عائلي مثالي</h3>
+          <p style="opacity:.9;margin-top:6px;">تصفح الألعاب والخدمات لكل منتزه قبل زيارتك واحجز تذكرتك الآن.</p>
+        </div>
+        <a href="parks.html" class="btn btn-primary">ابدأ التخطيط الآن</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="footer-root"></div>
+
+<script src="js/data.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/components.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

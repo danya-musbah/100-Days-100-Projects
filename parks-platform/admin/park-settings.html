@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>معلومات المنتزه | منتزهات</title>
+<link rel="stylesheet" href="../css/main.css">
+<link rel="stylesheet" href="../css/components.css">
+<link rel="stylesheet" href="../css/pages.css">
+<link rel="stylesheet" href="../css/dashboard.css">
+<link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+<div class="dash-overlay" id="dashOverlay"></div>
+<div class="dash-shell">
+  <aside class="dash-sidebar" id="dashSidebar">
+    <div class="dash-brand">
+      <span class="brand-mark"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v2a2 2 0 0 0 0 4v2a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-2a2 2 0 0 0 0-4V8Z"/></svg></span>
+      منتزهات
+    </div>
+    <div class="dash-park-pill" id="dashParkPill">منتزهك الحالي</div>
+    <nav class="dash-nav">
+      <a href="park-dashboard.html">الرئيسية</a>
+      <a href="park-settings.html" class="active">معلومات المنتزه</a>
+      <a href="rides.html">الألعاب</a>
+      <a href="services.html">الخدمات</a>
+      <a href="tickets.html">التذاكر والأسعار</a>
+      <a href="bookings.html">الحجوزات</a>
+      <div class="divider"></div>
+      <a href="#" onclick="ppLogout(); return false;">تسجيل الخروج</a>
+    </nav>
+  </aside>
+
+  <div class="dash-main">
+    <button class="dash-mobile-toggle" id="dashMobileToggle" aria-label="فتح القائمة">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+    <div class="dash-topbar">
+      <div>
+        <h1>معلومات المنتزه</h1>
+        <p class="sub">حدّث بيانات منتزهك وحالته الحالية</p>
+      </div>
+    </div>
+
+    <div class="dash-panel">
+      <h3>البيانات الأساسية</h3>
+      <form id="parkSettingsForm">
+        <div class="field-row">
+          <div class="field"><label for="psName">اسم المنتزه</label><input type="text" id="psName" name="name"></div>
+          <div class="field"><label for="psCity">المدينة</label><input type="text" id="psCity" name="city"></div>
+        </div>
+        <div class="field"><label for="psAddress">العنوان</label><input type="text" id="psAddress" name="address"></div>
+        <div class="field-row">
+          <div class="field"><label for="psPhone">رقم الهاتف</label><input type="tel" id="psPhone" name="phone"></div>
+          <div class="field"><label for="psHours">ساعات العمل</label><input type="text" id="psHours" name="hours"></div>
+        </div>
+        <div class="field"><label for="psDesc">الوصف</label><textarea id="psDesc" name="description" rows="3"></textarea></div>
+        <button type="submit" class="btn btn-primary">حفظ التغييرات</button>
+      </form>
+    </div>
+
+    <div class="dash-panel">
+      <h3>حالة المنتزه</h3>
+      <form id="statusForm">
+        <div class="field">
+          <label for="statusSelect">الحالة الحالية</label>
+          <select id="statusSelect">
+            <option>مفتوح</option><option>مغلق مؤقتًا</option><option>مغلق</option>
+          </select>
+        </div>
+        <div class="field" id="statusMessageField">
+          <label for="statusMessage">رسالة توضيحية (اختياري)</label>
+          <textarea id="statusMessage" rows="2" placeholder="مثال: المنتزه مغلق مؤقتًا بسبب أعمال الصيانة."></textarea>
+        </div>
+        <button type="submit" class="btn btn-secondary">تحديث الحالة</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script src="../js/data.js"></script>
+<script src="../js/storage.js"></script>
+<script src="../js/components.js"></script>
+<script src="../js/park-admin.js"></script>
+<script>
+  ppInitAdminShell();
+  ppRenderAdminParkSettings();
+  document.getElementById('parkSettingsForm').addEventListener('submit', ppSubmitParkSettingsForm);
+  document.getElementById('statusForm').addEventListener('submit', ppSubmitStatusForm);
+  document.getElementById('statusSelect').addEventListener('change', ppToggleStatusMessageField);
+</script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>حجوزات المنتزه | منتزهات</title>
+<link rel="stylesheet" href="../css/main.css">
+<link rel="stylesheet" href="../css/components.css">
+<link rel="stylesheet" href="../css/pages.css">
+<link rel="stylesheet" href="../css/dashboard.css">
+<link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+<div class="dash-overlay" id="dashOverlay"></div>
+<div class="dash-shell">
+  <aside class="dash-sidebar" id="dashSidebar">
+    <div class="dash-brand">
+      <span class="brand-mark"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v2a2 2 0 0 0 0 4v2a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-2a2 2 0 0 0 0-4V8Z"/></svg></span>
+      منتزهات
+    </div>
+    <div class="dash-park-pill" id="dashParkPill">منتزهك الحالي</div>
+    <nav class="dash-nav">
+      <a href="park-dashboard.html">الرئيسية</a>
+      <a href="park-settings.html">معلومات المنتزه</a>
+      <a href="rides.html">الألعاب</a>
+      <a href="services.html">الخدمات</a>
+      <a href="tickets.html">التذاكر والأسعار</a>
+      <a href="bookings.html" class="active">الحجوزات</a>
+      <div class="divider"></div>
+      <a href="#" onclick="ppLogout(); return false;">تسجيل الخروج</a>
+    </nav>
+  </aside>
+
+  <div class="dash-main">
+    <button class="dash-mobile-toggle" id="dashMobileToggle" aria-label="فتح القائمة">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+    <div class="dash-topbar">
+      <div>
+        <h1>حجوزات منتزهك</h1>
+        <p class="sub">تابع جميع الحجوزات الخاصة بمنتزهك فقط</p>
+      </div>
+    </div>
+
+    <div class="dash-toolbar">
+      <div class="field" style="margin-bottom:0;">
+        <label for="bookingStatusFilter" class="visually-hidden">الحالة</label>
+        <select id="bookingStatusFilter">
+          <option value="">كل الحالات</option>
+          <option>مؤكد</option><option>مستخدم</option><option>ملغى</option><option>منتهي</option>
+        </select>
+      </div>
+      <div class="field" style="margin-bottom:0;">
+        <label for="bookingDateFilter" class="visually-hidden">التاريخ</label>
+        <input type="date" id="bookingDateFilter">
+      </div>
+    </div>
+
+    <div class="dash-panel" id="adminBookingsTableWrap"></div>
+  </div>
+</div>
+
+<script src="../js/data.js"></script>
+<script src="../js/storage.js"></script>
+<script src="../js/components.js"></script>
+<script src="../js/park-admin.js"></script>
+<script>
+  ppInitAdminShell();
+  ppRenderAdminBookings();
+  document.getElementById('bookingStatusFilter').addEventListener('change', ppRenderAdminBookings);
+  document.getElementById('bookingDateFilter').addEventListener('change', ppRenderAdminBookings);
+</script>
+</body>
+</html>

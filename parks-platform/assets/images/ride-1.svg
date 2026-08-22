@@ -1,0 +1,7 @@
+<svg viewBox="0 0 300 260" xmlns="http://www.w3.org/2000/svg">
+<rect width="300" height="260" fill="#1B2A4A"/>
+
+<rect x="0" y="230" width="300" height="30" fill="#FF6B4A" opacity="0.2"/>
+<circle cx="150" cy="150" r="90" fill="none" stroke="#FF6B4A" stroke-width="6"/><line x1="150" y1="150" x2="234.6" y2="150.0" stroke="#FF6B4A" stroke-width="3" opacity="0.7"/><line x1="150" y1="150" x2="209.82123368838194" y2="209.8212336883819" stroke="#FF6B4A" stroke-width="3" opacity="0.7"/><line x1="150" y1="150" x2="150.0" y2="234.6" stroke="#FF6B4A" stroke-width="3" opacity="0.7"/><line x1="150" y1="150" x2="90.17876631161809" y2="209.82123368838194" stroke="#FF6B4A" stroke-width="3" opacity="0.7"/><line x1="150" y1="150" x2="65.4" y2="150.0" stroke="#FF6B4A" stroke-width="3" opacity="0.7"/><line x1="150" y1="150" x2="90.17876631161806" y2="90.17876631161809" stroke="#FF6B4A" stroke-width="3" opacity="0.7"/><line x1="150" y1="150" x2="149.99999999999997" y2="65.4" stroke="#FF6B4A" stroke-width="3" opacity="0.7"/><line x1="150" y1="150" x2="209.8212336883819" y2="90.17876631161806" stroke="#FF6B4A" stroke-width="3" opacity="0.7"/><circle cx="150" cy="150" r="8" fill="#FF6B4A"/>
+
+</svg>

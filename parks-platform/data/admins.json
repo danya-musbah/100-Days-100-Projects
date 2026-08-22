@@ -1,0 +1,108 @@
+{
+  "park_admins": [
+    {
+      "id": "admin-01",
+      "name": "مدير عالم المرح",
+      "email": "admin@funworld.demo",
+      "password": "123456",
+      "park_id": "park-01",
+      "status": "نشط"
+    },
+    {
+      "id": "admin-02",
+      "name": "مدير منتزه السعادة",
+      "email": "admin2@parks.demo",
+      "password": "123456",
+      "park_id": "park-02",
+      "status": "نشط"
+    },
+    {
+      "id": "admin-03",
+      "name": "مدير جنة الأطفال",
+      "email": "admin3@parks.demo",
+      "password": "123456",
+      "park_id": "park-03",
+      "status": "نشط"
+    },
+    {
+      "id": "admin-04",
+      "name": "مدير واحة الترفيه",
+      "email": "admin4@parks.demo",
+      "password": "123456",
+      "park_id": "park-04",
+      "status": "نشط"
+    },
+    {
+      "id": "admin-05",
+      "name": "مدير مدينة المغامرات",
+      "email": "admin5@parks.demo",
+      "password": "123456",
+      "park_id": "park-05",
+      "status": "نشط"
+    },
+    {
+      "id": "admin-06",
+      "name": "مدير عالم الألعاب",
+      "email": "admin6@parks.demo",
+      "password": "123456",
+      "park_id": "park-06",
+      "status": "نشط"
+    },
+    {
+      "id": "admin-07",
+      "name": "مدير منتزه النخيل",
+      "email": "admin7@parks.demo",
+      "password": "123456",
+      "park_id": "park-07",
+      "status": "نشط"
+    },
+    {
+      "id": "admin-08",
+      "name": "مدير جزيرة المرح",
+      "email": "admin8@parks.demo",
+      "password": "123456",
+      "park_id": "park-08",
+      "status": "نشط"
+    },
+    {
+      "id": "admin-09",
+      "name": "مدير حديقة الأحلام",
+      "email": "admin9@parks.demo",
+      "password": "123456",
+      "park_id": "park-09",
+      "status": "نشط"
+    },
+    {
+      "id": "admin-10",
+      "name": "مدير منتزه الفرح",
+      "email": "admin10@parks.demo",
+      "password": "123456",
+      "park_id": "park-10",
+      "status": "نشط"
+    },
+    {
+      "id": "admin-11",
+      "name": "مدير أرض العجائب",
+      "email": "admin11@parks.demo",
+      "password": "123456",
+      "park_id": "park-11",
+      "status": "نشط"
+    },
+    {
+      "id": "admin-12",
+      "name": "مدير قصر الترفيه",
+      "email": "admin12@parks.demo",
+      "password": "123456",
+      "park_id": "park-12",
+      "status": "نشط"
+    }
+  ],
+  "super_admins": [
+    {
+      "id": "sadmin-01",
+      "name": "مدير المنصة",
+      "email": "superadmin@platform.demo",
+      "password": "123456"
+    }
+  ]
+}

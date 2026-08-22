@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>إدارة الخدمات | منتزهات</title>
+<link rel="stylesheet" href="../css/main.css">
+<link rel="stylesheet" href="../css/components.css">
+<link rel="stylesheet" href="../css/pages.css">
+<link rel="stylesheet" href="../css/dashboard.css">
+<link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+<div class="dash-overlay" id="dashOverlay"></div>
+<div class="dash-shell">
+  <aside class="dash-sidebar" id="dashSidebar">
+    <div class="dash-brand">
+      <span class="brand-mark"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v2a2 2 0 0 0 0 4v2a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-2a2 2 0 0 0 0-4V8Z"/></svg></span>
+      منتزهات
+    </div>
+    <div class="dash-park-pill" id="dashParkPill">منتزهك الحالي</div>
+    <nav class="dash-nav">
+      <a href="park-dashboard.html">الرئيسية</a>
+      <a href="park-settings.html">معلومات المنتزه</a>
+      <a href="rides.html">الألعاب</a>
+      <a href="services.html" class="active">الخدمات</a>
+      <a href="tickets.html">التذاكر والأسعار</a>
+      <a href="bookings.html">الحجوزات</a>
+      <div class="divider"></div>
+      <a href="#" onclick="ppLogout(); return false;">تسجيل الخروج</a>
+    </nav>
+  </aside>
+
+  <div class="dash-main">
+    <button class="dash-mobile-toggle" id="dashMobileToggle" aria-label="فتح القائمة">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+    <div class="dash-topbar">
+      <div>
+        <h1>إدارة الخدمات</h1>
+        <p class="sub">مطاعم، مقاهي، مواقف، وخدمات أخرى داخل منتزهك</p>
+      </div>
+      <button class="btn btn-primary" onclick="ppOpenServiceModal()">إضافة خدمة</button>
+    </div>
+
+    <div class="dash-panel" id="servicesTableWrap"></div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="serviceModalOverlay">
+  <div class="modal" style="max-width:500px;">
+    <h3 id="serviceModalTitle">إضافة خدمة</h3>
+    <form id="serviceForm">
+      <div class="field">
+        <label for="serviceName">اسم الخدمة</label>
+        <input type="text" id="serviceName" name="name">
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="serviceType">النوع</label>
+          <select id="serviceType" name="type">
+            <option>مطعم</option><option>مقهى</option><option>متجر</option>
+            <option>موقف سيارات</option><option>ألعاب أطفال</option>
+            <option>خدمة طبية</option><option>أخرى</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="serviceStatus">الحالة</label>
+          <select id="serviceStatus" name="status">
+            <option>متاحة</option><option>مغلقة مؤقتًا</option>
+          </select>
+        </div>
+      </div>
+      <div class="field">
+        <label for="serviceLocation">الموقع داخل المنتزه</label>
+        <input type="text" id="serviceLocation" name="location">
+      </div>
+      <div class="field">
+        <label for="serviceDesc">الوصف</label>
+        <textarea id="serviceDesc" name="description" rows="2"></textarea>
+      </div>
+      <div class="modal-actions">
+        <button type="submit" class="btn btn-primary">حفظ</button>
+        <button type="button" class="btn btn-outline" onclick="ppCloseServiceModal()">إلغاء</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="../js/data.js"></script>
+<script src="../js/storage.js"></script>
+<script src="../js/components.js"></script>
+<script src="../js/park-admin.js"></script>
+<script>
+  ppInitAdminShell();
+  ppRenderAdminServices();
+  document.getElementById('serviceForm').addEventListener('submit', ppSubmitServiceForm);
+</script>
+</body>
+</html>

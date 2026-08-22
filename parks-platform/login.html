@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تسجيل الدخول | منتزهات</title>
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/pages.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+<a href="#main" class="skip-link">تخطَّ إلى المحتوى الرئيسي</a>
+<div id="navbar-root"></div>
+
+<main id="main">
+  <div class="auth-wrap">
+    <div class="auth-card">
+      <h1>مرحبًا بعودتك</h1>
+      <p class="sub">سجّل الدخول للمتابعة إلى حسابك وحجوزاتك.</p>
+
+      <form id="loginForm" novalidate>
+        <div class="field">
+          <label for="email">البريد الإلكتروني</label>
+          <input type="email" id="email" name="email" placeholder="example@email.com" autocomplete="email">
+          <span class="error-msg"></span>
+        </div>
+        <div class="field">
+          <label for="password">كلمة المرور</label>
+          <input type="password" id="password" name="password" placeholder="••••••••" autocomplete="current-password">
+          <span class="error-msg"></span>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">تسجيل الدخول</button>
+      </form>
+
+      <p class="auth-switch">ليس لديك حساب؟ <a href="register.html">إنشاء حساب جديد</a></p>
+
+      <div class="demo-hint">
+        <b>حسابات تجريبية:</b><br>
+        زائر: visitor@example.com — 123456<br>
+        مدير منتزه: admin@funworld.demo — 123456<br>
+        مدير المنصة: superadmin@platform.demo — 123456
+      </div>
+    </div>
+  </div>
+</main>
+
+<div id="footer-root"></div>
+
+<script src="js/data.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/components.js"></script>
+<script src="js/auth.js"></script>
+</body>
+</html>

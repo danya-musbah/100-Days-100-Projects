@@ -1,0 +1,326 @@
+[
+  {
+    "id": "ticket-001",
+    "park_id": "park-01",
+    "name": "تذكرة دخول",
+    "price": 25,
+    "description": "تذكرة دخول فردية لجميع مناطق المنتزه.",
+    "people_count": 1,
+    "status": "متاحة"
+  },
+  {
+    "id": "ticket-002",
+    "park_id": "park-01",
+    "name": "تذكرة عائلية",
+    "price": 90,
+    "description": "تذكرة مخصصة لعائلة من 4 أشخاص بسعر مخفض.",
+    "people_count": 4,
+    "status": "متاحة"
+  },
+  {
+    "id": "ticket-003",
+    "park_id": "park-01",
+    "name": "باقة VIP",
+    "price": 125,
+    "description": "دخول مميز مع أولوية على الألعاب وجلسة استراحة خاصة.",
+    "people_count": 1,
+    "status": "متاحة"
+  },
+  {
+    "id": "ticket-004",
+    "park_id": "park-02",
+    "name": "تذكرة دخول",
+    "price": 35,
+    "description": "تذكرة دخول فردية لجميع مناطق المنتزه.",
+    "people_count": 1,
+    "status": "متاحة"
+  },
+  {
+    "id": "ticket-005",
+    "park_id": "park-02",
+    "name": "تذكرة عائلية",
+    "price": 130,
+    "description": "تذكرة مخصصة لعائلة من 4 أشخاص بسعر مخفض.",
+    "people_count": 4,
+    "status": "متاحة"
+  },
+  {
+    "id": "ticket-006",
+    "park_id": "park-02",
+    "name": "باقة VIP",
+    "price": 175,
+    "description": "دخول مميز مع أولوية على الألعاب وجلسة استراحة خاصة.",
+    "people_count": 1,
+    "status": "متاحة"
+  },
+  {
+    "id": "ticket-007",
+    "park_id": "park-03",
+    "name": "تذكرة دخول",
+    "price": 20,
+    "description": "تذكرة دخول فردية لجميع مناطق المنتزه.",
+    "people_count": 1,
+    "status": "متاحة"
+  },
+  {
+    "id": "ticket-008",
+    "park_id": "park-03",
+    "name": "تذكرة عائلية",
+    "price": 70,
+    "description": "تذكرة مخصصة لعائلة من 4 أشخاص بسعر مخفض.",
+    "people_count": 4,
+    "status": "متاحة"
+  },
+  {
+    "id": "ticket-009",
+    "park_id": "park-03",
+    "name": "باقة VIP",
+    "price": 100,
+    "description": "دخول مميز مع أولوية على الألعاب وجلسة استراحة خاصة.",
+    "people_count": 1,
+    "status": "متاحة"
+  },
+  {
+    "id": "ticket-010",
+    "park_id": "park-04",
+    "name": "تذكرة دخول",
+    "price": 35,
+    "description": "تذكرة دخول فردية لجميع مناطق المنتزه.",
+    "people_count": 1,
+    "status": "متاحة"
+  },
+  {
+    "id": "ticket-011",
+    "park_id": "park-04",
+    "name": "تذكرة عائلية",
+    "price": 130,
+    "description": "تذكرة مخصصة لعائلة من 4 أشخاص بسعر مخفض.",
+    "people_count": 4,
+    "status": "متاحة"
+  },
+  {
+    "id": "ticket-012",
+    "park_id": "park-04",
+    "name": "باقة VIP",
+    "price": 175,
+    "description": "دخول مميز مع أولوية على الألعاب وجلسة استراحة خاصة.",
+    "people_count": 1,
+    "status": "متاحة"
+  },
+  {
+    "id": "ticket-013",
+    "park_id": "park-05",
+    "name": "تذكرة دخول",
+    "price": 15,
+    "description": "تذكرة دخول فردية لجميع مناطق المنتزه.",
+    "people_count": 1,
+    "status": "متاحة"
+  },
+  {
+    "id": "ticket-014",
+    "park_id": "park-05",
+    "name": "تذكرة عائلية",
+    "price": 50,
+    "description": "تذكرة مخصصة لعائلة من 4 أشخاص بسعر مخفض.",
+    "people_count": 4,
+    "status": "متاحة"
+  },
+  {
+    "id": "ticket-015",
+    "park_id": "park-05",
+    "name": "باقة VIP",
+    "price": 75,
+    "description": "دخول مميز مع أولوية على الألعاب وجلسة استراحة خاصة.",
+    "people_count": 1,
+    "status": "متاحة"
+  },
+  {
+    "id": "ticket-016",
+    "park_id": "park-06",
+    "name": "تذكرة دخول",
+    "price": 20,
+    "description": "تذكرة دخول فردية لجميع مناطق المنتزه.",
+    "people_count": 1,
+    "status": "متاحة"
+  },
+  {
+    "id": "ticket-017",
+    "park_id": "park-06",
+    "name": "تذكرة عائلية",
+    "price": 70,
+    "description": "تذكرة مخصصة لعائلة من 4 أشخاص بسعر مخفض.",
+    "people_count": 4,
+    "status": "متاحة"
+  },
+  {
+    "id": "ticket-018",
+    "park_id": "park-06",
+    "name": "باقة VIP",
+    "price": 100,
+    "description": "دخول مميز مع أولوية على الألعاب وجلسة استراحة خاصة.",
+    "people_count": 1,
+    "status": "متاحة"
+  },
+  {
+    "id": "ticket-019",
+    "park_id": "park-07",
+    "name": "تذكرة دخول",
+    "price": 25,
+    "description": "تذكرة دخول فردية لجميع مناطق المنتزه.",
+    "people_count": 1,
+    "status": "متاحة"
+  },
+  {
+    "id": "ticket-020",
+    "park_id": "park-07",
+    "name": "تذكرة عائلية",
+    "price": 90,
+    "description": "تذكرة مخصصة لعائلة من 4 أشخاص بسعر مخفض.",
+    "people_count": 4,
+    "status": "متاحة"
+  },
+  {
+    "id": "ticket-021",
+    "park_id": "park-07",
+    "name": "باقة VIP",
+    "price": 125,
+    "description": "دخول مميز مع أولوية على الألعاب وجلسة استراحة خاصة.",
+    "people_count": 1,
+    "status": "متاحة"
+  },
+  {
+    "id": "ticket-022",
+    "park_id": "park-08",
+    "name": "تذكرة دخول",
+    "price": 15,
+    "description": "تذكرة دخول فردية لجميع مناطق المنتزه.",
+    "people_count": 1,
+    "status": "متاحة"
+  },
+  {
+    "id": "ticket-023",
+    "park_id": "park-08",
+    "name": "تذكرة عائلية",
+    "price": 50,
+    "description": "تذكرة مخصصة لعائلة من 4 أشخاص بسعر مخفض.",
+    "people_count": 4,
+    "status": "متاحة"
+  },
+  {
+    "id": "ticket-024",
+    "park_id": "park-08",
+    "name": "باقة VIP",
+    "price": 75,
+    "description": "دخول مميز مع أولوية على الألعاب وجلسة استراحة خاصة.",
+    "people_count": 1,
+    "status": "متاحة"
+  },
+  {
+    "id": "ticket-025",
+    "park_id": "park-09",
+    "name": "تذكرة دخول",
+    "price": 35,
+    "description": "تذكرة دخول فردية لجميع مناطق المنتزه.",
+    "people_count": 1,
+    "status": "متاحة"
+  },
+  {
+    "id": "ticket-026",
+    "park_id": "park-09",
+    "name": "تذكرة عائلية",
+    "price": 130,
+    "description": "تذكرة مخصصة لعائلة من 4 أشخاص بسعر مخفض.",
+    "people_count": 4,
+    "status": "متاحة"
+  },
+  {
+    "id": "ticket-027",
+    "park_id": "park-09",
+    "name": "باقة VIP",
+    "price": 175,
+    "description": "دخول مميز مع أولوية على الألعاب وجلسة استراحة خاصة.",
+    "people_count": 1,
+    "status": "متاحة"
+  },
+  {
+    "id": "ticket-028",
+    "park_id": "park-10",
+    "name": "تذكرة دخول",
+    "price": 20,
+    "description": "تذكرة دخول فردية لجميع مناطق المنتزه.",
+    "people_count": 1,
+    "status": "متاحة"
+  },
+  {
+    "id": "ticket-029",
+    "park_id": "park-10",
+    "name": "تذكرة عائلية",
+    "price": 70,
+    "description": "تذكرة مخصصة لعائلة من 4 أشخاص بسعر مخفض.",
+    "people_count": 4,
+    "status": "متاحة"
+  },
+  {
+    "id": "ticket-030",
+    "park_id": "park-10",
+    "name": "باقة VIP",
+    "price": 100,
+    "description": "دخول مميز مع أولوية على الألعاب وجلسة استراحة خاصة.",
+    "people_count": 1,
+    "status": "متاحة"
+  },
+  {
+    "id": "ticket-031",
+    "park_id": "park-11",
+    "name": "تذكرة دخول",
+    "price": 30,
+    "description": "تذكرة دخول فردية لجميع مناطق المنتزه.",
+    "people_count": 1,
+    "status": "متاحة"
+  },
+  {
+    "id": "ticket-032",
+    "park_id": "park-11",
+    "name": "تذكرة عائلية",
+    "price": 110,
+    "description": "تذكرة مخصصة لعائلة من 4 أشخاص بسعر مخفض.",
+    "people_count": 4,
+    "status": "متاحة"
+  },
+  {
+    "id": "ticket-033",
+    "park_id": "park-11",
+    "name": "باقة VIP",
+    "price": 150,
+    "description": "دخول مميز مع أولوية على الألعاب وجلسة استراحة خاصة.",
+    "people_count": 1,
+    "status": "متاحة"
+  },
+  {
+    "id": "ticket-034",
+    "park_id": "park-12",
+    "name": "تذكرة دخول",
+    "price": 25,
+    "description": "تذكرة دخول فردية لجميع مناطق المنتزه.",
+    "people_count": 1,
+    "status": "متاحة"
+  },
+  {
+    "id": "ticket-035",
+    "park_id": "park-12",
+    "name": "تذكرة عائلية",
+    "price": 90,
+    "description": "تذكرة مخصصة لعائلة من 4 أشخاص بسعر مخفض.",
+    "people_count": 4,
+    "status": "متاحة"
+  },
+  {
+    "id": "ticket-036",
+    "park_id": "park-12",
+    "name": "باقة VIP",
+    "price": 125,
+    "description": "دخول مميز مع أولوية على الألعاب وجلسة استراحة خاصة.",
+    "people_count": 1,
+    "status": "متاحة"
+  }
+]

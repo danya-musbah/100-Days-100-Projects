@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>مديرو المنتزهات | منتزهات</title>
+<link rel="stylesheet" href="../css/main.css">
+<link rel="stylesheet" href="../css/components.css">
+<link rel="stylesheet" href="../css/pages.css">
+<link rel="stylesheet" href="../css/dashboard.css">
+<link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+<div class="dash-overlay" id="dashOverlay"></div>
+<div class="dash-shell">
+  <aside class="dash-sidebar" id="dashSidebar">
+    <div class="dash-brand">
+      <span class="brand-mark"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v2a2 2 0 0 0 0 4v2a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-2a2 2 0 0 0 0-4V8Z"/></svg></span>
+      منتزهات
+    </div>
+    <nav class="dash-nav">
+      <a href="dashboard.html">الرئيسية</a>
+      <a href="parks.html">المنتزهات</a>
+      <a href="managers.html" class="active">مديرو المنتزهات</a>
+      <a href="statistics.html">الإحصائيات</a>
+      <div class="divider"></div>
+      <a href="#" onclick="ppLogout(); return false;">تسجيل الخروج</a>
+    </nav>
+  </aside>
+
+  <div class="dash-main">
+    <button class="dash-mobile-toggle" id="dashMobileToggle" aria-label="فتح القائمة">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+    <div class="dash-topbar">
+      <div>
+        <h1>مديرو المنتزهات</h1>
+        <p class="sub">إضافة مديري المنتزهات وربطهم بالمنتزه المناسب</p>
+      </div>
+      <button class="btn btn-primary" onclick="ppOpenManagerModal()">إضافة مدير</button>
+    </div>
+
+    <div class="dash-panel" id="managersTableWrap"></div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="managerModalOverlay">
+  <div class="modal" style="max-width:480px;">
+    <h3 id="managerModalTitle">إضافة مدير منتزه</h3>
+    <form id="managerForm">
+      <div class="field"><label for="mName">الاسم الكامل</label><input type="text" id="mName" name="name"></div>
+      <div class="field"><label for="mEmail">البريد الإلكتروني</label><input type="email" id="mEmail" name="email"></div>
+      <div class="field"><label for="mPassword">كلمة المرور</label><input type="text" id="mPassword" name="password"></div>
+      <div class="field">
+        <label for="mPark">المنتزه المسؤول عنه</label>
+        <select id="mPark" name="park_id"></select>
+      </div>
+      <div class="modal-actions">
+        <button type="submit" class="btn btn-primary">حفظ</button>
+        <button type="button" class="btn btn-outline" onclick="ppCloseManagerModal()">إلغاء</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="../js/data.js"></script>
+<script src="../js/storage.js"></script>
+<script src="../js/components.js"></script>
+<script src="../js/super-admin.js"></script>
+<script>
+  ppInitSuperAdminShell();
+  ppRenderSuperAdminManagers();
+  document.getElementById('managerForm').addEventListener('submit', ppSubmitManagerForm);
+</script>
+</body>
+</html>

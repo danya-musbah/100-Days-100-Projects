@@ -1,0 +1,9 @@
+<svg viewBox="0 0 600 360" xmlns="http://www.w3.org/2000/svg">
+<rect width="600" height="360" fill="#20305A"/>
+
+<circle cx="500" cy="90" r="46" fill="#FFB627" opacity="0.25"/>
+<circle cx="120" cy="190" r="95" fill="none" stroke="#FF6B4A" stroke-width="6"/><line x1="120" y1="190" x2="209.3" y2="190.0" stroke="#FF6B4A" stroke-width="3" opacity="0.7"/><line x1="120" y1="190" x2="183.1446355599587" y2="253.1446355599587" stroke="#FF6B4A" stroke-width="3" opacity="0.7"/><line x1="120" y1="190" x2="120.0" y2="279.3" stroke="#FF6B4A" stroke-width="3" opacity="0.7"/><line x1="120" y1="190" x2="56.85536444004131" y2="253.1446355599587" stroke="#FF6B4A" stroke-width="3" opacity="0.7"/><line x1="120" y1="190" x2="30.700000000000003" y2="190.0" stroke="#FF6B4A" stroke-width="3" opacity="0.7"/><line x1="120" y1="190" x2="56.85536444004129" y2="126.85536444004131" stroke="#FF6B4A" stroke-width="3" opacity="0.7"/><line x1="120" y1="190" x2="119.99999999999999" y2="100.7" stroke="#FF6B4A" stroke-width="3" opacity="0.7"/><line x1="120" y1="190" x2="183.1446355599587" y2="126.85536444004128" stroke="#FF6B4A" stroke-width="3" opacity="0.7"/><circle cx="120" cy="190" r="8" fill="#FF6B4A"/>
+<path d="M0 300 Q80 220 160 290 T320 260 T480 300 T600 250" fill="none" stroke="#00A896" stroke-width="6" opacity="0.85"/>
+<rect x="0" y="300" width="600" height="60" fill="#FF6B4A" opacity="0.15"/>
+
+</svg>

@@ -1,0 +1,218 @@
+[
+  {
+    "id": "park-01",
+    "name": "عالم المرح",
+    "city": "طرابلس",
+    "address": "شارع الكورنيش، طرابلس",
+    "description": "منتزه عائلي متكامل يجمع بين الألعاب المثيرة والمساحات الخضراء الواسعة، مثالي لقضاء يوم ممتع مع العائلة والأصدقاء.",
+    "images": [
+      "assets/images/park-1.svg"
+    ],
+    "phone": "0915108603",
+    "hours": "10:00 ص - 10:00 م",
+    "status": "مفتوح",
+    "status_message": "",
+    "rating": 4.6,
+    "reviews_count": 268,
+    "price_from": 25,
+    "manager_id": "admin-01"
+  },
+  {
+    "id": "park-02",
+    "name": "منتزه السعادة",
+    "city": "بنغازي",
+    "address": "شارع الكورنيش، بنغازي",
+    "description": "وجهة ترفيهية حديثة تضم ألعابًا لجميع الأعمار، ومطاعم متنوعة، ومناطق استراحة مظللة على مدار اليوم.",
+    "images": [
+      "assets/images/park-2.svg"
+    ],
+    "phone": "0912458591",
+    "hours": "9:00 ص - 11:00 م",
+    "status": "مفتوح",
+    "status_message": "",
+    "rating": 4.0,
+    "reviews_count": 644,
+    "price_from": 35,
+    "manager_id": "admin-02"
+  },
+  {
+    "id": "park-03",
+    "name": "جنة الأطفال",
+    "city": "مصراتة",
+    "address": "شارع الكورنيش، مصراتة",
+    "description": "منتزه مصمم خصيصًا لإسعاد الأطفال والكبار، مع عروض موسمية وفعاليات أسبوعية متجددة.",
+    "images": [
+      "assets/images/park-3.svg"
+    ],
+    "phone": "0914903402",
+    "hours": "4:00 م - 12:00 ص",
+    "status": "مفتوح",
+    "status_message": "",
+    "rating": 4.3,
+    "reviews_count": 557,
+    "price_from": 20,
+    "manager_id": "admin-03"
+  },
+  {
+    "id": "park-04",
+    "name": "واحة الترفيه",
+    "city": "الزاوية",
+    "address": "شارع الكورنيش، الزاوية",
+    "description": "تجربة ترفيهية غنية بالألعاب المائية والبرية، وسط أجواء آمنة ومرافق نظيفة على مستوى عالٍ.",
+    "images": [
+      "assets/images/park-4.svg"
+    ],
+    "phone": "0918038374",
+    "hours": "10:00 ص - 12:00 ص",
+    "status": "مفتوح",
+    "status_message": "",
+    "rating": 4.5,
+    "reviews_count": 265,
+    "price_from": 35,
+    "manager_id": "admin-04"
+  },
+  {
+    "id": "park-05",
+    "name": "مدينة المغامرات",
+    "city": "زليتن",
+    "address": "شارع الكورنيش، زليتن",
+    "description": "منتزه يجمع بين الإثارة والراحة، بألعاب متدرجة الصعوبة تناسب الجميع من الصغار إلى الكبار.",
+    "images": [
+      "assets/images/park-5.svg"
+    ],
+    "phone": "0913678638",
+    "hours": "10:00 ص - 10:00 م",
+    "status": "مفتوح",
+    "status_message": "",
+    "rating": 4.3,
+    "reviews_count": 754,
+    "price_from": 15,
+    "manager_id": "admin-05"
+  },
+  {
+    "id": "park-06",
+    "name": "عالم الألعاب",
+    "city": "سبها",
+    "address": "شارع الكورنيش، سبها",
+    "description": "منتزه عائلي متكامل يجمع بين الألعاب المثيرة والمساحات الخضراء الواسعة، مثالي لقضاء يوم ممتع مع العائلة والأصدقاء.",
+    "images": [
+      "assets/images/park-6.svg"
+    ],
+    "phone": "0916647119",
+    "hours": "9:00 ص - 11:00 م",
+    "status": "مفتوح",
+    "status_message": "",
+    "rating": 4.3,
+    "reviews_count": 144,
+    "price_from": 20,
+    "manager_id": "admin-06"
+  },
+  {
+    "id": "park-07",
+    "name": "منتزه النخيل",
+    "city": "البيضاء",
+    "address": "شارع الكورنيش، البيضاء",
+    "description": "وجهة ترفيهية حديثة تضم ألعابًا لجميع الأعمار، ومطاعم متنوعة، ومناطق استراحة مظللة على مدار اليوم.",
+    "images": [
+      "assets/images/park-1.svg"
+    ],
+    "phone": "0915437923",
+    "hours": "4:00 م - 12:00 ص",
+    "status": "مفتوح",
+    "status_message": "",
+    "rating": 3.9,
+    "reviews_count": 866,
+    "price_from": 25,
+    "manager_id": "admin-07"
+  },
+  {
+    "id": "park-08",
+    "name": "جزيرة المرح",
+    "city": "الخمس",
+    "address": "شارع الكورنيش، الخمس",
+    "description": "منتزه مصمم خصيصًا لإسعاد الأطفال والكبار، مع عروض موسمية وفعاليات أسبوعية متجددة.",
+    "images": [
+      "assets/images/park-2.svg"
+    ],
+    "phone": "0917350753",
+    "hours": "10:00 ص - 12:00 ص",
+    "status": "مفتوح",
+    "status_message": "",
+    "rating": 3.9,
+    "reviews_count": 120,
+    "price_from": 15,
+    "manager_id": "admin-08"
+  },
+  {
+    "id": "park-09",
+    "name": "حديقة الأحلام",
+    "city": "طرابلس",
+    "address": "شارع الكورنيش، طرابلس",
+    "description": "تجربة ترفيهية غنية بالألعاب المائية والبرية، وسط أجواء آمنة ومرافق نظيفة على مستوى عالٍ.",
+    "images": [
+      "assets/images/park-3.svg"
+    ],
+    "phone": "0917067228",
+    "hours": "10:00 ص - 10:00 م",
+    "status": "مغلق مؤقتًا",
+    "status_message": "المنتزه مغلق مؤقتًا بسبب أعمال الصيانة الدورية.",
+    "rating": 4.5,
+    "reviews_count": 631,
+    "price_from": 35,
+    "manager_id": "admin-09"
+  },
+  {
+    "id": "park-10",
+    "name": "منتزه الفرح",
+    "city": "بنغازي",
+    "address": "شارع الكورنيش، بنغازي",
+    "description": "منتزه يجمع بين الإثارة والراحة، بألعاب متدرجة الصعوبة تناسب الجميع من الصغار إلى الكبار.",
+    "images": [
+      "assets/images/park-4.svg"
+    ],
+    "phone": "0915855124",
+    "hours": "9:00 ص - 11:00 م",
+    "status": "مفتوح",
+    "status_message": "",
+    "rating": 4.0,
+    "reviews_count": 121,
+    "price_from": 20,
+    "manager_id": "admin-10"
+  },
+  {
+    "id": "park-11",
+    "name": "أرض العجائب",
+    "city": "مصراتة",
+    "address": "شارع الكورنيش، مصراتة",
+    "description": "منتزه عائلي متكامل يجمع بين الألعاب المثيرة والمساحات الخضراء الواسعة، مثالي لقضاء يوم ممتع مع العائلة والأصدقاء.",
+    "images": [
+      "assets/images/park-5.svg"
+    ],
+    "phone": "0915663623",
+    "hours": "4:00 م - 12:00 ص",
+    "status": "مغلق مؤقتًا",
+    "status_message": "المنتزه مغلق مؤقتًا بسبب أعمال الصيانة الدورية.",
+    "rating": 4.8,
+    "reviews_count": 504,
+    "price_from": 30,
+    "manager_id": "admin-11"
+  },
+  {
+    "id": "park-12",
+    "name": "قصر الترفيه",
+    "city": "الزاوية",
+    "address": "شارع الكورنيش، الزاوية",
+    "description": "وجهة ترفيهية حديثة تضم ألعابًا لجميع الأعمار، ومطاعم متنوعة، ومناطق استراحة مظللة على مدار اليوم.",
+    "images": [
+      "assets/images/park-6.svg"
+    ],
+    "phone": "0916960453",
+    "hours": "10:00 ص - 12:00 ص",
+    "status": "مفتوح",
+    "status_message": "",
+    "rating": 4.6,
+    "reviews_count": 254,
+    "price_from": 25,
+    "manager_id": "admin-12"
+  }
+]
