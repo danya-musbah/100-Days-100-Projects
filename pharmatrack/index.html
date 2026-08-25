@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PharmaTrack — Find Medicines. Understand Availability. Predict Shortages.</title>
+<meta name="description" content="PharmaTrack turns pharmacy inventory data into real-time medicine availability and shortage intelligence for Libya.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+<a href="#main" class="skip-link">Skip to content</a>
+<div class="demo-banner"><strong>Demo prototype</strong> — all pharmacies, medicines, and inventory data shown are synthetic and generated for this graduation project.</div>
+
+<nav class="nav">
+  <div class="container">
+    <a href="index.html" class="brand">
+      <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L3 6V12C3 17 6.5 21 12 22C17.5 21 21 17 21 12V6L12 2Z" fill="white" fill-opacity="0.9"/><path d="M12 8V16M8 12H16" stroke="#0197F6" stroke-width="2" stroke-linecap="round"/></svg></span>
+      PharmaTrack <span class="dim">Libya</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html" data-nav-link>Home</a></li>
+      <li><a href="search.html" data-nav-link>Search</a></li>
+      <li><a href="pharmacies.html" data-nav-link>Pharmacies</a></li>
+      <li><a href="admin-analytics.html" data-nav-link>Insights</a></li>
+    </ul>
+    <div class="nav-actions">
+      <div data-session-slot></div>
+      <a href="login.html?role=pharmacy" class="btn btn--outline btn--sm">For Pharmacies</a>
+      <button class="nav-toggle" aria-label="Menu">☰</button>
+    </div>
+  </div>
+  <div class="mobile-nav-panel">
+    <a href="index.html">Home</a>
+    <a href="search.html">Search Medicines</a>
+    <a href="pharmacies.html">Pharmacy Directory</a>
+    <a href="admin-analytics.html">Insights</a>
+    <a href="login.html?role=pharmacy">Pharmacy Login</a>
+    <a href="login.html?role=admin">Admin Login</a>
+  </div>
+</nav>
+
+<main id="main">
+
+<!-- HERO -->
+<section class="section--dark" style="padding:88px 0 70px;">
+  <div class="container">
+    <div class="eyebrow"><span class="pulse-dot"></span> Live Medicine Availability Network</div>
+    <h1>Find the medicine you need.<br>Know where it is available.</h1>
+    <p style="max-width:560px;font-size:1.08rem;">PharmaTrack connects medicine availability data from pharmacies across Libya and turns it into useful, trustworthy information — refreshed continuously, never presented as current when it isn't.</p>
+
+    <form id="hero-search-form" class="search-box mt-24" role="search">
+      <input id="hero-search-input" type="text" placeholder="Search for a medicine… e.g. Panadol, Amoxicillin, Insulin" aria-label="Search for a medicine">
+      <button class="btn btn--primary" type="submit">Find a Medicine</button>
+    </form>
+    <div class="search-suggest">
+      <span class="chip" data-chip-query="Paracetamol">Paracetamol</span>
+      <span class="chip" data-chip-query="Amoxicillin">Amoxicillin</span>
+      <span class="chip" data-chip-query="Metformin">Metformin</span>
+      <span class="chip" data-chip-query="Insulin">Insulin</span>
+      <span class="chip" data-chip-query="Augmentin">Augmentin</span>
+      <span class="chip" data-chip-query="Ventolin">Ventolin</span>
+    </div>
+
+    <div class="row gap-24 mt-32" style="flex-wrap:wrap;">
+      <a href="search.html" class="btn btn--primary">Find a Medicine</a>
+      <a href="login.html?role=pharmacy" class="btn btn--outline">For Pharmacies</a>
+    </div>
+  </div>
+</section>
+
+<!-- LIVE STATS STRIP -->
+<section class="section--soft section--tight">
+  <div class="container">
+    <div class="kpi-grid">
+      <div class="kpi-card"><div class="kpi-label">Active Pharmacies</div><div class="kpi-value mono" id="stat-pharmacies">—</div></div>
+      <div class="kpi-card"><div class="kpi-label">Tracked Medicines</div><div class="kpi-value mono" id="stat-medicines">—</div></div>
+      <div class="kpi-card"><div class="kpi-label">Inventory Records</div><div class="kpi-value mono" id="stat-records">—</div></div>
+      <div class="kpi-card"><div class="kpi-label">Search Interest Logged</div><div class="kpi-value mono" id="stat-searches">—</div></div>
+      <div class="kpi-card"><div class="kpi-label">Availability Rate</div><div class="kpi-value mono" id="stat-available-pct">—</div></div>
+      <div class="kpi-card risk"><div class="kpi-label">Potential Shortages</div><div class="kpi-value mono" id="stat-shortages">—</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section section--mist">
+  <div class="container">
+    <div class="eyebrow">How PharmaTrack Works</div>
+    <h2 style="max-width:640px;">A data and intelligence layer on top of pharmacies you already trust</h2>
+    <p style="max-width:640px;">PharmaTrack does not replace pharmacy management systems. It imports the exports they already produce and turns scattered spreadsheets into one searchable, always-labeled-for-freshness picture of medicine availability.</p>
+
+    <div class="grid-3 mt-32">
+      <div class="card">
+        <h4>1. Pharmacies export inventory</h4>
+        <p style="font-size:0.92rem;">Existing legacy systems export inventory as CSV — no new hardware or software required on the pharmacy side.</p>
+      </div>
+      <div class="card">
+        <h4>2. PharmaTrack cleans &amp; normalizes</h4>
+        <p style="font-size:0.92rem;">Different column names, casing, and formats are validated, cleaned, and matched against one shared medicine catalog.</p>
+      </div>
+      <div class="card">
+        <h4>3. Citizens search, pharmacies manage, admins monitor</h4>
+        <p style="font-size:0.92rem;">The public sees fresh, honestly-labeled availability. Pharmacies get a dashboard. Admins get system-wide analytics and shortage signals.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SEARCH DEMAND + SHORTAGE PREVIEW -->
+<section class="section section--soft">
+  <div class="container grid-2">
+    <div class="card">
+      <div class="panel-title-row"><h3>Most Searched Medicines</h3><a href="admin-analytics.html" style="font-size:0.85rem;">Full analytics →</a></div>
+      <ul id="top-searched-list" style="list-style:none;padding:0;margin:0;"></ul>
+    </div>
+    <div class="card">
+      <div class="panel-title-row"><h3>Shortage Risk Preview</h3><a href="admin-analytics.html" style="font-size:0.85rem;">Full analytics →</a></div>
+      <ul id="shortage-preview-list" style="list-style:none;padding:0;margin:0;"></ul>
+      <p class="text-muted" style="font-size:0.75rem;margin-top:14px;">Demo Prediction — rule-based estimate, not a trained ML model. See Methodology in the README.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOR PHARMACIES CTA -->
+<section class="section--dark">
+  <div class="container grid-2" style="align-items:center;">
+    <div>
+      <div class="eyebrow">For Pharmacies</div>
+      <h2>Already tracking your inventory?<br>Get visibility for free.</h2>
+      <p>Export a CSV from your existing system, import it into PharmaTrack, and get a dashboard showing what's low, what's out, and what's about to run out — plus visibility to the citizens searching for it.</p>
+      <a href="login.html?role=pharmacy" class="btn btn--primary mt-16">Pharmacy Login →</a>
+    </div>
+    <div class="card" style="background:rgba(255,255,255,0.04);border-color:rgba(255,255,255,0.12);color:#fff;">
+      <h4 style="color:#fff;">What pharmacies get</h4>
+      <ul style="font-size:0.92rem;color:var(--text-on-dark-muted);padding-left:1.1em;">
+        <li>One-click CSV import with validation feedback</li>
+        <li>Inventory dashboard: available, low stock, out of stock</li>
+        <li>Medicines at risk of shortage, ranked</li>
+        <li>Most-requested medicines from public search interest</li>
+        <li>Full inventory history &amp; trend charts</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4>PharmaTrack</h4>
+        <p style="font-size:0.85rem;max-width:280px;">A medicine availability and shortage-intelligence layer for Libya. Graduation project prototype — synthetic demo data only.</p>
+      </div>
+      <div>
+        <h4>Product</h4>
+        <ul><li><a href="search.html">Search Medicines</a></li><li><a href="pharmacies.html">Pharmacy Directory</a></li><li><a href="admin-analytics.html">Analytics</a></li></ul>
+      </div>
+      <div>
+        <h4>Pharmacies</h4>
+        <ul><li><a href="login.html?role=pharmacy">Pharmacy Login</a></li><li><a href="import.html">CSV Import Demo</a></li></ul>
+      </div>
+      <div>
+        <h4>System</h4>
+        <ul><li><a href="login.html?role=admin">Admin Login</a></li><li><a href="README.md">README</a></li></ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-year></span> PharmaTrack Demo Project</span>
+      <span class="footer-note">SYNTHETIC DATA · NOT A MEDICAL DEVICE · NOT FOR REAL PRESCRIBING DECISIONS</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/store.js"></script>
+<script src="js/app.js"></script>
+<script src="js/search.js"></script>
+</body>
+</html>

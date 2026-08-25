@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pharmacy Management — PharmaTrack Admin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/dashboard.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+<div class="demo-banner"><strong>Demo prototype</strong> — administrator view of simulated system-wide data.</div>
+<nav class="nav">
+  <div class="container">
+    <a href="index.html" class="brand"><span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L3 6V12C3 17 6.5 21 12 22C17.5 21 21 17 21 12V6L12 2Z" fill="white" fill-opacity="0.9"/><path d="M12 8V16M8 12H16" stroke="#0197F6" stroke-width="2" stroke-linecap="round"/></svg></span>PharmaTrack <span class="dim">Libya</span></a>
+    <ul class="nav-links"><li><a href="index.html">Public Site</a></li></ul>
+    <div class="nav-actions"><div data-session-slot></div><button class="nav-toggle" aria-label="Menu">☰</button></div>
+  </div>
+  <div class="mobile-nav-panel"><a href="index.html">Public Site</a></div>
+</nav>
+
+<div class="dash-layout">
+  <aside class="dash-sidebar">
+    <div class="side-group">
+      <div class="side-title">Administration</div>
+      <a href="admin-dashboard.html"> Dashboard</a>
+      <a href="admin-pharmacies.html" class="active"> Pharmacies</a>
+      <a href="admin-medicines.html"> Medicine Catalog</a>
+      <a href="admin-imports.html"> Imports &amp; Data Quality</a>
+      <a href="admin-analytics.html"> Advanced Analytics</a>
+    </div>
+    <div class="side-group"><div class="side-title">Account</div><a href="index.html">← Public Site</a></div>
+  </aside>
+
+  <main class="dash-main">
+    <div class="dash-header"><h2>Pharmacy Management</h2><span id="adm-pharmacy-count" class="text-muted" style="font-size:0.88rem;"></span></div>
+
+    <div class="card">
+      <div class="toolbar">
+        <input id="adm-pharmacy-search" class="input input-grow" type="text" placeholder="Search by name or city…">
+        <select id="adm-pharmacy-status-filter" class="input">
+          <option value="">All statuses</option>
+          <option value="ACTIVE">Active</option>
+          <option value="PENDING">Pending</option>
+          <option value="INACTIVE">Inactive</option>
+        </select>
+      </div>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead><tr><th>Pharmacy</th><th>Location</th><th>Medicines</th><th>Status</th><th>Last Sync</th><th>Actions</th></tr></thead>
+          <tbody id="adm-pharmacy-body"></tbody>
+        </table>
+      </div>
+      <p class="text-muted" style="font-size:0.78rem;margin-top:14px;">Approve/activate actions are simulated for this browser session only and are not persisted.</p>
+    </div>
+  </main>
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/store.js"></script>
+<script src="js/app.js"></script>
+<script>PTAuth.requireRole("admin");</script>
+<script src="js/admin.js"></script>
+</body>
+</html>

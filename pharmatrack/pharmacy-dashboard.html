@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pharmacy Dashboard — PharmaTrack</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/dashboard.css">
+<link rel="stylesheet" href="css/responsive.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.4/chart.umd.min.js"></script>
+</head>
+<body>
+<div class="demo-banner"><strong>Demo prototype</strong> — you are viewing simulated pharmacy data.</div>
+<nav class="nav">
+  <div class="container">
+    <a href="index.html" class="brand"><span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L3 6V12C3 17 6.5 21 12 22C17.5 21 21 17 21 12V6L12 2Z" fill="white" fill-opacity="0.9"/><path d="M12 8V16M8 12H16" stroke="#0197F6" stroke-width="2" stroke-linecap="round"/></svg></span>PharmaTrack <span class="dim">Libya</span></a>
+    <ul class="nav-links"><li><a href="index.html">Public Site</a></li></ul>
+    <div class="nav-actions"><div data-session-slot></div><button class="nav-toggle" aria-label="Menu">☰</button></div>
+  </div>
+  <div class="mobile-nav-panel"><a href="index.html">Public Site</a></div>
+</nav>
+
+<div class="dash-layout">
+  <aside class="dash-sidebar">
+    <div class="side-group">
+      <div class="side-title">Pharmacy</div>
+      <a href="pharmacy-dashboard.html" class="active"> Dashboard</a>
+      <a href="inventory.html"> Inventory</a>
+      <a href="import.html">⇪ Import CSV</a>
+      <a href="history.html"> History</a>
+    </div>
+    <div class="side-group">
+      <div class="side-title">Account</div>
+      <a href="index.html">← Public Site</a>
+    </div>
+  </aside>
+
+  <main class="dash-main" id="pharmacy-dash-root">
+    <div class="dash-header">
+      <div>
+        <h2 id="dash-pharmacy-name">My Pharmacy</h2>
+        <div id="dash-freshness"></div>
+      </div>
+      <a href="import.html" class="btn btn--primary">Import Inventory CSV</a>
+    </div>
+
+    <div class="kpi-grid">
+      <div class="kpi-card"><div class="kpi-label">Tracked Medicines</div><div class="kpi-value mono" id="dash-total">—</div></div>
+      <div class="kpi-card"><div class="kpi-label">Available</div><div class="kpi-value mono" id="dash-available">—</div></div>
+      <div class="kpi-card"><div class="kpi-label">Low Stock</div><div class="kpi-value mono" id="dash-low">—</div></div>
+      <div class="kpi-card"><div class="kpi-label">Out of Stock</div><div class="kpi-value mono" id="dash-out">—</div></div>
+    </div>
+
+    <div class="grid-2 mt-24">
+      <div class="chart-card">
+        <h4>Inventory Trend</h4>
+        <div class="chart-sub">Average quantity on hand across your tracked medicines with history.</div>
+        <div class="chart-canvas-wrap"><canvas id="dash-trend-chart"></canvas></div>
+      </div>
+      <div class="card">
+        <h4>Medicines At Risk of Shortage</h4>
+        <ul id="dash-at-risk" style="list-style:none;padding:0;margin:0;"></ul>
+      </div>
+    </div>
+
+    <div class="grid-2 mt-24">
+      <div class="card">
+        <h4>Most Requested (Public Search Interest)</h4>
+        <ul id="dash-most-requested" style="list-style:none;padding:0;margin:0;"></ul>
+      </div>
+      <div class="card">
+        <h4>Recent CSV Imports</h4>
+        <ul id="dash-recent-imports" style="list-style:none;padding:0;margin:0;"></ul>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/store.js"></script>
+<script src="js/app.js"></script>
+<script src="js/charts.js"></script>
+<script>PTAuth.requireRole("pharmacy");</script>
+<script src="js/pharmacy.js"></script>
+</body>
+</html>

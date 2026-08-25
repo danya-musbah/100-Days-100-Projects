@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Advanced Analytics — PharmaTrack</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/dashboard.css">
+<link rel="stylesheet" href="css/responsive.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.4/chart.umd.min.js"></script>
+</head>
+<body>
+<div class="demo-banner"><strong>Demo prototype</strong> — analytics are computed client-side from synthetic data. Shortage risk is a rule-based <strong>Demo Prediction</strong>, not a trained ML model.</div>
+<nav class="nav">
+  <div class="container">
+    <a href="index.html" class="brand"><span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L3 6V12C3 17 6.5 21 12 22C17.5 21 21 17 21 12V6L12 2Z" fill="white" fill-opacity="0.9"/><path d="M12 8V16M8 12H16" stroke="#0197F6" stroke-width="2" stroke-linecap="round"/></svg></span>PharmaTrack <span class="dim">Libya</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html" data-nav-link>Home</a></li>
+      <li><a href="search.html" data-nav-link>Search</a></li>
+      <li><a href="pharmacies.html" data-nav-link>Pharmacies</a></li>
+      <li><a href="admin-analytics.html" data-nav-link class="active">Insights</a></li>
+    </ul>
+    <div class="nav-actions"><div data-session-slot></div><a href="login.html?role=pharmacy" class="btn btn--outline btn--sm">For Pharmacies</a><button class="nav-toggle" aria-label="Menu">☰</button></div>
+  </div>
+  <div class="mobile-nav-panel"><a href="index.html">Home</a><a href="search.html">Search Medicines</a><a href="pharmacies.html">Pharmacy Directory</a><a href="admin-analytics.html">Insights</a><a href="login.html?role=pharmacy">Pharmacy Login</a><a href="login.html?role=admin">Admin Login</a></div>
+</nav>
+
+<main id="analytics-root">
+<section class="section--dark" style="padding:50px 0 34px;">
+  <div class="container">
+    <div class="eyebrow"><span class="pulse-dot"></span> System-wide Analytics</div>
+    <h1 style="font-size:2rem;">Shortage &amp; Availability Intelligence</h1>
+    <p style="max-width:600px;">Eight views into medicine availability, demand, and shortage risk across the entire PharmaTrack network — open to the public for transparency.</p>
+  </div>
+</section>
+
+<section class="section section--soft" style="padding-top:32px;">
+  <div class="container">
+    <div class="grid-charts">
+      <div class="chart-card span-2">
+        <h4>1 · Medicine Availability Over Time</h4>
+        <div class="chart-sub">Average inventory quantity across all sampled pharmacy-medicine pairs.</div>
+        <div class="chart-canvas-wrap"><canvas id="chart-availability-time"></canvas></div>
+      </div>
+
+      <div class="chart-card">
+        <h4>2 · Top Medicines by Search Activity</h4>
+        <div class="chart-sub">Most searched medicines (public search interest).</div>
+        <div class="chart-canvas-wrap"><canvas id="chart-top-searched"></canvas></div>
+      </div>
+
+      <div class="chart-card">
+        <h4>3 · Most Frequently Out-of-Stock</h4>
+        <div class="chart-sub">Share of tracking pharmacies reporting zero stock.</div>
+        <div class="chart-canvas-wrap"><canvas id="chart-most-out"></canvas></div>
+      </div>
+
+      <div class="chart-card span-2">
+        <h4>4 · Availability by City</h4>
+        <div class="chart-sub">Inventory record counts by status, per city.</div>
+        <div class="chart-canvas-wrap"><canvas id="chart-by-city"></canvas></div>
+      </div>
+
+      <div class="chart-card span-2">
+        <h4>5 · Availability by Medicine Category</h4>
+        <div class="chart-sub">Inventory record counts by status, per category.</div>
+        <div class="chart-canvas-wrap"><canvas id="chart-by-category"></canvas></div>
+      </div>
+
+      <div class="chart-card">
+        <h4>6 · Pharmacy Data Freshness</h4>
+        <div class="chart-sub">How recently pharmacies last synchronized.</div>
+        <div class="chart-canvas-wrap"><canvas id="chart-freshness"></canvas></div>
+      </div>
+
+      <div class="chart-card">
+        <h4>7 · Inventory Trend</h4>
+        <div class="chart-sub">Total quantity across sampled history records, by month.</div>
+        <div class="chart-canvas-wrap"><canvas id="chart-inventory-trend"></canvas></div>
+      </div>
+
+      <div class="chart-card span-2">
+        <h4>8 · Shortage Trend Over Time</h4>
+        <div class="chart-sub">Percentage of historical snapshots recorded at zero stock, by month.</div>
+        <div class="chart-canvas-wrap"><canvas id="chart-shortage-trend"></canvas></div>
+      </div>
+    </div>
+
+    <div class="card mt-24">
+      <div class="panel-title-row"><h3>Shortage Risk — Demo Prediction</h3></div>
+      <p class="text-muted" style="font-size:0.85rem;">Rule-based composite of out-of-stock ratio, inventory decline trend, recent search volume, and pharmacy breadth. A future release replaces this with a scikit-learn model (Logistic Regression / Random Forest) trained on real historical outcomes.</p>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead><tr><th>Medicine</th><th>Category</th><th>Pharmacies</th><th>Out-of-Stock Ratio</th><th>Decline Trend</th><th>Recent Searches</th><th>Risk</th></tr></thead>
+          <tbody id="analytics-risk-body"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="container"><div class="footer-bottom"><span>© <span data-year></span> PharmaTrack Demo Project</span><span class="footer-note">SYNTHETIC DATA · DEMO ONLY</span></div></div>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/store.js"></script>
+<script src="js/app.js"></script>
+<script src="js/charts.js"></script>
+<script src="js/analytics.js"></script>
+</body>
+</html>

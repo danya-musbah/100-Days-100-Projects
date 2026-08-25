@@ -1,0 +1,521 @@
+medicine_id,brand_name,generic_name,active_ingredient,strength,dosage_form,category,manufacturer
+MED0001,Paracetamol,Paracetamol,Paracetamol,500 mg,Tablet,Analgesics,Sanofi
+MED0002,Paracetamol,Paracetamol,Paracetamol,650 mg,Suppository,Analgesics,MSD
+MED0003,Paracetamol,Paracetamol,Paracetamol,650 mg,Tablet,Analgesics,Sanofi
+MED0004,Paracetamol,Paracetamol,Paracetamol,650 mg,Syrup,Analgesics,SPIMACO
+MED0005,Paracetamol,Paracetamol,Paracetamol,1000 mg,Syrup,Analgesics,Novartis
+MED0006,Paracetamol,Paracetamol,Paracetamol,1000 mg,Suppository,Analgesics,Novartis
+MED0007,Paracetamol,Paracetamol,Paracetamol,1000 mg,Tablet,Analgesics,MSD
+MED0008,Panadol,Paracetamol,Paracetamol,500 mg,Tablet,Analgesics,Medreich
+MED0009,Ibuprofen,Ibuprofen,Ibuprofen,200 mg,Syrup,Analgesics,Pfizer
+MED0010,Ibuprofen,Ibuprofen,Ibuprofen,200 mg,Tablet,Analgesics,Roche
+MED0011,Ibuprofen,Ibuprofen,Ibuprofen,400 mg,Syrup,Analgesics,Sanofi
+MED0012,Ibuprofen,Ibuprofen,Ibuprofen,600 mg,Tablet,Analgesics,Bayer
+MED0013,Ibuprofen,Ibuprofen,Ibuprofen,600 mg,Syrup,Analgesics,GSK
+MED0014,Diclofenac,Diclofenac Sodium,Diclofenac Sodium,50 mg,Gel,Analgesics,Bayer
+MED0015,Diclofenac,Diclofenac Sodium,Diclofenac Sodium,75 mg,Tablet,Analgesics,GSK
+MED0016,Diclofenac,Diclofenac Sodium,Diclofenac Sodium,75 mg,Injection,Analgesics,Novartis
+MED0017,Tramadol,Tramadol HCl,Tramadol HCl,50 mg,Injection,Analgesics,Al-Andalous Pharma
+MED0018,Tramadol,Tramadol HCl,Tramadol HCl,50 mg,Capsule,Analgesics,Julphar
+MED0019,Tramadol,Tramadol HCl,Tramadol HCl,100 mg,Injection,Analgesics,Bayer
+MED0020,Tramadol,Tramadol HCl,Tramadol HCl,100 mg,Capsule,Analgesics,Novartis
+MED0021,Augmentin,Amoxicillin/Clavulanate,Amoxicillin/Clavulanate,625 mg,Syrup,Antibiotics,Sanofi
+MED0022,Augmentin,Amoxicillin/Clavulanate,Amoxicillin/Clavulanate,1g,Syrup,Antibiotics,Hikma
+MED0023,Amoxil,Amoxicillin,Amoxicillin,250 mg,Capsule,Antibiotics,MSD
+MED0024,Amoxil,Amoxicillin,Amoxicillin,250 mg,Syrup,Antibiotics,Sanofi
+MED0025,Amoxil,Amoxicillin,Amoxicillin,500 mg,Capsule,Antibiotics,Pfizer
+MED0026,Zithromax,Azithromycin,Azithromycin,250 mg,Tablet,Antibiotics,Al-Andalous Pharma
+MED0027,Zithromax,Azithromycin,Azithromycin,500 mg,Syrup,Antibiotics,Pfizer
+MED0028,Zithromax,Azithromycin,Azithromycin,500 mg,Tablet,Antibiotics,Sanofi
+MED0029,Ciprocin,Ciprofloxacin,Ciprofloxacin,250 mg,Injection,Antibiotics,Roche
+MED0030,Ciprocin,Ciprofloxacin,Ciprofloxacin,250 mg,Tablet,Antibiotics,Sanofi
+MED0031,Ciprocin,Ciprofloxacin,Ciprofloxacin,500 mg,Injection,Antibiotics,Julphar
+MED0032,Ciprocin,Ciprofloxacin,Ciprofloxacin,500 mg,Tablet,Antibiotics,Hikma
+MED0033,Cefixime,Cefixime,Cefixime,200 mg,Tablet,Antibiotics,Julphar
+MED0034,Cefixime,Cefixime,Cefixime,400 mg,Syrup,Antibiotics,Al-Andalous Pharma
+MED0035,Flagyl,Metronidazole,Metronidazole,250 mg,Injection,Antibiotics,Bayer
+MED0036,Flagyl,Metronidazole,Metronidazole,500 mg,Syrup,Antibiotics,GSK
+MED0037,Flagyl,Metronidazole,Metronidazole,500 mg,Injection,Antibiotics,GSK
+MED0038,Glucophage,Metformin,Metformin,500 mg,Tablet,Antidiabetics,Al-Andalous Pharma
+MED0039,Glucophage,Metformin,Metformin,850 mg,Tablet,Antidiabetics,Pfizer
+MED0040,Glucophage,Metformin,Metformin,1000 mg,Tablet,Antidiabetics,Al-Andalous Pharma
+MED0041,Amaryl,Glimepiride,Glimepiride,1 mg,Tablet,Antidiabetics,Sanofi
+MED0042,Amaryl,Glimepiride,Glimepiride,2 mg,Tablet,Antidiabetics,SPIMACO
+MED0043,Amaryl,Glimepiride,Glimepiride,4 mg,Tablet,Antidiabetics,Bayer
+MED0044,Lantus,Insulin Glargine,Insulin Glargine,100 IU/ml,Injection,Antidiabetics,Novartis
+MED0045,Mixtard,Insulin (Biphasic),Insulin (Biphasic),100 IU/ml,Injection,Antidiabetics,MSD
+MED0046,Januvia,Sitagliptin,Sitagliptin,50 mg,Tablet,Antidiabetics,MSD
+MED0047,Januvia,Sitagliptin,Sitagliptin,100 mg,Tablet,Antidiabetics,Roche
+MED0048,Norvasc,Amlodipine,Amlodipine,5 mg,Tablet,Antihypertensives,Hikma
+MED0049,Norvasc,Amlodipine,Amlodipine,10 mg,Tablet,Antihypertensives,SPIMACO
+MED0050,Concor,Bisoprolol,Bisoprolol,2.5 mg,Tablet,Antihypertensives,Bayer
+MED0051,Concor,Bisoprolol,Bisoprolol,5 mg,Tablet,Antihypertensives,Roche
+MED0052,Concor,Bisoprolol,Bisoprolol,10 mg,Tablet,Antihypertensives,Julphar
+MED0053,Coversyl,Perindopril,Perindopril,4 mg,Tablet,Antihypertensives,Libyan Pharma Co.
+MED0054,Coversyl,Perindopril,Perindopril,8 mg,Tablet,Antihypertensives,Medreich
+MED0055,Cozaar,Losartan,Losartan,50 mg,Tablet,Antihypertensives,GSK
+MED0056,Cozaar,Losartan,Losartan,100 mg,Tablet,Antihypertensives,Al-Andalous Pharma
+MED0057,Tenormin,Atenolol,Atenolol,50 mg,Tablet,Antihypertensives,GSK
+MED0058,Tenormin,Atenolol,Atenolol,100 mg,Tablet,Antihypertensives,Roche
+MED0059,Nexium,Esomeprazole,Esomeprazole,20 mg,Tablet,Gastrointestinal,MSD
+MED0060,Nexium,Esomeprazole,Esomeprazole,40 mg,Tablet,Gastrointestinal,SPIMACO
+MED0061,Nexium,Esomeprazole,Esomeprazole,40 mg,Capsule,Gastrointestinal,Pfizer
+MED0062,Omeprazole,Omeprazole,Omeprazole,20 mg,Capsule,Gastrointestinal,Bayer
+MED0063,Omeprazole,Omeprazole,Omeprazole,40 mg,Capsule,Gastrointestinal,Libyan Pharma Co.
+MED0064,Motilium,Domperidone,Domperidone,10 mg,Syrup,Gastrointestinal,Roche
+MED0065,Motilium,Domperidone,Domperidone,10 mg,Tablet,Gastrointestinal,Medreich
+MED0066,Buscopan,Hyoscine Butylbromide,Hyoscine Butylbromide,10 mg,Injection,Gastrointestinal,Al-Andalous Pharma
+MED0067,Buscopan,Hyoscine Butylbromide,Hyoscine Butylbromide,10 mg,Tablet,Gastrointestinal,Pfizer
+MED0068,Smecta,Diosmectite,Diosmectite,3 g,Sachet,Gastrointestinal,Roche
+MED0069,Zyrtec,Cetirizine,Cetirizine,10 mg,Syrup,Antihistamines,Hikma
+MED0070,Claritine,Loratadine,Loratadine,10 mg,Syrup,Antihistamines,Libyan Pharma Co.
+MED0071,Allegra,Fexofenadine,Fexofenadine,120 mg,Tablet,Antihistamines,SPIMACO
+MED0072,Allegra,Fexofenadine,Fexofenadine,180 mg,Tablet,Antihistamines,Libyan Pharma Co.
+MED0073,Telfast,Fexofenadine,Fexofenadine,120 mg,Tablet,Antihistamines,Hikma
+MED0074,Ventolin,Salbutamol,Salbutamol,100 mcg,Inhaler,Respiratory,Roche
+MED0075,Symbicort,Budesonide/Formoterol,Budesonide/Formoterol,160/4.5 mcg,Inhaler,Respiratory,SPIMACO
+MED0076,Bricanyl,Terbutaline,Terbutaline,2.5 mg,Inhaler,Respiratory,MSD
+MED0077,Bricanyl,Terbutaline,Terbutaline,2.5 mg,Tablet,Respiratory,SPIMACO
+MED0078,Ambroxol,Ambroxol HCl,Ambroxol HCl,30 mg,Tablet,Respiratory,Roche
+MED0079,Plavix,Clopidogrel,Clopidogrel,75 mg,Tablet,Cardiovascular,GSK
+MED0080,Aspirin Protect,Acetylsalicylic Acid,Acetylsalicylic Acid,100 mg,Tablet,Cardiovascular,Libyan Pharma Co.
+MED0081,Crestor,Rosuvastatin,Rosuvastatin,10 mg,Tablet,Cardiovascular,GSK
+MED0082,Crestor,Rosuvastatin,Rosuvastatin,20 mg,Tablet,Cardiovascular,SPIMACO
+MED0083,Lipitor,Atorvastatin,Atorvastatin,10 mg,Tablet,Cardiovascular,SPIMACO
+MED0084,Lipitor,Atorvastatin,Atorvastatin,20 mg,Tablet,Cardiovascular,SPIMACO
+MED0085,Lipitor,Atorvastatin,Atorvastatin,40 mg,Tablet,Cardiovascular,Julphar
+MED0086,Vitamin C,Ascorbic Acid,Ascorbic Acid,500 mg,Effervescent,Vitamins,Sanofi
+MED0087,Vitamin C,Ascorbic Acid,Ascorbic Acid,500 mg,Tablet,Vitamins,Bayer
+MED0088,Vitamin C,Ascorbic Acid,Ascorbic Acid,1000 mg,Tablet,Vitamins,Libyan Pharma Co.
+MED0089,Vitamin C,Ascorbic Acid,Ascorbic Acid,1000 mg,Effervescent,Vitamins,SPIMACO
+MED0090,Vitamin D3,Cholecalciferol,Cholecalciferol,1000 IU,Drops,Vitamins,Pfizer
+MED0091,Vitamin D3,Cholecalciferol,Cholecalciferol,1000 IU,Tablet,Vitamins,Bayer
+MED0092,Vitamin D3,Cholecalciferol,Cholecalciferol,50000 IU,Drops,Vitamins,Hikma
+MED0093,Vitamin D3,Cholecalciferol,Cholecalciferol,50000 IU,Tablet,Vitamins,Medreich
+MED0094,Folic Acid,Folic Acid,Folic Acid,5 mg,Tablet,Vitamins,Libyan Pharma Co.
+MED0095,Centrum,Multivitamin,Multivitamin,Standard,Tablet,Vitamins,Medreich
+MED0096,Iron Complex,Ferrous Sulfate,Ferrous Sulfate,200 mg,Syrup,Vitamins,Al-Andalous Pharma
+MED0097,Iron Complex,Ferrous Sulfate,Ferrous Sulfate,200 mg,Tablet,Vitamins,MSD
+MED0098,Betaderm,Betamethasone,Betamethasone,0.1%,Cream,Dermatology,Bayer
+MED0099,Fucidin,Fusidic Acid,Fusidic Acid,2%,Cream,Dermatology,MSD
+MED0100,Daktarin,Miconazole,Miconazole,2%,Cream,Dermatology,Hikma
+MED0101,Nurofen for Children,Ibuprofen,Ibuprofen,100mg/5ml,Syrup,Pediatric,MSD
+MED0102,Panadol Baby,Paracetamol,Paracetamol,120mg/5ml,Syrup,Pediatric,GSK
+MED0103,Pediasure,Nutritional Supplement,Nutritional Supplement,Standard,Powder,Pediatric,Pfizer
+MED0104,Naproxen,Naproxen,Naproxen,250 mg,Tablet,Analgesics,Hikma
+MED0105,Furosemide,Furosemide,Furosemide,40 mg,Injection,Cardiovascular,Novartis
+MED0106,Calcium Carbonate,Calcium Carbonate,Calcium Carbonate,500 mg,Tablet,Vitamins,GSK
+MED0107,Montelukast,Montelukast Sodium,Montelukast Sodium,4 mg,Tablet,Respiratory,Al-Andalous Pharma
+MED0108,ORS Sachet,Oral Rehydration Salts,Oral Rehydration Salts,Standard,Sachet,Pediatric,Julphar
+MED0109,Codeine Syrup,Codeine Phosphate,Codeine Phosphate,Standard,Syrup,Respiratory,Al-Andalous Pharma
+MED0110,Salbutamol Nebules,Salbutamol,Salbutamol,2.5 mg,Nebule,Respiratory,SPIMACO
+MED0111,Loperamide,Loperamide HCl,Loperamide HCl,2 mg,Capsule,Gastrointestinal,Libyan Pharma Co.
+MED0112,Ranitidine,Ranitidine,Ranitidine,150 mg,Tablet,Gastrointestinal,Sanofi
+MED0113,Loperamide (Julphar),Loperamide HCl,Loperamide HCl,2 mg,Capsule,Gastrointestinal,Julphar
+MED0114,Fluconazole,Fluconazole,Fluconazole,150 mg,Capsule,Antibiotics,Medreich
+MED0115,Spironolactone,Spironolactone,Spironolactone,25 mg,Tablet,Antihypertensives,Pfizer
+MED0116,Dexamethasone,Dexamethasone,Dexamethasone,0.5 mg,Injection,Analgesics,Sanofi
+MED0117,Dexamethasone (Bayer),Dexamethasone,Dexamethasone,0.5 mg,Tablet,Analgesics,Bayer
+MED0118,Ranitidine (SPIMACO),Ranitidine,Ranitidine,150 mg,Tablet,Gastrointestinal,SPIMACO
+MED0119,Spironolactone (Pfizer),Spironolactone,Spironolactone,25 mg,Tablet,Antihypertensives,Pfizer
+MED0120,Loperamide (GSK),Loperamide HCl,Loperamide HCl,2 mg,Capsule,Gastrointestinal,GSK
+MED0121,Dexamethasone (GSK),Dexamethasone,Dexamethasone,0.5 mg,Tablet,Analgesics,GSK
+MED0122,Fluconazole (Al-Andalous Pharma),Fluconazole,Fluconazole,150 mg,Capsule,Antibiotics,Al-Andalous Pharma
+MED0123,Doxycycline,Doxycycline,Doxycycline,100 mg,Capsule,Antibiotics,Bayer
+MED0124,Dexamethasone (Julphar),Dexamethasone,Dexamethasone,0.5 mg,Injection,Analgesics,Julphar
+MED0125,Dexamethasone (Hikma),Dexamethasone,Dexamethasone,0.5 mg,Injection,Analgesics,Hikma
+MED0126,Levothyroxine,Levothyroxine Sodium,Levothyroxine Sodium,100 mcg,Tablet,Antihypertensives,MSD
+MED0127,Loperamide (Pfizer),Loperamide HCl,Loperamide HCl,2 mg,Capsule,Gastrointestinal,Pfizer
+MED0128,Mebeverine,Mebeverine HCl,Mebeverine HCl,135 mg,Tablet,Gastrointestinal,Sanofi
+MED0129,Meloxicam,Meloxicam,Meloxicam,7.5 mg,Tablet,Analgesics,MSD
+MED0130,Warfarin,Warfarin Sodium,Warfarin Sodium,3 mg,Tablet,Cardiovascular,Pfizer
+MED0131,Clindamycin,Clindamycin,Clindamycin,300 mg,Capsule,Antibiotics,MSD
+MED0132,Mebeverine (GSK),Mebeverine HCl,Mebeverine HCl,135 mg,Tablet,Gastrointestinal,GSK
+MED0133,Warfarin (SPIMACO),Warfarin Sodium,Warfarin Sodium,1 mg,Tablet,Cardiovascular,SPIMACO
+MED0134,Fluconazole (SPIMACO),Fluconazole,Fluconazole,150 mg,Capsule,Antibiotics,SPIMACO
+MED0135,Meloxicam (GSK),Meloxicam,Meloxicam,15 mg,Tablet,Analgesics,GSK
+MED0136,Doxycycline (Libyan Pharma Co.),Doxycycline,Doxycycline,100 mg,Capsule,Antibiotics,Libyan Pharma Co.
+MED0137,Calcium Carbonate (Novartis),Calcium Carbonate,Calcium Carbonate,600 mg,Tablet,Vitamins,Novartis
+MED0138,Naproxen (Al-Andalous Pharma),Naproxen,Naproxen,500 mg,Tablet,Analgesics,Al-Andalous Pharma
+MED0139,Codeine Syrup (GSK),Codeine Phosphate,Codeine Phosphate,Standard,Syrup,Respiratory,GSK
+MED0140,Hydrocortisone,Hydrocortisone,Hydrocortisone,1%,Cream,Dermatology,SPIMACO
+MED0141,Montelukast (Al-Andalous Pharma),Montelukast Sodium,Montelukast Sodium,4 mg,Tablet,Respiratory,Al-Andalous Pharma
+MED0142,Hydrocortisone (MSD),Hydrocortisone,Hydrocortisone,1%,Cream,Dermatology,MSD
+MED0143,Calcium Carbonate (SPIMACO),Calcium Carbonate,Calcium Carbonate,600 mg,Tablet,Vitamins,SPIMACO
+MED0144,Montelukast (Pfizer),Montelukast Sodium,Montelukast Sodium,4 mg,Tablet,Respiratory,Pfizer
+MED0145,ORS Sachet (Pfizer),Oral Rehydration Salts,Oral Rehydration Salts,Standard,Sachet,Pediatric,Pfizer
+MED0146,Warfarin (Libyan Pharma Co.),Warfarin Sodium,Warfarin Sodium,3 mg,Tablet,Cardiovascular,Libyan Pharma Co.
+MED0147,Fluconazole (MSD),Fluconazole,Fluconazole,150 mg,Capsule,Antibiotics,MSD
+MED0148,Codeine Syrup (Libyan Pharma Co.),Codeine Phosphate,Codeine Phosphate,Standard,Syrup,Respiratory,Libyan Pharma Co.
+MED0149,Warfarin (Hikma),Warfarin Sodium,Warfarin Sodium,1 mg,Tablet,Cardiovascular,Hikma
+MED0150,Loperamide (Sanofi),Loperamide HCl,Loperamide HCl,2 mg,Capsule,Gastrointestinal,Sanofi
+MED0151,Ranitidine (Bayer),Ranitidine,Ranitidine,150 mg,Tablet,Gastrointestinal,Bayer
+MED0152,Salbutamol Nebules (Roche),Salbutamol,Salbutamol,2.5 mg,Nebule,Respiratory,Roche
+MED0153,Calcium Carbonate (Libyan Pharma Co.),Calcium Carbonate,Calcium Carbonate,500 mg,Tablet,Vitamins,Libyan Pharma Co.
+MED0154,Montelukast (GSK),Montelukast Sodium,Montelukast Sodium,10 mg,Tablet,Respiratory,GSK
+MED0155,Salbutamol Nebules (Julphar),Salbutamol,Salbutamol,2.5 mg,Nebule,Respiratory,Julphar
+MED0156,Dexamethasone (Sanofi),Dexamethasone,Dexamethasone,0.5 mg,Tablet,Analgesics,Sanofi
+MED0157,Spironolactone (Novartis),Spironolactone,Spironolactone,100 mg,Tablet,Antihypertensives,Novartis
+MED0158,Salbutamol Nebules (Al-Andalous Pharma),Salbutamol,Salbutamol,2.5 mg,Nebule,Respiratory,Al-Andalous Pharma
+MED0159,Ranitidine (Novartis),Ranitidine,Ranitidine,150 mg,Tablet,Gastrointestinal,Novartis
+MED0160,ORS Sachet (Libyan Pharma Co.),Oral Rehydration Salts,Oral Rehydration Salts,Standard,Sachet,Pediatric,Libyan Pharma Co.
+MED0161,Meloxicam (Libyan Pharma Co.),Meloxicam,Meloxicam,7.5 mg,Tablet,Analgesics,Libyan Pharma Co.
+MED0162,Warfarin (Novartis),Warfarin Sodium,Warfarin Sodium,3 mg,Tablet,Cardiovascular,Novartis
+MED0163,ORS Sachet (SPIMACO),Oral Rehydration Salts,Oral Rehydration Salts,Standard,Sachet,Pediatric,SPIMACO
+MED0164,Salbutamol Nebules (GSK),Salbutamol,Salbutamol,2.5 mg,Nebule,Respiratory,GSK
+MED0165,Clindamycin (Julphar),Clindamycin,Clindamycin,300 mg,Capsule,Antibiotics,Julphar
+MED0166,Spironolactone (GSK),Spironolactone,Spironolactone,100 mg,Tablet,Antihypertensives,GSK
+MED0167,ORS Sachet (Sanofi),Oral Rehydration Salts,Oral Rehydration Salts,Standard,Sachet,Pediatric,Sanofi
+MED0168,Vitamin B Complex,B-Complex Vitamins,B-Complex Vitamins,Standard,Tablet,Vitamins,Pfizer
+MED0169,Furosemide (Julphar),Furosemide,Furosemide,40 mg,Injection,Cardiovascular,Julphar
+MED0170,Warfarin (Novartis),Warfarin Sodium,Warfarin Sodium,5 mg,Tablet,Cardiovascular,Novartis
+MED0171,Furosemide (Julphar),Furosemide,Furosemide,40 mg,Tablet,Cardiovascular,Julphar
+MED0172,Furosemide (Roche),Furosemide,Furosemide,40 mg,Injection,Cardiovascular,Roche
+MED0173,Dexamethasone (Sanofi),Dexamethasone,Dexamethasone,0.5 mg,Injection,Analgesics,Sanofi
+MED0174,Warfarin (Sanofi),Warfarin Sodium,Warfarin Sodium,5 mg,Tablet,Cardiovascular,Sanofi
+MED0175,Warfarin (Medreich),Warfarin Sodium,Warfarin Sodium,5 mg,Tablet,Cardiovascular,Medreich
+MED0176,Warfarin (GSK),Warfarin Sodium,Warfarin Sodium,3 mg,Tablet,Cardiovascular,GSK
+MED0177,Codeine Syrup (Sanofi),Codeine Phosphate,Codeine Phosphate,Standard,Syrup,Respiratory,Sanofi
+MED0178,ORS Sachet (Julphar),Oral Rehydration Salts,Oral Rehydration Salts,Standard,Sachet,Pediatric,Julphar
+MED0179,Salbutamol Nebules (Medreich),Salbutamol,Salbutamol,2.5 mg,Nebule,Respiratory,Medreich
+MED0180,Montelukast (Roche),Montelukast Sodium,Montelukast Sodium,4 mg,Tablet,Respiratory,Roche
+MED0181,Meloxicam (Julphar),Meloxicam,Meloxicam,7.5 mg,Tablet,Analgesics,Julphar
+MED0182,Naproxen (Roche),Naproxen,Naproxen,500 mg,Tablet,Analgesics,Roche
+MED0183,Dexamethasone (GSK),Dexamethasone,Dexamethasone,0.5 mg,Injection,Analgesics,GSK
+MED0184,Ranitidine (Hikma),Ranitidine,Ranitidine,150 mg,Tablet,Gastrointestinal,Hikma
+MED0185,Ranitidine (Roche),Ranitidine,Ranitidine,150 mg,Tablet,Gastrointestinal,Roche
+MED0186,Vitamin B Complex (GSK),B-Complex Vitamins,B-Complex Vitamins,Standard,Tablet,Vitamins,GSK
+MED0187,Dexamethasone (Bayer),Dexamethasone,Dexamethasone,0.5 mg,Injection,Analgesics,Bayer
+MED0188,Vitamin B Complex (Sanofi),B-Complex Vitamins,B-Complex Vitamins,Standard,Tablet,Vitamins,Sanofi
+MED0189,Clindamycin (MSD),Clindamycin,Clindamycin,300 mg,Capsule,Antibiotics,MSD
+MED0190,Loperamide (MSD),Loperamide HCl,Loperamide HCl,2 mg,Capsule,Gastrointestinal,MSD
+MED0191,Levothyroxine (Roche),Levothyroxine Sodium,Levothyroxine Sodium,50 mcg,Tablet,Antihypertensives,Roche
+MED0192,Codeine Syrup (SPIMACO),Codeine Phosphate,Codeine Phosphate,Standard,Syrup,Respiratory,SPIMACO
+MED0193,Hydrocortisone (Libyan Pharma Co.),Hydrocortisone,Hydrocortisone,1%,Cream,Dermatology,Libyan Pharma Co.
+MED0194,Loperamide (Bayer),Loperamide HCl,Loperamide HCl,2 mg,Capsule,Gastrointestinal,Bayer
+MED0195,Calcium Carbonate (Libyan Pharma Co.),Calcium Carbonate,Calcium Carbonate,600 mg,Chewable,Vitamins,Libyan Pharma Co.
+MED0196,Spironolactone (Roche),Spironolactone,Spironolactone,25 mg,Tablet,Antihypertensives,Roche
+MED0197,Doxycycline (GSK),Doxycycline,Doxycycline,100 mg,Capsule,Antibiotics,GSK
+MED0198,Montelukast (Hikma),Montelukast Sodium,Montelukast Sodium,4 mg,Tablet,Respiratory,Hikma
+MED0199,Salbutamol Nebules (Sanofi),Salbutamol,Salbutamol,2.5 mg,Nebule,Respiratory,Sanofi
+MED0200,Doxycycline (MSD),Doxycycline,Doxycycline,100 mg,Capsule,Antibiotics,MSD
+MED0201,Dexamethasone (Hikma),Dexamethasone,Dexamethasone,0.5 mg,Tablet,Analgesics,Hikma
+MED0202,Clindamycin (Medreich),Clindamycin,Clindamycin,300 mg,Gel,Antibiotics,Medreich
+MED0203,Calcium Carbonate (Hikma),Calcium Carbonate,Calcium Carbonate,500 mg,Chewable,Vitamins,Hikma
+MED0204,Mebeverine (SPIMACO),Mebeverine HCl,Mebeverine HCl,135 mg,Tablet,Gastrointestinal,SPIMACO
+MED0205,Meloxicam (Roche),Meloxicam,Meloxicam,15 mg,Tablet,Analgesics,Roche
+MED0206,Clindamycin (SPIMACO),Clindamycin,Clindamycin,300 mg,Capsule,Antibiotics,SPIMACO
+MED0207,Levothyroxine (Sanofi),Levothyroxine Sodium,Levothyroxine Sodium,50 mcg,Tablet,Antihypertensives,Sanofi
+MED0208,Spironolactone (SPIMACO),Spironolactone,Spironolactone,25 mg,Tablet,Antihypertensives,SPIMACO
+MED0209,Hydrocortisone (Medreich),Hydrocortisone,Hydrocortisone,1%,Cream,Dermatology,Medreich
+MED0210,Ranitidine (Medreich),Ranitidine,Ranitidine,150 mg,Tablet,Gastrointestinal,Medreich
+MED0211,Warfarin (Libyan Pharma Co.),Warfarin Sodium,Warfarin Sodium,1 mg,Tablet,Cardiovascular,Libyan Pharma Co.
+MED0212,Doxycycline (Roche),Doxycycline,Doxycycline,100 mg,Capsule,Antibiotics,Roche
+MED0213,Naproxen (Medreich),Naproxen,Naproxen,500 mg,Tablet,Analgesics,Medreich
+MED0214,Spironolactone (Hikma),Spironolactone,Spironolactone,25 mg,Tablet,Antihypertensives,Hikma
+MED0215,Levothyroxine (Hikma),Levothyroxine Sodium,Levothyroxine Sodium,50 mcg,Tablet,Antihypertensives,Hikma
+MED0216,Levothyroxine (Roche),Levothyroxine Sodium,Levothyroxine Sodium,100 mcg,Tablet,Antihypertensives,Roche
+MED0217,Hydrocortisone (Pfizer),Hydrocortisone,Hydrocortisone,1%,Cream,Dermatology,Pfizer
+MED0218,Meloxicam (Hikma),Meloxicam,Meloxicam,7.5 mg,Tablet,Analgesics,Hikma
+MED0219,Hydrocortisone (Bayer),Hydrocortisone,Hydrocortisone,1%,Cream,Dermatology,Bayer
+MED0220,Doxycycline (Al-Andalous Pharma),Doxycycline,Doxycycline,100 mg,Capsule,Antibiotics,Al-Andalous Pharma
+MED0221,Meloxicam (SPIMACO),Meloxicam,Meloxicam,15 mg,Tablet,Analgesics,SPIMACO
+MED0222,Meloxicam (GSK),Meloxicam,Meloxicam,7.5 mg,Tablet,Analgesics,GSK
+MED0223,Fluconazole (Hikma),Fluconazole,Fluconazole,150 mg,Capsule,Antibiotics,Hikma
+MED0224,Loperamide (Roche),Loperamide HCl,Loperamide HCl,2 mg,Capsule,Gastrointestinal,Roche
+MED0225,Warfarin (Libyan Pharma Co.),Warfarin Sodium,Warfarin Sodium,5 mg,Tablet,Cardiovascular,Libyan Pharma Co.
+MED0226,Meloxicam (Bayer),Meloxicam,Meloxicam,15 mg,Tablet,Analgesics,Bayer
+MED0227,Montelukast (Julphar),Montelukast Sodium,Montelukast Sodium,4 mg,Tablet,Respiratory,Julphar
+MED0228,Hydrocortisone (Julphar),Hydrocortisone,Hydrocortisone,1%,Cream,Dermatology,Julphar
+MED0229,Clindamycin (Hikma),Clindamycin,Clindamycin,300 mg,Gel,Antibiotics,Hikma
+MED0230,Clindamycin (Bayer),Clindamycin,Clindamycin,300 mg,Gel,Antibiotics,Bayer
+MED0231,Loperamide (Al-Andalous Pharma),Loperamide HCl,Loperamide HCl,2 mg,Capsule,Gastrointestinal,Al-Andalous Pharma
+MED0232,Ranitidine (Sanofi),Ranitidine,Ranitidine,150 mg,Tablet,Gastrointestinal,Sanofi
+MED0233,Montelukast (Novartis),Montelukast Sodium,Montelukast Sodium,4 mg,Tablet,Respiratory,Novartis
+MED0234,Levothyroxine (Pfizer),Levothyroxine Sodium,Levothyroxine Sodium,100 mcg,Tablet,Antihypertensives,Pfizer
+MED0235,Meloxicam (Novartis),Meloxicam,Meloxicam,15 mg,Tablet,Analgesics,Novartis
+MED0236,Salbutamol Nebules (Bayer),Salbutamol,Salbutamol,2.5 mg,Nebule,Respiratory,Bayer
+MED0237,Dexamethasone (Roche),Dexamethasone,Dexamethasone,0.5 mg,Injection,Analgesics,Roche
+MED0238,Levothyroxine (Novartis),Levothyroxine Sodium,Levothyroxine Sodium,100 mcg,Tablet,Antihypertensives,Novartis
+MED0239,Vitamin B Complex (Medreich),B-Complex Vitamins,B-Complex Vitamins,Standard,Tablet,Vitamins,Medreich
+MED0240,Levothyroxine (MSD),Levothyroxine Sodium,Levothyroxine Sodium,100 mcg,Tablet,Antihypertensives,MSD
+MED0241,Levothyroxine (SPIMACO),Levothyroxine Sodium,Levothyroxine Sodium,100 mcg,Tablet,Antihypertensives,SPIMACO
+MED0242,Furosemide (Libyan Pharma Co.),Furosemide,Furosemide,40 mg,Tablet,Cardiovascular,Libyan Pharma Co.
+MED0243,Spironolactone (Roche),Spironolactone,Spironolactone,100 mg,Tablet,Antihypertensives,Roche
+MED0244,Codeine Syrup (Hikma),Codeine Phosphate,Codeine Phosphate,Standard,Syrup,Respiratory,Hikma
+MED0245,Mebeverine (Sanofi),Mebeverine HCl,Mebeverine HCl,135 mg,Tablet,Gastrointestinal,Sanofi
+MED0246,Calcium Carbonate (Julphar),Calcium Carbonate,Calcium Carbonate,600 mg,Chewable,Vitamins,Julphar
+MED0247,Naproxen (Libyan Pharma Co.),Naproxen,Naproxen,250 mg,Tablet,Analgesics,Libyan Pharma Co.
+MED0248,Doxycycline (Medreich),Doxycycline,Doxycycline,100 mg,Capsule,Antibiotics,Medreich
+MED0249,Clindamycin (Sanofi),Clindamycin,Clindamycin,300 mg,Gel,Antibiotics,Sanofi
+MED0250,Vitamin B Complex (Hikma),B-Complex Vitamins,B-Complex Vitamins,Standard,Tablet,Vitamins,Hikma
+MED0251,ORS Sachet (Bayer),Oral Rehydration Salts,Oral Rehydration Salts,Standard,Sachet,Pediatric,Bayer
+MED0252,Clindamycin (Roche),Clindamycin,Clindamycin,300 mg,Gel,Antibiotics,Roche
+MED0253,Levothyroxine (Novartis),Levothyroxine Sodium,Levothyroxine Sodium,50 mcg,Tablet,Antihypertensives,Novartis
+MED0254,Ranitidine (GSK),Ranitidine,Ranitidine,150 mg,Tablet,Gastrointestinal,GSK
+MED0255,Dexamethasone (Novartis),Dexamethasone,Dexamethasone,0.5 mg,Tablet,Analgesics,Novartis
+MED0256,Levothyroxine (Libyan Pharma Co.),Levothyroxine Sodium,Levothyroxine Sodium,50 mcg,Tablet,Antihypertensives,Libyan Pharma Co.
+MED0257,Clindamycin (Sanofi),Clindamycin,Clindamycin,300 mg,Capsule,Antibiotics,Sanofi
+MED0258,Spironolactone (Sanofi),Spironolactone,Spironolactone,100 mg,Tablet,Antihypertensives,Sanofi
+MED0259,Naproxen (Pfizer),Naproxen,Naproxen,250 mg,Tablet,Analgesics,Pfizer
+MED0260,Codeine Syrup (Al-Andalous Pharma),Codeine Phosphate,Codeine Phosphate,Standard,Syrup,Respiratory,Al-Andalous Pharma
+MED0261,Meloxicam (Novartis),Meloxicam,Meloxicam,7.5 mg,Tablet,Analgesics,Novartis
+MED0262,Codeine Syrup (MSD),Codeine Phosphate,Codeine Phosphate,Standard,Syrup,Respiratory,MSD
+MED0263,Ranitidine (Julphar),Ranitidine,Ranitidine,150 mg,Tablet,Gastrointestinal,Julphar
+MED0264,Clindamycin (Pfizer),Clindamycin,Clindamycin,300 mg,Capsule,Antibiotics,Pfizer
+MED0265,Doxycycline (Julphar),Doxycycline,Doxycycline,100 mg,Capsule,Antibiotics,Julphar
+MED0266,Mebeverine (Medreich),Mebeverine HCl,Mebeverine HCl,135 mg,Tablet,Gastrointestinal,Medreich
+MED0267,Ranitidine (Libyan Pharma Co.),Ranitidine,Ranitidine,150 mg,Tablet,Gastrointestinal,Libyan Pharma Co.
+MED0268,Dexamethasone (SPIMACO),Dexamethasone,Dexamethasone,0.5 mg,Injection,Analgesics,SPIMACO
+MED0269,Naproxen (Sanofi),Naproxen,Naproxen,250 mg,Tablet,Analgesics,Sanofi
+MED0270,Salbutamol Nebules (Novartis),Salbutamol,Salbutamol,2.5 mg,Nebule,Respiratory,Novartis
+MED0271,Doxycycline (Pfizer),Doxycycline,Doxycycline,100 mg,Capsule,Antibiotics,Pfizer
+MED0272,Furosemide (Medreich),Furosemide,Furosemide,40 mg,Injection,Cardiovascular,Medreich
+MED0273,Furosemide (Pfizer),Furosemide,Furosemide,40 mg,Tablet,Cardiovascular,Pfizer
+MED0274,Calcium Carbonate (MSD),Calcium Carbonate,Calcium Carbonate,500 mg,Chewable,Vitamins,MSD
+MED0275,Vitamin B Complex (Roche),B-Complex Vitamins,B-Complex Vitamins,Standard,Tablet,Vitamins,Roche
+MED0276,Montelukast (MSD),Montelukast Sodium,Montelukast Sodium,4 mg,Tablet,Respiratory,MSD
+MED0277,Naproxen (Novartis),Naproxen,Naproxen,500 mg,Tablet,Analgesics,Novartis
+MED0278,Levothyroxine (Bayer),Levothyroxine Sodium,Levothyroxine Sodium,100 mcg,Tablet,Antihypertensives,Bayer
+MED0279,Spironolactone (Libyan Pharma Co.),Spironolactone,Spironolactone,100 mg,Tablet,Antihypertensives,Libyan Pharma Co.
+MED0280,Calcium Carbonate (Julphar),Calcium Carbonate,Calcium Carbonate,600 mg,Tablet,Vitamins,Julphar
+MED0281,Ranitidine (Al-Andalous Pharma),Ranitidine,Ranitidine,150 mg,Tablet,Gastrointestinal,Al-Andalous Pharma
+MED0282,Fluconazole (Roche),Fluconazole,Fluconazole,150 mg,Capsule,Antibiotics,Roche
+MED0283,Dexamethasone (Libyan Pharma Co.),Dexamethasone,Dexamethasone,0.5 mg,Injection,Analgesics,Libyan Pharma Co.
+MED0284,Levothyroxine (GSK),Levothyroxine Sodium,Levothyroxine Sodium,100 mcg,Tablet,Antihypertensives,GSK
+MED0285,Clindamycin (Julphar),Clindamycin,Clindamycin,300 mg,Gel,Antibiotics,Julphar
+MED0286,ORS Sachet (Hikma),Oral Rehydration Salts,Oral Rehydration Salts,Standard,Sachet,Pediatric,Hikma
+MED0287,Ranitidine (MSD),Ranitidine,Ranitidine,150 mg,Tablet,Gastrointestinal,MSD
+MED0288,Furosemide (MSD),Furosemide,Furosemide,40 mg,Tablet,Cardiovascular,MSD
+MED0289,Levothyroxine (Medreich),Levothyroxine Sodium,Levothyroxine Sodium,50 mcg,Tablet,Antihypertensives,Medreich
+MED0290,ORS Sachet (GSK),Oral Rehydration Salts,Oral Rehydration Salts,Standard,Sachet,Pediatric,GSK
+MED0291,Codeine Syrup (Roche),Codeine Phosphate,Codeine Phosphate,Standard,Syrup,Respiratory,Roche
+MED0292,ORS Sachet (Al-Andalous Pharma),Oral Rehydration Salts,Oral Rehydration Salts,Standard,Sachet,Pediatric,Al-Andalous Pharma
+MED0293,Warfarin (Bayer),Warfarin Sodium,Warfarin Sodium,3 mg,Tablet,Cardiovascular,Bayer
+MED0294,Doxycycline (Hikma),Doxycycline,Doxycycline,100 mg,Capsule,Antibiotics,Hikma
+MED0295,Loperamide (Medreich),Loperamide HCl,Loperamide HCl,2 mg,Capsule,Gastrointestinal,Medreich
+MED0296,Furosemide (Roche),Furosemide,Furosemide,40 mg,Tablet,Cardiovascular,Roche
+MED0297,Naproxen (GSK),Naproxen,Naproxen,500 mg,Tablet,Analgesics,GSK
+MED0298,Naproxen (Novartis),Naproxen,Naproxen,250 mg,Tablet,Analgesics,Novartis
+MED0299,Mebeverine (Roche),Mebeverine HCl,Mebeverine HCl,135 mg,Tablet,Gastrointestinal,Roche
+MED0300,Calcium Carbonate (SPIMACO),Calcium Carbonate,Calcium Carbonate,500 mg,Chewable,Vitamins,SPIMACO
+MED0301,Hydrocortisone (Al-Andalous Pharma),Hydrocortisone,Hydrocortisone,1%,Cream,Dermatology,Al-Andalous Pharma
+MED0302,Levothyroxine (Hikma),Levothyroxine Sodium,Levothyroxine Sodium,100 mcg,Tablet,Antihypertensives,Hikma
+MED0303,Levothyroxine (MSD),Levothyroxine Sodium,Levothyroxine Sodium,50 mcg,Tablet,Antihypertensives,MSD
+MED0304,Furosemide (SPIMACO),Furosemide,Furosemide,40 mg,Injection,Cardiovascular,SPIMACO
+MED0305,Meloxicam (MSD),Meloxicam,Meloxicam,15 mg,Tablet,Analgesics,MSD
+MED0306,Calcium Carbonate (Medreich),Calcium Carbonate,Calcium Carbonate,500 mg,Tablet,Vitamins,Medreich
+MED0307,Spironolactone (Al-Andalous Pharma),Spironolactone,Spironolactone,25 mg,Tablet,Antihypertensives,Al-Andalous Pharma
+MED0308,Dexamethasone (Pfizer),Dexamethasone,Dexamethasone,0.5 mg,Tablet,Analgesics,Pfizer
+MED0309,Clindamycin (Al-Andalous Pharma),Clindamycin,Clindamycin,300 mg,Gel,Antibiotics,Al-Andalous Pharma
+MED0310,Hydrocortisone (Roche),Hydrocortisone,Hydrocortisone,1%,Cream,Dermatology,Roche
+MED0311,Naproxen (SPIMACO),Naproxen,Naproxen,250 mg,Tablet,Analgesics,SPIMACO
+MED0312,Loperamide (Libyan Pharma Co.),Loperamide HCl,Loperamide HCl,2 mg,Capsule,Gastrointestinal,Libyan Pharma Co.
+MED0313,Furosemide (Sanofi),Furosemide,Furosemide,40 mg,Tablet,Cardiovascular,Sanofi
+MED0314,ORS Sachet (Medreich),Oral Rehydration Salts,Oral Rehydration Salts,Standard,Sachet,Pediatric,Medreich
+MED0315,Calcium Carbonate (Al-Andalous Pharma),Calcium Carbonate,Calcium Carbonate,600 mg,Chewable,Vitamins,Al-Andalous Pharma
+MED0316,Furosemide (Hikma),Furosemide,Furosemide,40 mg,Tablet,Cardiovascular,Hikma
+MED0317,Fluconazole (Medreich),Fluconazole,Fluconazole,150 mg,Capsule,Antibiotics,Medreich
+MED0318,Warfarin (MSD),Warfarin Sodium,Warfarin Sodium,1 mg,Tablet,Cardiovascular,MSD
+MED0319,Ranitidine (Pfizer),Ranitidine,Ranitidine,150 mg,Tablet,Gastrointestinal,Pfizer
+MED0320,Salbutamol Nebules (Hikma),Salbutamol,Salbutamol,2.5 mg,Nebule,Respiratory,Hikma
+MED0321,Vitamin B Complex (MSD),B-Complex Vitamins,B-Complex Vitamins,Standard,Tablet,Vitamins,MSD
+MED0322,Mebeverine (Julphar),Mebeverine HCl,Mebeverine HCl,135 mg,Tablet,Gastrointestinal,Julphar
+MED0323,Warfarin (Hikma),Warfarin Sodium,Warfarin Sodium,5 mg,Tablet,Cardiovascular,Hikma
+MED0324,Furosemide (Libyan Pharma Co.),Furosemide,Furosemide,40 mg,Injection,Cardiovascular,Libyan Pharma Co.
+MED0325,Codeine Syrup (Novartis),Codeine Phosphate,Codeine Phosphate,Standard,Syrup,Respiratory,Novartis
+MED0326,Fluconazole (GSK),Fluconazole,Fluconazole,150 mg,Capsule,Antibiotics,GSK
+MED0327,Vitamin B Complex (SPIMACO),B-Complex Vitamins,B-Complex Vitamins,Standard,Tablet,Vitamins,SPIMACO
+MED0328,Fluconazole (Sanofi),Fluconazole,Fluconazole,150 mg,Capsule,Antibiotics,Sanofi
+MED0329,Mebeverine (Novartis),Mebeverine HCl,Mebeverine HCl,135 mg,Tablet,Gastrointestinal,Novartis
+MED0330,Warfarin (Medreich),Warfarin Sodium,Warfarin Sodium,1 mg,Tablet,Cardiovascular,Medreich
+MED0331,Dexamethasone (Julphar),Dexamethasone,Dexamethasone,0.5 mg,Tablet,Analgesics,Julphar
+MED0332,Warfarin (Julphar),Warfarin Sodium,Warfarin Sodium,3 mg,Tablet,Cardiovascular,Julphar
+MED0333,Dexamethasone (Al-Andalous Pharma),Dexamethasone,Dexamethasone,0.5 mg,Injection,Analgesics,Al-Andalous Pharma
+MED0334,Montelukast (Medreich),Montelukast Sodium,Montelukast Sodium,4 mg,Tablet,Respiratory,Medreich
+MED0335,Naproxen (Julphar),Naproxen,Naproxen,500 mg,Tablet,Analgesics,Julphar
+MED0336,Clindamycin (Roche),Clindamycin,Clindamycin,300 mg,Capsule,Antibiotics,Roche
+MED0337,Spironolactone (GSK),Spironolactone,Spironolactone,25 mg,Tablet,Antihypertensives,GSK
+MED0338,Montelukast (Julphar),Montelukast Sodium,Montelukast Sodium,10 mg,Tablet,Respiratory,Julphar
+MED0339,Salbutamol Nebules (Libyan Pharma Co.),Salbutamol,Salbutamol,2.5 mg,Nebule,Respiratory,Libyan Pharma Co.
+MED0340,Hydrocortisone (Novartis),Hydrocortisone,Hydrocortisone,1%,Cream,Dermatology,Novartis
+MED0341,Hydrocortisone (Sanofi),Hydrocortisone,Hydrocortisone,1%,Cream,Dermatology,Sanofi
+MED0342,Calcium Carbonate (Sanofi),Calcium Carbonate,Calcium Carbonate,600 mg,Chewable,Vitamins,Sanofi
+MED0343,Vitamin B Complex (Pfizer),B-Complex Vitamins,B-Complex Vitamins,Standard,Tablet,Vitamins,Pfizer
+MED0344,Vitamin B Complex (Julphar),B-Complex Vitamins,B-Complex Vitamins,Standard,Tablet,Vitamins,Julphar
+MED0345,Vitamin B Complex (Al-Andalous Pharma),B-Complex Vitamins,B-Complex Vitamins,Standard,Tablet,Vitamins,Al-Andalous Pharma
+MED0346,Montelukast (Al-Andalous Pharma),Montelukast Sodium,Montelukast Sodium,10 mg,Tablet,Respiratory,Al-Andalous Pharma
+MED0347,Levothyroxine (Al-Andalous Pharma),Levothyroxine Sodium,Levothyroxine Sodium,100 mcg,Tablet,Antihypertensives,Al-Andalous Pharma
+MED0348,Spironolactone (Libyan Pharma Co.),Spironolactone,Spironolactone,25 mg,Tablet,Antihypertensives,Libyan Pharma Co.
+MED0349,Fluconazole (Novartis),Fluconazole,Fluconazole,150 mg,Capsule,Antibiotics,Novartis
+MED0350,Hydrocortisone (SPIMACO),Hydrocortisone,Hydrocortisone,1%,Cream,Dermatology,SPIMACO
+MED0351,Mebeverine (Libyan Pharma Co.),Mebeverine HCl,Mebeverine HCl,135 mg,Tablet,Gastrointestinal,Libyan Pharma Co.
+MED0352,Naproxen (Julphar),Naproxen,Naproxen,250 mg,Tablet,Analgesics,Julphar
+MED0353,Calcium Carbonate (Al-Andalous Pharma),Calcium Carbonate,Calcium Carbonate,500 mg,Chewable,Vitamins,Al-Andalous Pharma
+MED0354,Levothyroxine (Libyan Pharma Co.),Levothyroxine Sodium,Levothyroxine Sodium,100 mcg,Tablet,Antihypertensives,Libyan Pharma Co.
+MED0355,Salbutamol Nebules (Pfizer),Salbutamol,Salbutamol,2.5 mg,Nebule,Respiratory,Pfizer
+MED0356,ORS Sachet (MSD),Oral Rehydration Salts,Oral Rehydration Salts,Standard,Sachet,Pediatric,MSD
+MED0357,Dexamethasone (MSD),Dexamethasone,Dexamethasone,0.5 mg,Injection,Analgesics,MSD
+MED0358,Montelukast (Roche),Montelukast Sodium,Montelukast Sodium,10 mg,Tablet,Respiratory,Roche
+MED0359,Montelukast (Libyan Pharma Co.),Montelukast Sodium,Montelukast Sodium,10 mg,Tablet,Respiratory,Libyan Pharma Co.
+MED0360,Meloxicam (Medreich),Meloxicam,Meloxicam,7.5 mg,Tablet,Analgesics,Medreich
+MED0361,Dexamethasone (SPIMACO),Dexamethasone,Dexamethasone,0.5 mg,Tablet,Analgesics,SPIMACO
+MED0362,Calcium Carbonate (Roche),Calcium Carbonate,Calcium Carbonate,500 mg,Chewable,Vitamins,Roche
+MED0363,Warfarin (SPIMACO),Warfarin Sodium,Warfarin Sodium,3 mg,Tablet,Cardiovascular,SPIMACO
+MED0364,Mebeverine (Al-Andalous Pharma),Mebeverine HCl,Mebeverine HCl,135 mg,Tablet,Gastrointestinal,Al-Andalous Pharma
+MED0365,Fluconazole (Libyan Pharma Co.),Fluconazole,Fluconazole,150 mg,Capsule,Antibiotics,Libyan Pharma Co.
+MED0366,Dexamethasone (Medreich),Dexamethasone,Dexamethasone,0.5 mg,Tablet,Analgesics,Medreich
+MED0367,Warfarin (Pfizer),Warfarin Sodium,Warfarin Sodium,1 mg,Tablet,Cardiovascular,Pfizer
+MED0368,Warfarin (GSK),Warfarin Sodium,Warfarin Sodium,5 mg,Tablet,Cardiovascular,GSK
+MED0369,Clindamycin (MSD),Clindamycin,Clindamycin,300 mg,Gel,Antibiotics,MSD
+MED0370,Montelukast (Bayer),Montelukast Sodium,Montelukast Sodium,4 mg,Tablet,Respiratory,Bayer
+MED0371,Furosemide (Hikma),Furosemide,Furosemide,40 mg,Injection,Cardiovascular,Hikma
+MED0372,ORS Sachet (Novartis),Oral Rehydration Salts,Oral Rehydration Salts,Standard,Sachet,Pediatric,Novartis
+MED0373,Naproxen (Hikma),Naproxen,Naproxen,250 mg,Tablet,Analgesics,Hikma
+MED0374,Calcium Carbonate (MSD),Calcium Carbonate,Calcium Carbonate,600 mg,Tablet,Vitamins,MSD
+MED0375,Fluconazole (Bayer),Fluconazole,Fluconazole,150 mg,Capsule,Antibiotics,Bayer
+MED0376,Fluconazole (Pfizer),Fluconazole,Fluconazole,150 mg,Capsule,Antibiotics,Pfizer
+MED0377,Naproxen (Libyan Pharma Co.),Naproxen,Naproxen,500 mg,Tablet,Analgesics,Libyan Pharma Co.
+MED0378,Meloxicam (Libyan Pharma Co.),Meloxicam,Meloxicam,15 mg,Tablet,Analgesics,Libyan Pharma Co.
+MED0379,Calcium Carbonate (MSD),Calcium Carbonate,Calcium Carbonate,600 mg,Chewable,Vitamins,MSD
+MED0380,ORS Sachet (Roche),Oral Rehydration Salts,Oral Rehydration Salts,Standard,Sachet,Pediatric,Roche
+MED0381,Vitamin B Complex (Novartis),B-Complex Vitamins,B-Complex Vitamins,Standard,Tablet,Vitamins,Novartis
+MED0382,Codeine Syrup (Medreich),Codeine Phosphate,Codeine Phosphate,Standard,Syrup,Respiratory,Medreich
+MED0383,Levothyroxine (Bayer),Levothyroxine Sodium,Levothyroxine Sodium,50 mcg,Tablet,Antihypertensives,Bayer
+MED0384,Furosemide (Bayer),Furosemide,Furosemide,40 mg,Injection,Cardiovascular,Bayer
+MED0385,Naproxen (Al-Andalous Pharma),Naproxen,Naproxen,250 mg,Tablet,Analgesics,Al-Andalous Pharma
+MED0386,Codeine Syrup (Bayer),Codeine Phosphate,Codeine Phosphate,Standard,Syrup,Respiratory,Bayer
+MED0387,Clindamycin (SPIMACO),Clindamycin,Clindamycin,300 mg,Gel,Antibiotics,SPIMACO
+MED0388,Vitamin B Complex (Libyan Pharma Co.),B-Complex Vitamins,B-Complex Vitamins,Standard,Tablet,Vitamins,Libyan Pharma Co.
+MED0389,Levothyroxine (Al-Andalous Pharma),Levothyroxine Sodium,Levothyroxine Sodium,50 mcg,Tablet,Antihypertensives,Al-Andalous Pharma
+MED0390,Mebeverine (Pfizer),Mebeverine HCl,Mebeverine HCl,135 mg,Tablet,Gastrointestinal,Pfizer
+MED0391,Montelukast (Novartis),Montelukast Sodium,Montelukast Sodium,10 mg,Tablet,Respiratory,Novartis
+MED0392,Meloxicam (Roche),Meloxicam,Meloxicam,7.5 mg,Tablet,Analgesics,Roche
+MED0393,Dexamethasone (MSD),Dexamethasone,Dexamethasone,0.5 mg,Tablet,Analgesics,MSD
+MED0394,Calcium Carbonate (Hikma),Calcium Carbonate,Calcium Carbonate,600 mg,Tablet,Vitamins,Hikma
+MED0395,Spironolactone (Medreich),Spironolactone,Spironolactone,25 mg,Tablet,Antihypertensives,Medreich
+MED0396,Calcium Carbonate (Pfizer),Calcium Carbonate,Calcium Carbonate,600 mg,Chewable,Vitamins,Pfizer
+MED0397,Calcium Carbonate (Bayer),Calcium Carbonate,Calcium Carbonate,600 mg,Chewable,Vitamins,Bayer
+MED0398,Meloxicam (Bayer),Meloxicam,Meloxicam,7.5 mg,Tablet,Analgesics,Bayer
+MED0399,Calcium Carbonate (Roche),Calcium Carbonate,Calcium Carbonate,600 mg,Chewable,Vitamins,Roche
+MED0400,Spironolactone (MSD),Spironolactone,Spironolactone,100 mg,Tablet,Antihypertensives,MSD
+MED0401,Montelukast (MSD),Montelukast Sodium,Montelukast Sodium,10 mg,Tablet,Respiratory,MSD
+MED0402,Doxycycline (SPIMACO),Doxycycline,Doxycycline,100 mg,Capsule,Antibiotics,SPIMACO
+MED0403,Hydrocortisone (GSK),Hydrocortisone,Hydrocortisone,1%,Cream,Dermatology,GSK
+MED0404,Vitamin B Complex (Bayer),B-Complex Vitamins,B-Complex Vitamins,Standard,Tablet,Vitamins,Bayer
+MED0405,Dexamethasone (Libyan Pharma Co.),Dexamethasone,Dexamethasone,0.5 mg,Tablet,Analgesics,Libyan Pharma Co.
+MED0406,Clindamycin (Libyan Pharma Co.),Clindamycin,Clindamycin,300 mg,Capsule,Antibiotics,Libyan Pharma Co.
+MED0407,Loperamide (Novartis),Loperamide HCl,Loperamide HCl,2 mg,Capsule,Gastrointestinal,Novartis
+MED0408,Naproxen (Bayer),Naproxen,Naproxen,500 mg,Tablet,Analgesics,Bayer
+MED0409,Warfarin (Pfizer),Warfarin Sodium,Warfarin Sodium,5 mg,Tablet,Cardiovascular,Pfizer
+MED0410,Spironolactone (Novartis),Spironolactone,Spironolactone,25 mg,Tablet,Antihypertensives,Novartis
+MED0411,Naproxen (Hikma),Naproxen,Naproxen,500 mg,Tablet,Analgesics,Hikma
+MED0412,Naproxen (GSK),Naproxen,Naproxen,250 mg,Tablet,Analgesics,GSK
+MED0413,Spironolactone (Hikma),Spironolactone,Spironolactone,100 mg,Tablet,Antihypertensives,Hikma
+MED0414,Calcium Carbonate (Pfizer),Calcium Carbonate,Calcium Carbonate,600 mg,Tablet,Vitamins,Pfizer
+MED0415,Calcium Carbonate (Julphar),Calcium Carbonate,Calcium Carbonate,500 mg,Chewable,Vitamins,Julphar
+MED0416,Mebeverine (Hikma),Mebeverine HCl,Mebeverine HCl,135 mg,Tablet,Gastrointestinal,Hikma
+MED0417,Warfarin (GSK),Warfarin Sodium,Warfarin Sodium,1 mg,Tablet,Cardiovascular,GSK
+MED0418,Levothyroxine (Medreich),Levothyroxine Sodium,Levothyroxine Sodium,100 mcg,Tablet,Antihypertensives,Medreich
+MED0419,Codeine Syrup (Julphar),Codeine Phosphate,Codeine Phosphate,Standard,Syrup,Respiratory,Julphar
+MED0420,Calcium Carbonate (GSK),Calcium Carbonate,Calcium Carbonate,600 mg,Tablet,Vitamins,GSK
+MED0421,Warfarin (Al-Andalous Pharma),Warfarin Sodium,Warfarin Sodium,1 mg,Tablet,Cardiovascular,Al-Andalous Pharma
+MED0422,Furosemide (Bayer),Furosemide,Furosemide,40 mg,Tablet,Cardiovascular,Bayer
+MED0423,Calcium Carbonate (Bayer),Calcium Carbonate,Calcium Carbonate,600 mg,Tablet,Vitamins,Bayer
+MED0424,Naproxen (SPIMACO),Naproxen,Naproxen,500 mg,Tablet,Analgesics,SPIMACO
+MED0425,Furosemide (Novartis),Furosemide,Furosemide,40 mg,Injection,Cardiovascular,Novartis
+MED0426,Fluconazole (Julphar),Fluconazole,Fluconazole,150 mg,Capsule,Antibiotics,Julphar
+MED0427,Calcium Carbonate (Novartis),Calcium Carbonate,Calcium Carbonate,500 mg,Chewable,Vitamins,Novartis
+MED0428,Meloxicam (Sanofi),Meloxicam,Meloxicam,7.5 mg,Tablet,Analgesics,Sanofi
+MED0429,Furosemide (MSD),Furosemide,Furosemide,40 mg,Injection,Cardiovascular,MSD
+MED0430,Doxycycline (Novartis),Doxycycline,Doxycycline,100 mg,Capsule,Antibiotics,Novartis
+MED0431,Montelukast (Sanofi),Montelukast Sodium,Montelukast Sodium,10 mg,Tablet,Respiratory,Sanofi
+MED0432,Clindamycin (Hikma),Clindamycin,Clindamycin,300 mg,Capsule,Antibiotics,Hikma
+MED0433,Warfarin (Al-Andalous Pharma),Warfarin Sodium,Warfarin Sodium,3 mg,Tablet,Cardiovascular,Al-Andalous Pharma
+MED0434,Meloxicam (Al-Andalous Pharma),Meloxicam,Meloxicam,15 mg,Tablet,Analgesics,Al-Andalous Pharma
+MED0435,Meloxicam (Pfizer),Meloxicam,Meloxicam,7.5 mg,Tablet,Analgesics,Pfizer
+MED0436,Mebeverine (Bayer),Mebeverine HCl,Mebeverine HCl,135 mg,Tablet,Gastrointestinal,Bayer
+MED0437,Furosemide (SPIMACO),Furosemide,Furosemide,40 mg,Tablet,Cardiovascular,SPIMACO
+MED0438,Clindamycin (Al-Andalous Pharma),Clindamycin,Clindamycin,300 mg,Capsule,Antibiotics,Al-Andalous Pharma
+MED0439,Warfarin (Novartis),Warfarin Sodium,Warfarin Sodium,1 mg,Tablet,Cardiovascular,Novartis
+MED0440,Warfarin (Julphar),Warfarin Sodium,Warfarin Sodium,1 mg,Tablet,Cardiovascular,Julphar
+MED0441,Salbutamol Nebules (MSD),Salbutamol,Salbutamol,2.5 mg,Nebule,Respiratory,MSD
+MED0442,Mebeverine (MSD),Mebeverine HCl,Mebeverine HCl,135 mg,Tablet,Gastrointestinal,MSD
+MED0443,Spironolactone (Pfizer),Spironolactone,Spironolactone,100 mg,Tablet,Antihypertensives,Pfizer
+MED0444,Furosemide (GSK),Furosemide,Furosemide,40 mg,Tablet,Cardiovascular,GSK
+MED0445,Salbutamol Nebules (SPIMACO),Salbutamol,Salbutamol,2.5 mg,Nebule,Respiratory,SPIMACO
+MED0446,Levothyroxine (Julphar),Levothyroxine Sodium,Levothyroxine Sodium,100 mcg,Tablet,Antihypertensives,Julphar
+MED0447,Meloxicam (Hikma),Meloxicam,Meloxicam,15 mg,Tablet,Analgesics,Hikma
+MED0448,Warfarin (Bayer),Warfarin Sodium,Warfarin Sodium,1 mg,Tablet,Cardiovascular,Bayer
+MED0449,Levothyroxine (GSK),Levothyroxine Sodium,Levothyroxine Sodium,50 mcg,Tablet,Antihypertensives,GSK
+MED0450,Warfarin (Al-Andalous Pharma),Warfarin Sodium,Warfarin Sodium,5 mg,Tablet,Cardiovascular,Al-Andalous Pharma
+MED0451,Levothyroxine (SPIMACO),Levothyroxine Sodium,Levothyroxine Sodium,50 mcg,Tablet,Antihypertensives,SPIMACO
+MED0452,Levothyroxine (Pfizer),Levothyroxine Sodium,Levothyroxine Sodium,50 mcg,Tablet,Antihypertensives,Pfizer
+MED0453,Naproxen (Roche),Naproxen,Naproxen,250 mg,Tablet,Analgesics,Roche
+MED0454,Dexamethasone (Medreich),Dexamethasone,Dexamethasone,0.5 mg,Injection,Analgesics,Medreich
+MED0455,Spironolactone (MSD),Spironolactone,Spironolactone,25 mg,Tablet,Antihypertensives,MSD
+MED0456,Dexamethasone (Novartis),Dexamethasone,Dexamethasone,0.5 mg,Injection,Analgesics,Novartis
+MED0457,Doxycycline (Bayer),Doxycycline,Doxycycline,100 mg,Capsule,Antibiotics,Bayer
+MED0458,Meloxicam (Julphar),Meloxicam,Meloxicam,15 mg,Tablet,Analgesics,Julphar
+MED0459,Clindamycin (GSK),Clindamycin,Clindamycin,300 mg,Capsule,Antibiotics,GSK
+MED0460,Montelukast (Libyan Pharma Co.),Montelukast Sodium,Montelukast Sodium,4 mg,Tablet,Respiratory,Libyan Pharma Co.
+MED0461,Naproxen (MSD),Naproxen,Naproxen,250 mg,Tablet,Analgesics,MSD
+MED0462,Meloxicam (Pfizer),Meloxicam,Meloxicam,15 mg,Tablet,Analgesics,Pfizer
+MED0463,Calcium Carbonate (MSD),Calcium Carbonate,Calcium Carbonate,500 mg,Tablet,Vitamins,MSD
+MED0464,Calcium Carbonate (Bayer),Calcium Carbonate,Calcium Carbonate,500 mg,Tablet,Vitamins,Bayer
+MED0465,Naproxen (Sanofi),Naproxen,Naproxen,500 mg,Tablet,Analgesics,Sanofi
+MED0466,Calcium Carbonate (Novartis),Calcium Carbonate,Calcium Carbonate,500 mg,Tablet,Vitamins,Novartis
+MED0467,Spironolactone (Bayer),Spironolactone,Spironolactone,100 mg,Tablet,Antihypertensives,Bayer
+MED0468,Warfarin (Roche),Warfarin Sodium,Warfarin Sodium,5 mg,Tablet,Cardiovascular,Roche
+MED0469,Naproxen (Pfizer),Naproxen,Naproxen,500 mg,Tablet,Analgesics,Pfizer
+MED0470,Spironolactone (Sanofi),Spironolactone,Spironolactone,25 mg,Tablet,Antihypertensives,Sanofi
+MED0471,Calcium Carbonate (Bayer),Calcium Carbonate,Calcium Carbonate,500 mg,Chewable,Vitamins,Bayer
+MED0472,Clindamycin (GSK),Clindamycin,Clindamycin,300 mg,Gel,Antibiotics,GSK
+MED0473,Montelukast (Medreich),Montelukast Sodium,Montelukast Sodium,10 mg,Tablet,Respiratory,Medreich
+MED0474,Spironolactone (Julphar),Spironolactone,Spironolactone,25 mg,Tablet,Antihypertensives,Julphar
+MED0475,Warfarin (Pfizer),Warfarin Sodium,Warfarin Sodium,3 mg,Tablet,Cardiovascular,Pfizer
+MED0476,Calcium Carbonate (GSK),Calcium Carbonate,Calcium Carbonate,500 mg,Tablet,Vitamins,GSK
+MED0477,Calcium Carbonate (Medreich),Calcium Carbonate,Calcium Carbonate,600 mg,Tablet,Vitamins,Medreich
+MED0478,Spironolactone (SPIMACO),Spironolactone,Spironolactone,100 mg,Tablet,Antihypertensives,SPIMACO
+MED0479,Montelukast (Pfizer),Montelukast Sodium,Montelukast Sodium,10 mg,Tablet,Respiratory,Pfizer
+MED0480,Meloxicam (MSD),Meloxicam,Meloxicam,7.5 mg,Tablet,Analgesics,MSD
+MED0481,Loperamide (SPIMACO),Loperamide HCl,Loperamide HCl,2 mg,Capsule,Gastrointestinal,SPIMACO
+MED0482,Levothyroxine (Julphar),Levothyroxine Sodium,Levothyroxine Sodium,50 mcg,Tablet,Antihypertensives,Julphar
+MED0483,Montelukast (Sanofi),Montelukast Sodium,Montelukast Sodium,4 mg,Tablet,Respiratory,Sanofi
+MED0484,Levothyroxine (Sanofi),Levothyroxine Sodium,Levothyroxine Sodium,100 mcg,Tablet,Antihypertensives,Sanofi
+MED0485,Clindamycin (Pfizer),Clindamycin,Clindamycin,300 mg,Gel,Antibiotics,Pfizer
+MED0486,Doxycycline (Sanofi),Doxycycline,Doxycycline,100 mg,Capsule,Antibiotics,Sanofi
+MED0487,Spironolactone (Medreich),Spironolactone,Spironolactone,100 mg,Tablet,Antihypertensives,Medreich
+MED0488,Clindamycin (Medreich),Clindamycin,Clindamycin,300 mg,Capsule,Antibiotics,Medreich
+MED0489,Spironolactone (Julphar),Spironolactone,Spironolactone,100 mg,Tablet,Antihypertensives,Julphar
+MED0490,Calcium Carbonate (Novartis),Calcium Carbonate,Calcium Carbonate,600 mg,Chewable,Vitamins,Novartis
+MED0491,Clindamycin (Novartis),Clindamycin,Clindamycin,300 mg,Capsule,Antibiotics,Novartis
+MED0492,Calcium Carbonate (Pfizer),Calcium Carbonate,Calcium Carbonate,500 mg,Chewable,Vitamins,Pfizer
+MED0493,Calcium Carbonate (Sanofi),Calcium Carbonate,Calcium Carbonate,600 mg,Tablet,Vitamins,Sanofi
+MED0494,Hydrocortisone (Hikma),Hydrocortisone,Hydrocortisone,1%,Cream,Dermatology,Hikma
+MED0495,Calcium Carbonate (Al-Andalous Pharma),Calcium Carbonate,Calcium Carbonate,500 mg,Tablet,Vitamins,Al-Andalous Pharma
+MED0496,Dexamethasone (Pfizer),Dexamethasone,Dexamethasone,0.5 mg,Injection,Analgesics,Pfizer
+MED0497,Warfarin (Roche),Warfarin Sodium,Warfarin Sodium,3 mg,Tablet,Cardiovascular,Roche
+MED0498,Warfarin (Julphar),Warfarin Sodium,Warfarin Sodium,5 mg,Tablet,Cardiovascular,Julphar
+MED0499,Furosemide (GSK),Furosemide,Furosemide,40 mg,Injection,Cardiovascular,GSK
+MED0500,Clindamycin (Bayer),Clindamycin,Clindamycin,300 mg,Capsule,Antibiotics,Bayer
+MED0501,Spironolactone (Bayer),Spironolactone,Spironolactone,25 mg,Tablet,Antihypertensives,Bayer
+MED0502,Loperamide (Hikma),Loperamide HCl,Loperamide HCl,2 mg,Capsule,Gastrointestinal,Hikma
+MED0503,Meloxicam (Medreich),Meloxicam,Meloxicam,15 mg,Tablet,Analgesics,Medreich
+MED0504,Spironolactone (Al-Andalous Pharma),Spironolactone,Spironolactone,100 mg,Tablet,Antihypertensives,Al-Andalous Pharma
+MED0505,Furosemide (Al-Andalous Pharma),Furosemide,Furosemide,40 mg,Tablet,Cardiovascular,Al-Andalous Pharma
+MED0506,Montelukast (SPIMACO),Montelukast Sodium,Montelukast Sodium,4 mg,Tablet,Respiratory,SPIMACO
+MED0507,Calcium Carbonate (SPIMACO),Calcium Carbonate,Calcium Carbonate,500 mg,Tablet,Vitamins,SPIMACO
+MED0508,Montelukast (Bayer),Montelukast Sodium,Montelukast Sodium,10 mg,Tablet,Respiratory,Bayer
+MED0509,Furosemide (Novartis),Furosemide,Furosemide,40 mg,Tablet,Cardiovascular,Novartis
+MED0510,Codeine Syrup (Pfizer),Codeine Phosphate,Codeine Phosphate,Standard,Syrup,Respiratory,Pfizer
+MED0511,Calcium Carbonate (SPIMACO),Calcium Carbonate,Calcium Carbonate,600 mg,Chewable,Vitamins,SPIMACO
+MED0512,Calcium Carbonate (Julphar),Calcium Carbonate,Calcium Carbonate,500 mg,Tablet,Vitamins,Julphar
+MED0513,Meloxicam (Al-Andalous Pharma),Meloxicam,Meloxicam,7.5 mg,Tablet,Analgesics,Al-Andalous Pharma
+MED0514,Calcium Carbonate (Hikma),Calcium Carbonate,Calcium Carbonate,600 mg,Chewable,Vitamins,Hikma
+MED0515,Meloxicam (Sanofi),Meloxicam,Meloxicam,15 mg,Tablet,Analgesics,Sanofi
+MED0516,Calcium Carbonate (Al-Andalous Pharma),Calcium Carbonate,Calcium Carbonate,600 mg,Tablet,Vitamins,Al-Andalous Pharma
+MED0517,Dexamethasone (Al-Andalous Pharma),Dexamethasone,Dexamethasone,0.5 mg,Tablet,Analgesics,Al-Andalous Pharma
+MED0518,Montelukast (GSK),Montelukast Sodium,Montelukast Sodium,4 mg,Tablet,Respiratory,GSK
+MED0519,Furosemide (Sanofi),Furosemide,Furosemide,40 mg,Injection,Cardiovascular,Sanofi
+MED0520,Warfarin (Sanofi),Warfarin Sodium,Warfarin Sodium,3 mg,Tablet,Cardiovascular,Sanofi

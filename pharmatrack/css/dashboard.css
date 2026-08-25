@@ -1,0 +1,29 @@
+/* =========================================================================
+   Dashboard-specific layout helpers
+   ========================================================================= */
+
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--gap); }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--gap); }
+.grid-charts { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--gap); }
+.span-2 { grid-column: span 2; }
+
+.panel-title-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+.panel-title-row h3 { margin: 0; }
+
+.list-inline-stat {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 11px 0; border-bottom: 1px solid var(--line-soft); font-size: 0.9rem;
+}
+.list-inline-stat:last-child { border-bottom: none; }
+.list-inline-stat .val { font-family: var(--font-mono); font-weight: 700; color: var(--text-strong); }
+
+.progress-bar { height: 8px; border-radius: var(--r-pill); background: var(--line-soft); overflow: hidden; }
+.progress-bar > span { display: block; height: 100%; background: var(--dodger-blue); border-radius: var(--r-pill); }
+.progress-bar.crimson > span { background: var(--crimson); }
+.progress-bar.amber > span { background: var(--status-low); }
+.progress-bar.green > span { background: var(--status-available); }
+
+@media (max-width: 1000px) {
+  .grid-2, .grid-3, .grid-charts { grid-template-columns: 1fr; }
+  .span-2 { grid-column: span 1; }
+}

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Import Inventory — PharmaTrack</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/dashboard.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+<div class="demo-banner"><strong>Demo prototype</strong> — you are viewing simulated pharmacy data.</div>
+<nav class="nav">
+  <div class="container">
+    <a href="index.html" class="brand"><span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L3 6V12C3 17 6.5 21 12 22C17.5 21 21 17 21 12V6L12 2Z" fill="white" fill-opacity="0.9"/><path d="M12 8V16M8 12H16" stroke="#0197F6" stroke-width="2" stroke-linecap="round"/></svg></span>PharmaTrack <span class="dim">Libya</span></a>
+    <ul class="nav-links"><li><a href="index.html">Public Site</a></li></ul>
+    <div class="nav-actions"><div data-session-slot></div><button class="nav-toggle" aria-label="Menu">☰</button></div>
+  </div>
+  <div class="mobile-nav-panel"><a href="index.html">Public Site</a></div>
+</nav>
+
+<div class="dash-layout">
+  <aside class="dash-sidebar">
+    <div class="side-group">
+      <div class="side-title">Pharmacy</div>
+      <a href="pharmacy-dashboard.html"> Dashboard</a>
+      <a href="inventory.html"> Inventory</a>
+      <a href="import.html" class="active">⇪ Import CSV</a>
+      <a href="history.html"> History</a>
+    </div>
+    <div class="side-group"><div class="side-title">Account</div><a href="index.html">← Public Site</a></div>
+  </aside>
+
+  <main class="dash-main">
+    <div class="dash-header"><h2>Import Pharmacy Inventory</h2></div>
+
+    <div class="stepper">
+      <div class="step current"><span class="step-num">1</span>Upload</div>
+      <div class="step"><span class="step-num">2</span>Detect Columns</div>
+      <div class="step"><span class="step-num">3</span>Validate</div>
+      <div class="step"><span class="step-num">4</span>Normalize</div>
+      <div class="step"><span class="step-num">5</span>Import</div>
+    </div>
+
+    <div class="card">
+      <div id="import-dropzone" class="dropzone">
+        <div class="icon">⇪</div>
+        <h4>Select a CSV file to import</h4>
+        <p class="text-muted" style="font-size:0.85rem;">Click to browse, or drag a file here. Supported format: CSV.</p>
+        <input id="import-file-input" type="file" accept=".csv">
+      </div>
+      <p class="text-muted" style="font-size:0.8rem;margin-top:14px;">
+        Don't have a file handy? Try one of the bundled sample legacy exports:
+        <code>data/sample_pharmacy_export_01.csv</code>, <code>02.csv</code>, or <code>03.csv</code> — each uses different column names, mirroring real legacy pharmacy systems.
+      </p>
+    </div>
+
+    <div id="import-results" class="hidden mt-24">
+      <div class="card">
+        <h4>Validation Summary</h4>
+        <div id="import-summary" class="mt-16"></div>
+      </div>
+
+      <div class="card mt-24">
+        <div class="panel-title-row"><h4>Preview (first 30 rows)</h4><button id="import-commit-btn" class="btn btn--primary" disabled>Confirm Import</button></div>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead><tr><th>Raw Name (from file)</th><th>Matched Medicine</th><th>Qty</th><th>Result</th></tr></thead>
+            <tbody id="import-preview-body"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/store.js"></script>
+<script src="js/app.js"></script>
+<script>PTAuth.requireRole("pharmacy");</script>
+<script src="js/matching.js"></script>
+<script src="js/import.js"></script>
+<script src="js/pharmacy.js"></script>
+</body>
+</html>

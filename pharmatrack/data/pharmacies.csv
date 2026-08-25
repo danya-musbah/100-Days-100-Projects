@@ -1,0 +1,131 @@
+pharmacy_id,pharmacy_name,city,area,address,latitude,longitude,phone,status,last_sync
+PH0001,Al-Nahda Care Pharmacy,Tripoli,Tajoura,"Tajoura St, Near Ring Road, Tripoli",32.843945,13.143599,0922458591,ACTIVE,2026-08-21 08:03:46
+PH0002,Al-Shifa Care Pharmacy,Benghazi,Al-Hadaeq,"Al-Hadaeq St, Near Ring Road, Benghazi",32.140477,20.04753,0916647119,ACTIVE,2026-08-19 16:29:50
+PH0003,Misrata Family Pharmacy,Tripoli,Fashloum,"Fashloum St, Near Old Market, Tripoli",32.926729,13.205522,0924226067,ACTIVE,2026-08-21 04:35:41
+PH0004,Al-Ma'refa Pharmacy,Misrata,Al-Ghiran,"Al-Ghiran St, Near Central Square, Misrata",32.387596,15.052437,0923741438,ACTIVE,2026-08-20 17:22:52
+PH0005,Al-Rahma Pharmacy & Supplies,Misrata,Al-Karareem,"Al-Karareem St, Near Grand Mosque, Misrata",32.419664,15.069661,0927637601,ACTIVE,2026-08-18 03:42:23
+PH0006,Al-Noor Care Pharmacy,Sabha,Al-Manshiya,"Al-Manshiya St, Near Central Square, Sabha",27.052994,14.46335,0912065818,ACTIVE,2026-08-18 16:06:32
+PH0007,Coastal Care Pharmacy,Benghazi,Al-Sabri,"Al-Sabri St, Near Corniche, Benghazi",32.075679,20.007089,0925418934,ACTIVE,2026-08-19 04:41:01
+PH0008,Al-Noor Medical Pharmacy,Tripoli,Janzour,"Janzour St, Near Corniche, Tripoli",32.932647,13.2311,0911971823,ACTIVE,2026-08-20 08:25:01
+PH0009,Al-Ahad Care Pharmacy,Tripoli,Ain Zara,"Ain Zara St, Near Central Square, Tripoli",32.859007,13.235992,0914553384,ACTIVE,2026-08-20 22:25:46
+PH0010,Al-Nahda Pharmacy & Supplies,Misrata,Zawiyat Al-Mahjoub,"Zawiyat Al-Mahjoub St, Near Corniche, Misrata",32.340926,15.040419,0924841005,ACTIVE,2026-08-19 11:08:02
+PH0011,Al-Karama Care Pharmacy,Zliten,Al-Qasabat,"Al-Qasabat St, Near Grand Mosque, Zliten",32.418719,14.587778,0917897151,ACTIVE,2026-08-19 02:02:54
+PH0012,Al-Salam Family Pharmacy,Tripoli,Abu Salim,"Abu Salim St, Near Central Square, Tripoli",32.849219,13.186815,0922264748,ACTIVE,2026-08-17 19:37:51
+PH0013,Al-Rawda Care Pharmacy,Benghazi,Al-Fuwayhat,"Al-Fuwayhat St, Near Old Market, Benghazi",32.160458,20.114993,0911036161,ACTIVE,2026-08-20 04:37:32
+PH0014,Al-Ahad Pharmacy,Benghazi,Al-Berka,"Al-Berka St, Near Corniche, Benghazi",32.146457,20.01356,0929436429,ACTIVE,2026-08-20 03:43:23
+PH0015,Al-Iman Pharmacy,Benghazi,Al-Selmani,"Al-Selmani St, Near Central Square, Benghazi",32.107007,20.076741,0925374922,ACTIVE,2026-08-19 22:41:55
+PH0016,Al-Wahda Pharmacy,Tripoli,Gargaresh,"Gargaresh St, Near Corniche, Tripoli",32.835991,13.156879,0916855396,ACTIVE,2026-08-19 14:18:43
+PH0017,Al-Noor Pharmacy & Supplies,Tripoli,Hay Al-Andalus,"Hay Al-Andalus St, Near Old Market, Tripoli",32.845854,13.165111,0916752576,ACTIVE,2026-08-18 20:28:13
+PH0018,Al-Salam Medical Pharmacy,Tripoli,Tajoura,"Tajoura St, Near Corniche, Tripoli",32.84659,13.18432,0921162230,PENDING,2026-07-16 13:24:40
+PH0019,Al-Amal Medical Pharmacy,Tripoli,Fashloum,"Fashloum St, Near Ring Road, Tripoli",32.852409,13.161244,0917817881,ACTIVE,2026-08-19 08:53:20
+PH0020,Sundial Pharmacy,Benghazi,Al-Sabri,"Al-Sabri St, Near Old Market, Benghazi",32.069671,20.11136,0924731818,ACTIVE,2026-08-19 09:08:42
+PH0021,Al-Manar Family Pharmacy,Tripoli,Hay Al-Andalus,"Hay Al-Andalus St, Near Ring Road, Tripoli",32.908742,13.232539,0911463060,ACTIVE,2026-08-20 07:17:14
+PH0022,Al-Manar Pharmacy,Misrata,Qasr Ahmad,"Qasr Ahmad St, Near Old Market, Misrata",32.360723,15.101091,0918315831,ACTIVE,2026-08-16 21:39:51
+PH0023,Al-Zahra Pharmacy & Supplies,Misrata,Zawiyat Al-Mahjoub,"Zawiyat Al-Mahjoub St, Near Corniche, Misrata",32.351614,15.080907,0915960271,ACTIVE,2026-08-18 15:06:26
+PH0024,Al-Shifa Medical Pharmacy,Benghazi,Al-Hadaeq,"Al-Hadaeq St, Near Corniche, Benghazi",32.09113,20.058287,0926406444,ACTIVE,2026-08-19 21:38:28
+PH0025,Al-Nahda Medical Pharmacy,Misrata,Zawiyat Al-Mahjoub,"Zawiyat Al-Mahjoub St, Near Central Square, Misrata",32.341457,15.055796,0915107776,ACTIVE,2026-08-18 22:51:09
+PH0026,Harbor Light Pharmacy,Tripoli,Fashloum,"Fashloum St, Near Corniche, Tripoli",32.942156,13.193455,0915180853,ACTIVE,2026-08-19 15:22:15
+PH0027,Al-Wafaa Family Pharmacy,Zawiya,Bir Al-Ghanam,"Bir Al-Ghanam St, Near Old Market, Zawiya",32.746208,12.757613,0925652512,ACTIVE,2026-08-18 15:20:58
+PH0028,Al-Hayat Care Pharmacy,Misrata,Qasr Ahmad,"Qasr Ahmad St, Near Central Square, Misrata",32.3326,15.077864,0914589533,ACTIVE,2026-08-16 17:05:46
+PH0029,Al-Fajr Family Pharmacy,Misrata,Al-Karareem,"Al-Karareem St, Near Grand Mosque, Misrata",32.379086,15.120056,0924700025,ACTIVE,2026-08-19 22:49:54
+PH0030,Al-Wahda Pharmacy & Supplies,Zliten,Al-Qasabat,"Al-Qasabat St, Near Ring Road, Zliten",32.48696,14.518774,0918746014,ACTIVE,2026-08-18 20:54:23
+PH0031,Al-Muna Pharmacy & Supplies,Benghazi,Al-Berka,"Al-Berka St, Near Grand Mosque, Benghazi",32.06295,20.12093,0912151225,INACTIVE,2026-08-01 19:42:42
+PH0032,Al-Rahma Family Pharmacy,Zliten,Al-Qasabat,"Al-Qasabat St, Near Old Market, Zliten",32.491336,14.600728,0912921542,ACTIVE,2026-08-16 02:20:36
+PH0033,Al-Karama Medical Pharmacy,Tripoli,Tajoura,"Tajoura St, Near Ring Road, Tripoli",32.835475,13.209005,0918047416,ACTIVE,2026-08-20 05:13:33
+PH0034,Al-Wahda Medical Pharmacy,Zliten,Souq Al-Thulatha,"Souq Al-Thulatha St, Near Grand Mosque, Zliten",32.446077,14.538159,0925679639,ACTIVE,2026-08-19 23:23:59
+PH0035,Al-Iman Medical Pharmacy,Misrata,Qasr Ahmad,"Qasr Ahmad St, Near Grand Mosque, Misrata",32.381195,15.093895,0915049282,ACTIVE,2026-08-18 19:57:07
+PH0036,Al-Rawda Pharmacy & Supplies,Zawiya,Bir Al-Ghanam,"Bir Al-Ghanam St, Near Corniche, Zawiya",32.755911,12.71846,0926549757,ACTIVE,2026-08-19 13:16:29
+PH0037,Al-Ward Care Pharmacy,Tripoli,Abu Salim,"Abu Salim St, Near Central Square, Tripoli",32.863472,13.216262,0911763626,ACTIVE,2026-08-19 06:23:11
+PH0038,Al-Salam Care Pharmacy,Zawiya,Al-Harsha,"Al-Harsha St, Near Ring Road, Zawiya",32.789537,12.781295,0915163953,ACTIVE,2026-08-17 22:51:36
+PH0039,Al-Amal Pharmacy & Supplies,Zliten,Souq Al-Thulatha,"Souq Al-Thulatha St, Near Central Square, Zliten",32.522613,14.520608,0924540415,ACTIVE,2026-08-19 08:49:59
+PH0040,Al-Ma'refa Family Pharmacy,Benghazi,Al-Sabri,"Al-Sabri St, Near Grand Mosque, Benghazi",32.065242,20.034711,0914318855,ACTIVE,2026-08-19 10:27:54
+PH0041,Al-Buraq Medical Pharmacy,Benghazi,Al-Selmani,"Al-Selmani St, Near Old Market, Benghazi",32.140668,20.119821,0929284509,ACTIVE,2026-08-18 13:40:23
+PH0042,Al-Furat Family Pharmacy,Tripoli,Ain Zara,"Ain Zara St, Near Ring Road, Tripoli",32.937129,13.153079,0929249789,ACTIVE,2026-08-20 15:17:25
+PH0043,Al-Fajr Pharmacy & Supplies,Tripoli,Gargaresh,"Gargaresh St, Near Old Market, Tripoli",32.926191,13.131438,0928750676,ACTIVE,2026-08-19 12:31:06
+PH0044,Al-Shifa Pharmacy & Supplies,Zliten,Souq Al-Thulatha,"Souq Al-Thulatha St, Near Ring Road, Zliten",32.456359,14.535664,0922903561,ACTIVE,2026-08-17 01:06:20
+PH0045,Al-Fajr Care Pharmacy,Benghazi,Al-Hadaeq,"Al-Hadaeq St, Near Corniche, Benghazi",32.167324,20.067689,0922171218,ACTIVE,2026-08-19 02:27:03
+PH0046,Al-Rawda Medical Pharmacy,Sabha,Al-Manshiya,"Al-Manshiya St, Near Old Market, Sabha",27.017593,14.459845,0916398528,ACTIVE,2026-08-18 15:24:25
+PH0047,Al-Ta'aruf Care Pharmacy,Zliten,Souq Al-Thulatha,"Souq Al-Thulatha St, Near Grand Mosque, Zliten",32.466839,14.513142,0926569946,ACTIVE,2026-08-20 15:14:36
+PH0048,Al-Yasmin Medical Pharmacy,Tripoli,Gargaresh,"Gargaresh St, Near Corniche, Tripoli",32.901991,13.178998,0916512415,ACTIVE,2026-08-20 02:51:56
+PH0049,Al-Nahda Pharmacy,Tripoli,Souq Al Juma'a,"Souq Al Juma'a St, Near Central Square, Tripoli",32.879277,13.143113,0922686231,ACTIVE,2026-08-19 17:14:22
+PH0050,Al-Wahda Care Pharmacy,Misrata,Al-Ghiran,"Al-Ghiran St, Near Ring Road, Misrata",32.342363,15.108449,0911157662,ACTIVE,2026-08-20 23:06:37
+PH0051,Al-Ward Pharmacy & Supplies,Benghazi,Al-Hadaeq,"Al-Hadaeq St, Near Ring Road, Benghazi",32.092205,20.090613,0917640518,PENDING,2026-06-28 18:28:05
+PH0052,Al-Muna Care Pharmacy,Benghazi,Al-Fuwayhat,"Al-Fuwayhat St, Near Old Market, Benghazi",32.13209,20.115108,0926183033,ACTIVE,2026-08-19 20:30:53
+PH0053,Al-Baraka Pharmacy,Tripoli,Hay Al-Andalus,"Hay Al-Andalus St, Near Corniche, Tripoli",32.8834,13.140336,0924785186,ACTIVE,2026-08-19 17:13:59
+PH0054,Benghazi Wellness Pharmacy,Misrata,Qasr Ahmad,"Qasr Ahmad St, Near Corniche, Misrata",32.371077,15.106246,0926503032,ACTIVE,2026-08-18 08:51:02
+PH0055,Al-Ta'aruf Pharmacy & Supplies,Tripoli,Fashloum,"Fashloum St, Near Grand Mosque, Tripoli",32.877495,13.220372,0917960607,ACTIVE,2026-08-19 12:48:34
+PH0056,Al-Ward Pharmacy,Zliten,Souq Al-Thulatha,"Souq Al-Thulatha St, Near Corniche, Zliten",32.525111,14.55278,0927017548,ACTIVE,2026-08-19 13:10:27
+PH0057,Al-Wafaa Pharmacy,Tripoli,Souq Al Juma'a,"Souq Al Juma'a St, Near Central Square, Tripoli",32.906527,13.134394,0914991829,ACTIVE,2026-08-18 08:28:46
+PH0058,Al-Manar Pharmacy & Supplies,Zliten,Souq Al-Thulatha,"Souq Al-Thulatha St, Near Ring Road, Zliten",32.420486,14.569161,0921727544,INACTIVE,2026-05-30 08:32:37
+PH0059,Al-Hayat Pharmacy,Zawiya,Bir Al-Ghanam,"Bir Al-Ghanam St, Near Corniche, Zawiya",32.730853,12.6852,0916455706,ACTIVE,2026-08-18 09:04:09
+PH0060,Al-Nahda Family Pharmacy,Benghazi,Al-Hadaeq,"Al-Hadaeq St, Near Central Square, Benghazi",32.097372,20.06112,0912595275,ACTIVE,2026-08-18 19:51:45
+PH0061,Al-Muna Medical Pharmacy,Tripoli,Souq Al Juma'a,"Souq Al Juma'a St, Near Old Market, Tripoli",32.924612,13.198064,0926530541,ACTIVE,2026-08-17 14:46:07
+PH0062,Al-Rahma Care Pharmacy,Misrata,Zawiyat Al-Mahjoub,"Zawiyat Al-Mahjoub St, Near Corniche, Misrata",32.393308,15.058809,0917166651,ACTIVE,2026-08-18 21:08:44
+PH0063,Al-Zahra Medical Pharmacy,Tripoli,Hay Al-Andalus,"Hay Al-Andalus St, Near Corniche, Tripoli",32.869323,13.153069,0917724045,ACTIVE,2026-08-18 01:54:16
+PH0064,Al-Ta'aruf Pharmacy,Tripoli,Tajoura,"Tajoura St, Near Corniche, Tripoli",32.859852,13.210733,0918416270,ACTIVE,2026-08-18 14:23:06
+PH0065,Al-Amal Care Pharmacy,Sabha,Tayouri,"Tayouri St, Near Corniche, Sabha",27.025132,14.440219,0916056977,ACTIVE,2026-08-19 23:17:44
+PH0066,Al-Muna Pharmacy,Misrata,Zawiyat Al-Mahjoub,"Zawiyat Al-Mahjoub St, Near Corniche, Misrata",32.366846,15.087071,0916252285,INACTIVE,2026-07-19 21:25:02
+PH0067,Green Cross Pharmacy,Zliten,Souq Al-Thulatha,"Souq Al-Thulatha St, Near Grand Mosque, Zliten",32.483387,14.572373,0916861544,ACTIVE,2026-08-18 04:07:52
+PH0068,Al-Buraq Pharmacy & Supplies,Tripoli,Souq Al Juma'a,"Souq Al Juma'a St, Near Ring Road, Tripoli",32.918385,13.185169,0926422534,ACTIVE,2026-08-21 09:32:50
+PH0069,Al-Zahra Pharmacy,Tripoli,Tajoura,"Tajoura St, Near Corniche, Tripoli",32.90456,13.248584,0919507186,ACTIVE,2026-08-21 04:04:14
+PH0070,Al-Buraq Pharmacy,Zliten,Al-Qasabat,"Al-Qasabat St, Near Old Market, Zliten",32.504716,14.609185,0922414808,ACTIVE,2026-08-18 23:08:51
+PH0071,Al-Hayat Medical Pharmacy,Zawiya,Al-Harsha,"Al-Harsha St, Near Ring Road, Zawiya",32.703541,12.748806,0913522845,ACTIVE,2026-08-19 01:05:16
+PH0072,Al-Fajr Medical Pharmacy,Tripoli,Souq Al Juma'a,"Souq Al Juma'a St, Near Grand Mosque, Tripoli",32.924782,13.211714,0929831414,ACTIVE,2026-08-18 19:38:27
+PH0073,Al-Iman Care Pharmacy,Benghazi,Al-Fuwayhat,"Al-Fuwayhat St, Near Ring Road, Benghazi",32.12837,20.02521,0913777286,ACTIVE,2026-08-16 19:46:08
+PH0074,Al-Wahda Family Pharmacy,Tripoli,Janzour,"Janzour St, Near Central Square, Tripoli",32.882602,13.165113,0919849306,ACTIVE,2026-08-21 05:35:49
+PH0075,Al-Manar Care Pharmacy,Tripoli,Hay Al-Andalus,"Hay Al-Andalus St, Near Central Square, Tripoli",32.926926,13.142306,0928568671,ACTIVE,2026-08-20 16:49:20
+PH0076,Tripoli Care Pharmacy,Misrata,Al-Ghiran,"Al-Ghiran St, Near Central Square, Misrata",32.415201,15.109895,0923308538,ACTIVE,2026-08-18 21:50:06
+PH0077,Al-Ahad Pharmacy & Supplies,Benghazi,Al-Fuwayhat,"Al-Fuwayhat St, Near Ring Road, Benghazi",32.120033,20.020042,0916052478,ACTIVE,2026-08-18 20:55:57
+PH0078,Al-Zahra Family Pharmacy,Tripoli,Abu Salim,"Abu Salim St, Near Ring Road, Tripoli",32.827388,13.173638,0924142605,ACTIVE,2026-08-20 14:46:03
+PH0079,Al-Furat Care Pharmacy,Misrata,Qasr Ahmad,"Qasr Ahmad St, Near Central Square, Misrata",32.414146,15.114062,0929028420,ACTIVE,2026-08-20 05:28:55
+PH0080,Al-Ahad Family Pharmacy,Tripoli,Tajoura,"Tajoura St, Near Old Market, Tripoli",32.857598,13.221695,0916989032,ACTIVE,2026-08-19 18:14:33
+PH0081,Al-Hayat Family Pharmacy,Benghazi,Al-Berka,"Al-Berka St, Near Ring Road, Benghazi",32.128994,20.105381,0926389033,ACTIVE,2026-08-17 11:36:37
+PH0082,Al-Iman Family Pharmacy,Misrata,Al-Karareem,"Al-Karareem St, Near Ring Road, Misrata",32.347447,15.149503,0922258981,INACTIVE,2026-06-10 14:23:42
+PH0083,Al-Ward Family Pharmacy,Tripoli,Ain Zara,"Ain Zara St, Near Ring Road, Tripoli",32.941136,13.135186,0918548448,ACTIVE,2026-08-19 03:00:24
+PH0084,Al-Buraq Care Pharmacy,Zawiya,Bir Al-Ghanam,"Bir Al-Ghanam St, Near Old Market, Zawiya",32.811764,12.701669,0929240971,ACTIVE,2026-08-18 22:18:56
+PH0085,Al-Ma'refa Care Pharmacy,Misrata,Zawiyat Al-Mahjoub,"Zawiyat Al-Mahjoub St, Near Ring Road, Misrata",32.409744,15.092951,0914371891,ACTIVE,2026-08-18 19:47:33
+PH0086,Al-Karama Pharmacy & Supplies,Sabha,Tayouri,"Tayouri St, Near Grand Mosque, Sabha",26.98655,14.484986,0928549319,ACTIVE,2026-08-19 08:48:05
+PH0087,Al-Amal Pharmacy,Zawiya,Bir Al-Ghanam,"Bir Al-Ghanam St, Near Corniche, Zawiya",32.754372,12.703895,0914782763,ACTIVE,2026-08-19 16:45:15
+PH0088,Al-Shifa Pharmacy,Tripoli,Ain Zara,"Ain Zara St, Near Old Market, Tripoli",32.832655,13.208274,0924536777,ACTIVE,2026-08-18 20:05:45
+PH0089,Al-Ta'aruf Family Pharmacy,Sabha,Al-Manshiya,"Al-Manshiya St, Near Ring Road, Sabha",27.013392,14.377057,0918375356,ACTIVE,2026-08-17 20:20:57
+PH0090,Al-Baraka Pharmacy & Supplies,Tripoli,Janzour,"Janzour St, Near Grand Mosque, Tripoli",32.913735,13.15408,0919635649,ACTIVE,2026-08-19 12:52:20
+PH0091,Al-Ahad Medical Pharmacy,Benghazi,Al-Selmani,"Al-Selmani St, Near Ring Road, Benghazi",32.155737,20.081489,0923158613,ACTIVE,2026-08-20 01:43:50
+PH0092,Al-Noor Family Pharmacy,Zliten,Al-Qasabat,"Al-Qasabat St, Near Central Square, Zliten",32.477444,14.604311,0921447065,ACTIVE,2026-08-17 22:50:39
+PH0093,Al-Rawda Pharmacy,Sabha,Al-Manshiya,"Al-Manshiya St, Near Old Market, Sabha",27.062393,14.430542,0929025733,ACTIVE,2026-08-18 22:14:12
+PH0094,Al-Yasmin Pharmacy & Supplies,Sabha,Al-Manshiya,"Al-Manshiya St, Near Old Market, Sabha",27.01352,14.481278,0925848684,ACTIVE,2026-08-20 01:24:16
+PH0095,Al-Muna Family Pharmacy,Benghazi,Al-Berka,"Al-Berka St, Near Ring Road, Benghazi",32.082378,20.106054,0915557052,ACTIVE,2026-08-18 01:35:10
+PH0096,Al-Rawda Family Pharmacy,Misrata,Al-Karareem,"Al-Karareem St, Near Central Square, Misrata",32.392565,15.122609,0915788474,ACTIVE,2026-08-20 23:05:17
+PH0097,Al-Baraka Medical Pharmacy,Tripoli,Fashloum,"Fashloum St, Near Corniche, Tripoli",32.881722,13.208257,0923251501,ACTIVE,2026-08-20 04:13:39
+PH0098,Al-Manar Medical Pharmacy,Tripoli,Ain Zara,"Ain Zara St, Near Old Market, Tripoli",32.837609,13.211611,0913359075,ACTIVE,2026-08-21 13:48:00
+PH0099,Al-Ma'refa Medical Pharmacy,Benghazi,Al-Selmani,"Al-Selmani St, Near Ring Road, Benghazi",32.139535,20.083345,0927166363,ACTIVE,2026-08-21 10:00:16
+PH0100,Al-Amal Family Pharmacy,Benghazi,Al-Fuwayhat,"Al-Fuwayhat St, Near Old Market, Benghazi",32.098043,20.014351,0922157949,ACTIVE,2026-08-19 12:51:36
+PH0101,Al-Zahra Care Pharmacy,Misrata,Al-Karareem,"Al-Karareem St, Near Ring Road, Misrata",32.412394,15.119682,0916379867,ACTIVE,2026-08-18 22:30:05
+PH0102,Al-Baraka Family Pharmacy,Sabha,Al-Manshiya,"Al-Manshiya St, Near Corniche, Sabha",27.026691,14.404287,0918944327,ACTIVE,2026-08-18 12:26:41
+PH0103,Al-Hayat Pharmacy & Supplies,Tripoli,Fashloum,"Fashloum St, Near Grand Mosque, Tripoli",32.91415,13.154158,0911663497,ACTIVE,2026-08-19 22:04:14
+PH0104,Al-Ma'refa Pharmacy & Supplies,Tripoli,Gargaresh,"Gargaresh St, Near Ring Road, Tripoli",32.911652,13.178896,0916395804,ACTIVE,2026-08-20 05:13:27
+PH0105,Al-Baraka Care Pharmacy,Zliten,Al-Qasabat,"Al-Qasabat St, Near Corniche, Zliten",32.451885,14.558372,0924712363,ACTIVE,2026-08-18 18:59:09
+PH0106,Al-Wafaa Pharmacy & Supplies,Misrata,Qasr Ahmad,"Qasr Ahmad St, Near Corniche, Misrata",32.433339,15.146768,0922247057,ACTIVE,2026-08-20 04:38:37
+PH0107,Al-Ward Medical Pharmacy,Sabha,Tayouri,"Tayouri St, Near Central Square, Sabha",27.073092,14.377782,0928700704,ACTIVE,2026-08-18 03:43:38
+PH0108,Al-Buraq Family Pharmacy,Zawiya,Al-Harsha,"Al-Harsha St, Near Central Square, Zawiya",32.719577,12.733765,0914116163,ACTIVE,2026-08-21 07:46:16
+PH0109,Al-Furat Pharmacy & Supplies,Benghazi,Al-Fuwayhat,"Al-Fuwayhat St, Near Old Market, Benghazi",32.073035,20.04518,0924369728,ACTIVE,2026-08-18 02:18:27
+PH0110,Al-Karama Family Pharmacy,Misrata,Qasr Ahmad,"Qasr Ahmad St, Near Corniche, Misrata",32.331201,15.06824,0913586094,ACTIVE,2026-08-21 03:18:01
+PH0111,Al-Ta'aruf Medical Pharmacy,Zawiya,Bir Al-Ghanam,"Bir Al-Ghanam St, Near Corniche, Zawiya",32.712161,12.740921,0927704473,ACTIVE,2026-08-17 20:25:50
+PH0112,Al-Shifa Family Pharmacy,Sabha,Al-Manshiya,"Al-Manshiya St, Near Old Market, Sabha",26.990246,14.418217,0922947320,ACTIVE,2026-08-18 11:50:26
+PH0113,Al-Noor Pharmacy,Zliten,Al-Qasabat,"Al-Qasabat St, Near Ring Road, Zliten",32.509302,14.586456,0923757404,ACTIVE,2026-08-19 13:55:15
+PH0114,Al-Fajr Pharmacy,Zawiya,Al-Mashtal,"Al-Mashtal St, Near Ring Road, Zawiya",32.776768,12.692094,0922049645,ACTIVE,2026-08-19 09:21:13
+PH0115,Al-Salam Pharmacy & Supplies,Misrata,Al-Karareem,"Al-Karareem St, Near Grand Mosque, Misrata",32.360545,15.05419,0923906397,ACTIVE,2026-08-20 14:04:28
+PH0116,Al-Karama Pharmacy,Tripoli,Fashloum,"Fashloum St, Near Corniche, Tripoli",32.915519,13.209741,0911540736,ACTIVE,2026-08-20 06:22:37
+PH0117,Al-Iman Pharmacy & Supplies,Zawiya,Al-Mashtal,"Al-Mashtal St, Near Grand Mosque, Zawiya",32.712405,12.78488,0915485272,ACTIVE,2026-08-20 12:32:46
+PH0118,Al-Furat Medical Pharmacy,Benghazi,Al-Fuwayhat,"Al-Fuwayhat St, Near Central Square, Benghazi",32.075777,20.118627,0917047102,ACTIVE,2026-08-17 17:49:07
+PH0119,Al-Furat Pharmacy,Tripoli,Tajoura,"Tajoura St, Near Central Square, Tripoli",32.86442,13.183798,0925003671,ACTIVE,2026-08-18 00:25:50
+PH0120,Al-Yasmin Pharmacy,Tripoli,Gargaresh,"Gargaresh St, Near Grand Mosque, Tripoli",32.919772,13.134823,0925563077,PENDING,2026-06-09 19:09:08
+PH0121,Al-Yasmin Care Pharmacy,Misrata,Al-Ghiran,"Al-Ghiran St, Near Grand Mosque, Misrata",32.323462,15.056226,0922828260,ACTIVE,2026-08-17 11:50:43
+PH0122,Al-Salam Pharmacy,Zliten,Souq Al-Thulatha,"Souq Al-Thulatha St, Near Grand Mosque, Zliten",32.492739,14.624908,0911821255,ACTIVE,2026-08-20 18:23:59
+PH0123,Al-Wafaa Care Pharmacy,Tripoli,Tajoura,"Tajoura St, Near Ring Road, Tripoli",32.855586,13.169461,0927019382,ACTIVE,2026-08-19 12:14:40
+PH0124,Al-Wafaa Medical Pharmacy,Benghazi,Al-Fuwayhat,"Al-Fuwayhat St, Near Old Market, Benghazi",32.063847,20.024425,0923376537,ACTIVE,2026-08-18 18:57:37
+PH0125,Al-Yasmin Family Pharmacy,Misrata,Al-Ghiran,"Al-Ghiran St, Near Old Market, Misrata",32.363052,15.120308,0924186247,ACTIVE,2026-08-18 00:28:27
+PH0126,Al-Rahma Medical Pharmacy,Sabha,Al-Dawwar,"Al-Dawwar St, Near Ring Road, Sabha",26.990632,14.418036,0923067274,ACTIVE,2026-08-18 18:39:03
+PH0127,Al-Rahma Pharmacy,Sabha,Tayouri,"Tayouri St, Near Old Market, Sabha",26.999463,14.464259,0928738745,ACTIVE,2026-08-18 06:52:02
+PH0128,Al-Hayat Pharmacy 22,Misrata,Al-Ghiran,"Al-Ghiran St, Near Old Market, Misrata",32.355735,15.069518,0925487442,ACTIVE,2026-08-19 01:29:07
+PH0129,Al-Rawda Pharmacy & Supplies 70,Tripoli,Abu Salim,"Abu Salim St, Near Old Market, Tripoli",32.837762,13.155165,0921360516,INACTIVE,2026-06-22 22:14:22
+PH0130,Al-Rawda Pharmacy 77,Benghazi,Al-Fuwayhat,"Al-Fuwayhat St, Near Central Square, Benghazi",32.128229,20.045745,0918469488,ACTIVE,2026-08-16 21:35:49

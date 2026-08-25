@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Dashboard — PharmaTrack</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/dashboard.css">
+<link rel="stylesheet" href="css/responsive.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.4/chart.umd.min.js"></script>
+</head>
+<body>
+<div class="demo-banner"><strong>Demo prototype</strong> — administrator view of simulated system-wide data.</div>
+<nav class="nav">
+  <div class="container">
+    <a href="index.html" class="brand"><span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L3 6V12C3 17 6.5 21 12 22C17.5 21 21 17 21 12V6L12 2Z" fill="white" fill-opacity="0.9"/><path d="M12 8V16M8 12H16" stroke="#0197F6" stroke-width="2" stroke-linecap="round"/></svg></span>PharmaTrack <span class="dim">Libya</span></a>
+    <ul class="nav-links"><li><a href="index.html">Public Site</a></li></ul>
+    <div class="nav-actions"><div data-session-slot></div><button class="nav-toggle" aria-label="Menu">☰</button></div>
+  </div>
+  <div class="mobile-nav-panel"><a href="index.html">Public Site</a></div>
+</nav>
+
+<div class="dash-layout">
+  <aside class="dash-sidebar">
+    <div class="side-group">
+      <div class="side-title">Administration</div>
+      <a href="admin-dashboard.html" class="active"> Dashboard</a>
+      <a href="admin-pharmacies.html"> Pharmacies</a>
+      <a href="admin-medicines.html"> Medicine Catalog</a>
+      <a href="admin-imports.html"> Imports &amp; Data Quality</a>
+      <a href="admin-analytics.html"> Advanced Analytics</a>
+    </div>
+    <div class="side-group"><div class="side-title">Account</div><a href="index.html">← Public Site</a></div>
+  </aside>
+
+  <main class="dash-main" id="admin-dash-root">
+    <div class="dash-header"><h2>System Overview</h2></div>
+
+    <div class="kpi-grid">
+      <div class="kpi-card"><div class="kpi-label">Registered Pharmacies</div><div class="kpi-value mono" id="adm-pharmacies">—</div></div>
+      <div class="kpi-card"><div class="kpi-label">Active Pharmacies</div><div class="kpi-value mono" id="adm-active-pharmacies">—</div></div>
+      <div class="kpi-card"><div class="kpi-label">Pending Approval</div><div class="kpi-value mono" id="adm-pending-pharmacies">—</div></div>
+      <div class="kpi-card"><div class="kpi-label">Tracked Medicines</div><div class="kpi-value mono" id="adm-medicines">—</div></div>
+      <div class="kpi-card"><div class="kpi-label">Inventory Records</div><div class="kpi-value mono" id="adm-records">—</div></div>
+      <div class="kpi-card"><div class="kpi-label">Low Stock</div><div class="kpi-value mono" id="adm-low">—</div></div>
+      <div class="kpi-card"><div class="kpi-label">Out of Stock</div><div class="kpi-value mono" id="adm-out">—</div></div>
+      <div class="kpi-card risk"><div class="kpi-label">Potential Shortages</div><div class="kpi-value mono" id="adm-shortages">—</div></div>
+    </div>
+
+    <div class="grid-charts mt-24">
+      <div class="chart-card">
+        <h4>Pharmacy Data Freshness</h4>
+        <div class="chart-sub">How recently each active pharmacy last synchronized.</div>
+        <div class="chart-canvas-wrap"><canvas id="adm-freshness-chart"></canvas></div>
+      </div>
+      <div class="chart-card">
+        <h4>Availability by City</h4>
+        <div class="chart-sub">Share of inventory records marked Available, by city.</div>
+        <div class="chart-canvas-wrap"><canvas id="adm-city-chart"></canvas></div>
+      </div>
+      <div class="chart-card span-2">
+        <h4>Shortage Trend (System-wide)</h4>
+        <div class="chart-sub">Percentage of historical inventory snapshots recorded at zero stock, by month.</div>
+        <div class="chart-canvas-wrap"><canvas id="adm-shortage-trend-chart"></canvas></div>
+      </div>
+    </div>
+
+    <div class="grid-2 mt-24">
+      <div class="card">
+        <div class="panel-title-row"><h3>Top Shortage Risks</h3><a href="admin-analytics.html" style="font-size:0.85rem;">Full analytics →</a></div>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead><tr><th>Medicine</th><th>Category</th><th>Score</th><th>Risk</th></tr></thead>
+            <tbody id="adm-risk-table-body"></tbody>
+          </table>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Recent Import Activity</h3>
+        <ul id="adm-recent-activity" style="list-style:none;padding:0;margin:0;"></ul>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/store.js"></script>
+<script src="js/app.js"></script>
+<script src="js/charts.js"></script>
+<script>PTAuth.requireRole("admin");</script>
+<script src="js/admin.js"></script>
+</body>
+</html>

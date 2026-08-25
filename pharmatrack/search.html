@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Search Medicines — PharmaTrack</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+<div class="demo-banner"><strong>Demo prototype</strong> — synthetic data for demonstration purposes only.</div>
+
+<nav class="nav">
+  <div class="container">
+    <a href="index.html" class="brand"><span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L3 6V12C3 17 6.5 21 12 22C17.5 21 21 17 21 12V6L12 2Z" fill="white" fill-opacity="0.9"/><path d="M12 8V16M8 12H16" stroke="#0197F6" stroke-width="2" stroke-linecap="round"/></svg></span>PharmaTrack <span class="dim">Libya</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html" data-nav-link>Home</a></li>
+      <li><a href="search.html" data-nav-link>Search</a></li>
+      <li><a href="pharmacies.html" data-nav-link>Pharmacies</a></li>
+      <li><a href="admin-analytics.html" data-nav-link>Insights</a></li>
+    </ul>
+    <div class="nav-actions">
+      <div data-session-slot></div>
+      <a href="login.html?role=pharmacy" class="btn btn--outline btn--sm">For Pharmacies</a>
+      <button class="nav-toggle" aria-label="Menu">☰</button>
+    </div>
+  </div>
+  <div class="mobile-nav-panel">
+    <a href="index.html">Home</a><a href="search.html">Search Medicines</a><a href="pharmacies.html">Pharmacy Directory</a><a href="admin-analytics.html">Insights</a><a href="login.html?role=pharmacy">Pharmacy Login</a><a href="login.html?role=admin">Admin Login</a>
+  </div>
+</nav>
+
+<main>
+<section class="section--dark" style="padding:50px 0 34px;">
+  <div class="container">
+    <div class="eyebrow"><span class="pulse-dot"></span> Medicine Search</div>
+    <h1 style="font-size:2rem;">Search availability across every tracked pharmacy</h1>
+  </div>
+</section>
+
+<section class="section--soft section--tight">
+  <div class="container">
+    <div class="toolbar">
+      <input id="search-input" class="input input-grow" type="text" placeholder="Brand, generic name, active ingredient, strength or form…" aria-label="Search medicines">
+      <select id="city-filter" class="input"></select>
+      <select id="category-filter" class="input"></select>
+    </div>
+    <div class="row" style="justify-content:space-between;margin-bottom:14px;">
+      <span id="results-count" class="text-muted" style="font-size:0.88rem;"></span>
+    </div>
+    <div id="results-list"></div>
+    <div id="results-empty" class="empty-state hidden">
+      <div class="icon">🔍</div>
+      <h3>No medicines match your search</h3>
+      <p>Try a different brand or generic name, or clear the filters above.</p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-bottom"><span>© <span data-year></span> PharmaTrack Demo Project</span><span class="footer-note">SYNTHETIC DATA · DEMO ONLY</span></div>
+  </div>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/store.js"></script>
+<script src="js/app.js"></script>
+<script src="js/search.js"></script>
+</body>
+</html>
