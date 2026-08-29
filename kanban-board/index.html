@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Kanban Board — Drag &amp; Drop Task Management</title>
+<meta name="description" content="A cyberpunk-neon kanban board for real task management with drag and drop, labels, priorities, checklists, search and filters.">
+<meta name="theme-color" content="#021826">
+<link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+<a class="skip-link" href="#board-main">Skip to board</a>
+
+<!-- ============ HEADER ============ -->
+<header class="app-header" role="banner">
+  <div class="header-left">
+    <button class="icon-btn" id="mobile-menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="app-sidebar">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 32 32" width="26" height="26">
+          <rect x="3" y="4" width="7" height="24" rx="2" fill="var(--teal)"/>
+          <rect x="13" y="4" width="7" height="16" rx="2" fill="var(--green)"/>
+          <rect x="23" y="4" width="6" height="20" rx="2" fill="var(--lime)"/>
+        </svg>
+      </span>
+      <div class="brand-text">
+        <h1>Kanban Board</h1>
+        <p class="brand-sub">Drag &amp; Drop Task Management</p>
+      </div>
+    </div>
+    <label class="board-name-wrap" for="board-name-input">
+      <span class="visually-hidden">Board name</span>
+      <input id="board-name-input" class="board-name-input" type="text" value="Product Launch Board" aria-label="Board name" maxlength="60">
+    </label>
+  </div>
+
+  <div class="header-center">
+    <div class="search-wrap">
+      <svg class="search-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="search" id="search-input" placeholder="Search tasks…  (press /)" aria-label="Search tasks by title, description, label, or assignee">
+      <button class="search-clear" id="search-clear" aria-label="Clear search" hidden>&times;</button>
+    </div>
+  </div>
+
+  <div class="header-right">
+    <button class="btn btn-ghost" id="filters-btn" aria-haspopup="true" aria-expanded="false" aria-controls="filters-panel">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M7 12h10M10 18h4"/></svg>
+      <span class="btn-label">Filters</span>
+      <span class="filter-count" id="filter-count" hidden>0</span>
+    </button>
+    <button class="btn btn-ghost" id="sort-btn" aria-haspopup="true" aria-expanded="false" aria-controls="sort-panel">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h6M3 12h10M3 18h14"/></svg>
+      <span class="btn-label">Sort</span>
+    </button>
+    <button class="btn btn-primary" id="add-task-btn">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      <span class="btn-label">Add Task</span>
+    </button>
+    <button class="icon-btn" id="theme-toggle-btn" aria-label="Toggle theme">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3a6 6 0 1 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+    </button>
+    <button class="icon-btn" id="command-menu-btn" aria-label="Open command menu (Ctrl+K)">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M9 9h.01M9 15h6"/></svg>
+    </button>
+    <button class="icon-btn" id="settings-btn" aria-label="Open settings">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1Z"/></svg>
+    </button>
+  </div>
+</header>
+
+<!-- ============ FILTERS PANEL (popover) ============ -->
+<div class="popover-panel" id="filters-panel" role="region" aria-label="Filters" hidden>
+  <div class="popover-header">
+    <h2>Filters</h2>
+    <button class="btn btn-text" id="clear-filters-btn">Clear all</button>
+  </div>
+  <div class="filter-group">
+    <span class="filter-group-label">Priority</span>
+    <div class="chip-row" id="filter-priority" data-filter="priority">
+      <button class="chip" data-value="low">Low</button>
+      <button class="chip" data-value="medium">Medium</button>
+      <button class="chip" data-value="high">High</button>
+      <button class="chip" data-value="urgent">Urgent</button>
+    </div>
+  </div>
+  <div class="filter-group">
+    <span class="filter-group-label">Labels</span>
+    <div class="chip-row" id="filter-labels" data-filter="labels"></div>
+  </div>
+  <div class="filter-group">
+    <span class="filter-group-label">Column</span>
+    <div class="chip-row" id="filter-column" data-filter="columnId"></div>
+  </div>
+  <div class="filter-group">
+    <span class="filter-group-label">Due date</span>
+    <div class="chip-row" id="filter-due" data-filter="due">
+      <button class="chip" data-value="overdue">Overdue</button>
+      <button class="chip" data-value="today">Due today</button>
+      <button class="chip" data-value="upcoming">Upcoming</button>
+      <button class="chip" data-value="none">No date</button>
+    </div>
+  </div>
+  <div class="filter-group">
+    <span class="filter-group-label">Status</span>
+    <div class="chip-row" id="filter-status" data-filter="status">
+      <button class="chip" data-value="completed">Completed</button>
+      <button class="chip" data-value="active">Active</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============ SORT PANEL (popover) ============ -->
+<div class="popover-panel" id="sort-panel" role="region" aria-label="Sort options" hidden>
+  <div class="popover-header"><h2>Sort by</h2></div>
+  <div class="radio-list" id="sort-options">
+    <label class="radio-row"><input type="radio" name="sort" value="manual" checked><span>Manual order</span></label>
+    <label class="radio-row"><input type="radio" name="sort" value="priority"><span>Priority</span></label>
+    <label class="radio-row"><input type="radio" name="sort" value="dueDate"><span>Due date</span></label>
+    <label class="radio-row"><input type="radio" name="sort" value="createdAt"><span>Created date</span></label>
+    <label class="radio-row"><input type="radio" name="sort" value="alphabetical"><span>Alphabetical</span></label>
+  </div>
+</div>
+
+<div class="app-shell">
+  <!-- ============ SIDEBAR ============ -->
+  <aside class="app-sidebar" id="app-sidebar">
+    <section class="stats-card" aria-label="Board statistics">
+      <h2 class="stats-title">Board Progress</h2>
+      <div class="progress-track" role="progressbar" aria-label="Completion rate" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="progress-bar">
+        <div class="progress-fill" id="progress-fill" style="width:0%"></div>
+      </div>
+      <p class="progress-label" id="progress-label">No tasks yet</p>
+
+      <ul class="stat-list" id="stat-list">
+        <li><span>Total tasks</span><strong id="stat-total">0</strong></li>
+        <li><span>To Do</span><strong id="stat-todo">0</strong></li>
+        <li><span>In Progress</span><strong id="stat-inprogress">0</strong></li>
+        <li><span>Review</span><strong id="stat-review">0</strong></li>
+        <li><span>Completed</span><strong id="stat-completed">0</strong></li>
+        <li class="stat-danger"><span>Overdue</span><strong id="stat-overdue">0</strong></li>
+        <li><span>High priority</span><strong id="stat-highpriority">0</strong></li>
+      </ul>
+    </section>
+
+    <section class="sidebar-actions" aria-label="Board actions">
+      <button class="btn btn-secondary btn-block" id="load-demo-btn">Load Demo Board</button>
+      <button class="btn btn-ghost btn-block" id="add-column-btn">+ Add Column</button>
+      <button class="btn btn-ghost btn-block" id="export-btn">Export Board</button>
+      <button class="btn btn-ghost btn-block" id="import-btn">Import Board</button>
+      <button class="btn btn-danger-ghost btn-block" id="reset-board-btn">Reset Board</button>
+    </section>
+
+    <section class="sidebar-status" aria-live="polite">
+      <span class="status-dot" id="storage-status-dot"></span>
+      <span id="storage-status-text">Local storage active</span>
+    </section>
+  </aside>
+
+  <!-- ============ MAIN BOARD ============ -->
+  <main class="board-main" id="board-main" role="main">
+    <div class="board-columns" id="board-columns" aria-label="Kanban columns"></div>
+  </main>
+</div>
+
+<!-- Bottom mobile action bar -->
+<div class="mobile-action-bar" id="mobile-action-bar">
+  <button class="mab-btn" id="mab-search"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><span>Search</span></button>
+  <button class="mab-btn" id="mab-filter"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M7 12h10M10 18h4"/></svg><span>Filter</span></button>
+  <button class="mab-btn mab-btn-primary" id="mab-add"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.4"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg><span>Add</span></button>
+  <button class="mab-btn" id="mab-stats"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18M8 17V9m5 8V5m5 12v-6"/></svg><span>Stats</span></button>
+  <button class="mab-btn" id="mab-menu"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="5" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="12" cy="19" r="1.5"/></svg><span>More</span></button>
+</div>
+
+<!-- ============ TASK MODAL ============ -->
+<div class="modal-overlay" id="task-modal-overlay" hidden>
+  <div class="modal modal-lg" role="dialog" aria-modal="true" aria-labelledby="task-modal-title" id="task-modal">
+    <header class="modal-header">
+      <h2 id="task-modal-title">New Task</h2>
+      <button class="icon-btn" id="task-modal-close" aria-label="Close dialog">&times;</button>
+    </header>
+    <form id="task-form" class="modal-body">
+      <div class="form-row">
+        <label for="task-title">Title <span class="req">*</span></label>
+        <input id="task-title" name="title" type="text" maxlength="120" required autocomplete="off">
+      </div>
+      <div class="form-row">
+        <label for="task-description">Description</label>
+        <textarea id="task-description" name="description" rows="3" maxlength="600"></textarea>
+      </div>
+      <div class="form-grid">
+        <div class="form-row">
+          <label for="task-priority">Priority</label>
+          <select id="task-priority" name="priority">
+            <option value="low">Low</option>
+            <option value="medium" selected>Medium</option>
+            <option value="high">High</option>
+            <option value="urgent">Urgent</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label for="task-column">Column</label>
+          <select id="task-column" name="columnId"></select>
+        </div>
+      </div>
+      <div class="form-grid">
+        <div class="form-row">
+          <label for="task-due-date">Due date</label>
+          <input id="task-due-date" name="dueDate" type="date">
+        </div>
+        <div class="form-row">
+          <label for="task-due-time">Due time (optional)</label>
+          <input id="task-due-time" name="dueTime" type="time">
+        </div>
+      </div>
+      <div class="form-row">
+        <label for="task-assignee">Assignee</label>
+        <input id="task-assignee" name="assignee" type="text" maxlength="60" placeholder="e.g. Mara T.">
+      </div>
+      <div class="form-row">
+        <label id="task-labels-label">Labels</label>
+        <div class="label-picker" id="task-labels-picker" aria-labelledby="task-labels-label"></div>
+        <div class="label-add-row">
+          <input type="text" id="new-label-input" placeholder="Add custom label…" maxlength="24">
+          <button type="button" class="btn btn-ghost btn-sm" id="new-label-btn">Add</button>
+        </div>
+      </div>
+      <div class="form-row">
+        <label id="task-checklist-label">Checklist</label>
+        <div class="checklist-editor" id="checklist-editor" aria-labelledby="task-checklist-label"></div>
+        <div class="checklist-add-row">
+          <input type="text" id="new-checklist-input" placeholder="Add checklist item…" maxlength="120">
+          <button type="button" class="btn btn-ghost btn-sm" id="new-checklist-btn">Add</button>
+        </div>
+      </div>
+      <div class="form-meta" id="task-meta-info" hidden>
+        <span id="task-created-info"></span>
+        <span id="task-updated-info"></span>
+      </div>
+    </form>
+    <footer class="modal-footer">
+      <button class="btn btn-danger-ghost" id="task-delete-btn" hidden type="button">Delete Task</button>
+      <div class="modal-footer-right">
+        <button class="btn btn-ghost" id="task-cancel-btn" type="button">Cancel</button>
+        <button class="btn btn-primary" id="task-save-btn" form="task-form" type="submit">Save Task</button>
+      </div>
+    </footer>
+  </div>
+</div>
+
+<!-- ============ COLUMN MODAL ============ -->
+<div class="modal-overlay" id="column-modal-overlay" hidden>
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="column-modal-title" id="column-modal">
+    <header class="modal-header">
+      <h2 id="column-modal-title">Add Column</h2>
+      <button class="icon-btn" id="column-modal-close" aria-label="Close dialog">&times;</button>
+    </header>
+    <form id="column-form" class="modal-body">
+      <div class="form-row">
+        <label for="column-title-input">Column name <span class="req">*</span></label>
+        <input id="column-title-input" type="text" maxlength="40" required autocomplete="off">
+      </div>
+    </form>
+    <footer class="modal-footer">
+      <div class="modal-footer-right">
+        <button class="btn btn-ghost" id="column-cancel-btn" type="button">Cancel</button>
+        <button class="btn btn-primary" id="column-save-btn" form="column-form" type="submit">Save Column</button>
+      </div>
+    </footer>
+  </div>
+</div>
+
+<!-- ============ SETTINGS MODAL ============ -->
+<div class="modal-overlay" id="settings-modal-overlay" hidden>
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="settings-modal-title" id="settings-modal">
+    <header class="modal-header">
+      <h2 id="settings-modal-title">Settings</h2>
+      <button class="icon-btn" id="settings-modal-close" aria-label="Close dialog">&times;</button>
+    </header>
+    <div class="modal-body">
+      <div class="settings-row">
+        <div>
+          <strong>Theme</strong>
+          <p>Cyberpunk neon dark, or light mode.</p>
+        </div>
+        <select id="setting-theme">
+          <option value="dark">Dark (Neon)</option>
+          <option value="light">Light</option>
+        </select>
+      </div>
+      <div class="settings-row">
+        <div>
+          <strong>Storage mode</strong>
+          <p>Where board data is saved.</p>
+        </div>
+        <select id="setting-storage-mode">
+          <option value="local">Local Browser</option>
+          <option value="server">Python Server</option>
+        </select>
+      </div>
+      <div class="settings-row">
+        <div>
+          <strong>Confirm before delete</strong>
+          <p>Show a confirmation dialog before deleting.</p>
+        </div>
+        <label class="switch"><input type="checkbox" id="setting-confirm-delete" checked><span class="slider"></span></label>
+      </div>
+      <div class="settings-row">
+        <div>
+          <strong>Animations</strong>
+          <p>Enable motion and transition effects.</p>
+        </div>
+        <label class="switch"><input type="checkbox" id="setting-animations" checked><span class="slider"></span></label>
+      </div>
+      <div class="settings-row">
+        <div>
+          <strong>Compact mode</strong>
+          <p>Reduce padding and text size for dense boards.</p>
+        </div>
+        <label class="switch"><input type="checkbox" id="setting-compact-mode"><span class="slider"></span></label>
+      </div>
+      <div class="settings-row">
+        <div>
+          <strong>Keyboard shortcuts</strong>
+          <p>N new task · / search · Esc close · Ctrl/Cmd+K commands · Ctrl/Cmd+S save · Ctrl/Cmd+Z undo</p>
+        </div>
+      </div>
+      <div class="settings-row settings-danger-row">
+        <div>
+          <strong>Clear local data</strong>
+          <p>Remove all boards and settings from this browser.</p>
+        </div>
+        <button class="btn btn-danger-ghost" id="clear-local-data-btn">Clear Data</button>
+      </div>
+    </div>
+    <footer class="modal-footer">
+      <div class="modal-footer-right">
+        <button class="btn btn-ghost" id="reset-settings-btn" type="button">Reset Settings</button>
+        <button class="btn btn-primary" id="settings-done-btn" type="button">Done</button>
+      </div>
+    </footer>
+  </div>
+</div>
+
+<!-- ============ CONFIRM DIALOG ============ -->
+<div class="modal-overlay" id="confirm-modal-overlay" hidden>
+  <div class="modal modal-sm" role="alertdialog" aria-modal="true" aria-labelledby="confirm-modal-title" aria-describedby="confirm-modal-message" id="confirm-modal">
+    <header class="modal-header">
+      <h2 id="confirm-modal-title">Are you sure?</h2>
+    </header>
+    <div class="modal-body">
+      <p id="confirm-modal-message">This action cannot be undone.</p>
+      <div class="form-row" id="confirm-modal-extra" hidden></div>
+    </div>
+    <footer class="modal-footer">
+      <div class="modal-footer-right">
+        <button class="btn btn-ghost" id="confirm-cancel-btn" type="button">Cancel</button>
+        <button class="btn btn-danger" id="confirm-ok-btn" type="button">Confirm</button>
+      </div>
+    </footer>
+  </div>
+</div>
+
+<!-- ============ TASK DETAIL MODAL ============ -->
+<div class="modal-overlay" id="detail-modal-overlay" hidden>
+  <div class="modal modal-lg" role="dialog" aria-modal="true" aria-labelledby="detail-modal-title" id="detail-modal">
+    <header class="modal-header">
+      <h2 id="detail-modal-title">Task Details</h2>
+      <button class="icon-btn" id="detail-modal-close" aria-label="Close dialog">&times;</button>
+    </header>
+    <div class="modal-body" id="detail-modal-body"></div>
+    <footer class="modal-footer">
+      <button class="btn btn-danger-ghost" id="detail-delete-btn" type="button">Delete</button>
+      <div class="modal-footer-right">
+        <button class="btn btn-ghost" id="detail-close-btn" type="button">Close</button>
+        <button class="btn btn-primary" id="detail-edit-btn" type="button">Edit Task</button>
+      </div>
+    </footer>
+  </div>
+</div>
+
+<!-- ============ IMPORT MODAL ============ -->
+<div class="modal-overlay" id="import-modal-overlay" hidden>
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="import-modal-title" id="import-modal">
+    <header class="modal-header">
+      <h2 id="import-modal-title">Import Board</h2>
+      <button class="icon-btn" id="import-modal-close" aria-label="Close dialog">&times;</button>
+    </header>
+    <div class="modal-body">
+      <p>Select a previously exported <code>kanban-board.json</code> file.</p>
+      <input type="file" id="import-file-input" accept="application/json">
+      <p class="form-hint" id="import-error-msg" hidden></p>
+    </div>
+    <footer class="modal-footer">
+      <div class="modal-footer-right">
+        <button class="btn btn-ghost" id="import-cancel-btn" type="button">Cancel</button>
+        <button class="btn btn-primary" id="import-confirm-btn" type="button" disabled>Import</button>
+      </div>
+    </footer>
+  </div>
+</div>
+
+<!-- ============ MOVE-TO-COLUMN TOUCH MENU ============ -->
+<div class="modal-overlay" id="move-menu-overlay" hidden>
+  <div class="modal modal-sm" role="dialog" aria-modal="true" aria-labelledby="move-menu-title" id="move-menu">
+    <header class="modal-header">
+      <h2 id="move-menu-title">Move Task</h2>
+      <button class="icon-btn" id="move-menu-close" aria-label="Close dialog">&times;</button>
+    </header>
+    <div class="modal-body">
+      <div class="move-actions">
+        <button class="btn btn-ghost btn-block" id="move-up-btn">↑ Move Up</button>
+        <button class="btn btn-ghost btn-block" id="move-down-btn">↓ Move Down</button>
+      </div>
+      <p class="form-hint">Move to column</p>
+      <div class="chip-row" id="move-column-list"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ COMMAND MENU ============ -->
+<div class="modal-overlay" id="command-menu-overlay" hidden>
+  <div class="modal modal-sm command-menu" role="dialog" aria-modal="true" aria-label="Command menu" id="command-menu">
+    <div class="command-input-wrap">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="text" id="command-input" placeholder="Type a command…" autocomplete="off">
+    </div>
+    <ul class="command-list" id="command-list"></ul>
+  </div>
+</div>
+
+<!-- Toast container -->
+<div class="toast-container" id="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+<!-- Column menu popover template target -->
+<div class="popover-panel popover-small" id="column-menu-panel" hidden>
+  <button class="menu-item" id="col-menu-rename">Rename column</button>
+  <button class="menu-item" id="col-menu-move-left">Move left</button>
+  <button class="menu-item" id="col-menu-move-right">Move right</button>
+  <button class="menu-item danger" id="col-menu-delete">Delete column</button>
+</div>
+
+<script src="js/utils.js"></script>
+<script src="js/state.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/toast.js"></script>
+<script src="js/modal.js"></script>
+<script src="js/tasks.js"></script>
+<script src="js/columns.js"></script>
+<script src="js/search.js"></script>
+<script src="js/filters.js"></script>
+<script src="js/statistics.js"></script>
+<script src="js/drag-drop.js"></script>
+<script src="js/touch-drag.js"></script>
+<script src="js/import-export.js"></script>
+<script src="js/settings.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

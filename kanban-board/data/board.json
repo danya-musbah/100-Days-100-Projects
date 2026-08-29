@@ -1,0 +1,173 @@
+{
+  "board": {
+    "id": "default-board",
+    "name": "Product Launch Board",
+    "createdAt": "2026-08-01T09:00:00.000Z",
+    "updatedAt": "2026-08-01T09:00:00.000Z"
+  },
+  "columns": [
+    { "id": "todo", "title": "To Do", "position": 0 },
+    { "id": "in-progress", "title": "In Progress", "position": 1 },
+    { "id": "review", "title": "Review", "position": 2 },
+    { "id": "done", "title": "Done", "position": 3 }
+  ],
+  "tasks": [
+    {
+      "id": "t1",
+      "columnId": "todo",
+      "title": "Design landing page",
+      "description": "Create a high-converting landing page with hero section, pricing, and testimonials.",
+      "priority": "high",
+      "labels": ["Design", "Frontend"],
+      "dueDate": "2026-09-05",
+      "assignee": "Mara T.",
+      "checklist": [
+        { "id": "c1", "text": "Wireframe hero section", "done": true },
+        { "id": "c2", "text": "Design pricing table", "done": false },
+        { "id": "c3", "text": "Add testimonials block", "done": false }
+      ],
+      "position": 0,
+      "createdAt": "2026-08-01T09:00:00.000Z",
+      "updatedAt": "2026-08-01T09:00:00.000Z"
+    },
+    {
+      "id": "t2",
+      "columnId": "todo",
+      "title": "Research authentication providers",
+      "description": "Compare passwordless, OAuth, and magic-link providers for the new signup flow.",
+      "priority": "medium",
+      "labels": ["Research", "Backend"],
+      "dueDate": "2026-09-10",
+      "assignee": "Devon K.",
+      "checklist": [],
+      "position": 1,
+      "createdAt": "2026-08-01T09:05:00.000Z",
+      "updatedAt": "2026-08-01T09:05:00.000Z"
+    },
+    {
+      "id": "t3",
+      "columnId": "todo",
+      "title": "Write project documentation",
+      "description": "Document setup instructions, architecture decisions, and contribution guidelines.",
+      "priority": "low",
+      "labels": ["Design"],
+      "dueDate": null,
+      "assignee": "Priya S.",
+      "checklist": [
+        { "id": "c4", "text": "Outline sections", "done": false }
+      ],
+      "position": 2,
+      "createdAt": "2026-08-01T09:10:00.000Z",
+      "updatedAt": "2026-08-01T09:10:00.000Z"
+    },
+    {
+      "id": "t4",
+      "columnId": "in-progress",
+      "title": "Build dashboard",
+      "description": "Implement the analytics dashboard with charts for weekly active users.",
+      "priority": "urgent",
+      "labels": ["Frontend", "Feature"],
+      "dueDate": "2026-08-30",
+      "assignee": "Mara T.",
+      "checklist": [
+        { "id": "c5", "text": "Set up chart library", "done": true },
+        { "id": "c6", "text": "Wire up API data", "done": true },
+        { "id": "c7", "text": "Add date range filter", "done": false },
+        { "id": "c8", "text": "Polish empty states", "done": false }
+      ],
+      "position": 0,
+      "createdAt": "2026-08-02T10:00:00.000Z",
+      "updatedAt": "2026-08-10T10:00:00.000Z"
+    },
+    {
+      "id": "t5",
+      "columnId": "in-progress",
+      "title": "Implement search",
+      "description": "Add fuzzy search across tasks, labels, and assignees on the kanban board.",
+      "priority": "medium",
+      "labels": ["Feature", "Frontend"],
+      "dueDate": "2026-09-02",
+      "assignee": "Devon K.",
+      "checklist": [
+        { "id": "c9", "text": "Index task fields", "done": true },
+        { "id": "c10", "text": "Debounce input", "done": false }
+      ],
+      "position": 1,
+      "createdAt": "2026-08-03T11:00:00.000Z",
+      "updatedAt": "2026-08-03T11:00:00.000Z"
+    },
+    {
+      "id": "t6",
+      "columnId": "review",
+      "title": "Test responsive layout",
+      "description": "Verify the board layout at all major breakpoints from 320px to 1440px.",
+      "priority": "high",
+      "labels": ["Bug", "Frontend"],
+      "dueDate": "2026-08-28",
+      "assignee": "Priya S.",
+      "checklist": [
+        { "id": "c11", "text": "Test on mobile", "done": true },
+        { "id": "c12", "text": "Test on tablet", "done": true },
+        { "id": "c13", "text": "Test on desktop", "done": true }
+      ],
+      "position": 0,
+      "createdAt": "2026-08-04T12:00:00.000Z",
+      "updatedAt": "2026-08-15T12:00:00.000Z"
+    },
+    {
+      "id": "t7",
+      "columnId": "review",
+      "title": "Review API integration",
+      "description": "Peer-review the new REST endpoints for the task synchronization service.",
+      "priority": "medium",
+      "labels": ["Backend", "Important"],
+      "dueDate": "2026-08-29",
+      "assignee": "Devon K.",
+      "checklist": [],
+      "position": 1,
+      "createdAt": "2026-08-05T13:00:00.000Z",
+      "updatedAt": "2026-08-05T13:00:00.000Z"
+    },
+    {
+      "id": "t8",
+      "columnId": "done",
+      "title": "Create project structure",
+      "description": "Scaffold the repository with folders for frontend, backend, and data.",
+      "priority": "low",
+      "labels": ["Backend"],
+      "dueDate": "2026-08-10",
+      "assignee": "Mara T.",
+      "checklist": [
+        { "id": "c14", "text": "Initialize repo", "done": true },
+        { "id": "c15", "text": "Add README", "done": true }
+      ],
+      "position": 0,
+      "createdAt": "2026-07-28T09:00:00.000Z",
+      "updatedAt": "2026-08-01T09:00:00.000Z"
+    },
+    {
+      "id": "t9",
+      "columnId": "done",
+      "title": "Implement navigation",
+      "description": "Build the primary header navigation with active states and mobile menu.",
+      "priority": "medium",
+      "labels": ["Frontend"],
+      "dueDate": "2026-08-12",
+      "assignee": "Priya S.",
+      "checklist": [
+        { "id": "c16", "text": "Design nav bar", "done": true },
+        { "id": "c17", "text": "Add mobile toggle", "done": true }
+      ],
+      "position": 1,
+      "createdAt": "2026-07-30T09:00:00.000Z",
+      "updatedAt": "2026-08-05T09:00:00.000Z"
+    }
+  ],
+  "settings": {
+    "theme": "dark",
+    "storageMode": "local",
+    "confirmBeforeDelete": true,
+    "animations": true,
+    "compactMode": false
+  }
+}

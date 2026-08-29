@@ -1,0 +1,19 @@
+{
+  "name": "Kanban Board — Drag & Drop Task Management",
+  "short_name": "Kanban Board",
+  "description": "A cyberpunk-neon kanban board for task management with drag and drop, labels, priorities, checklists, search and filters.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#021826",
+  "theme_color": "#021826",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "assets/icons/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

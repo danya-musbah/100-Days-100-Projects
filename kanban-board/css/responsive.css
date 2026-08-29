@@ -1,0 +1,113 @@
+/* ==========================================================================
+   KANBAN BOARD — Responsive Styles
+   ========================================================================== */
+
+/* ---------- Large desktop polish ---------- */
+@media (min-width: 1440px) {
+  .app-sidebar { width: 300px; flex-basis: 300px; }
+  .column { width: 320px; flex-basis: 320px; }
+  .board-main { padding: 24px 32px 48px; }
+}
+
+/* ---------- Show board name field once there's room ---------- */
+@media (min-width: 900px) {
+  .board-name-wrap { display: block; }
+}
+
+/* ---------- Tablet ---------- */
+@media (max-width: 1023px) {
+  .app-sidebar {
+    position: fixed; top: var(--header-h); left: 0; bottom: 0;
+    height: calc(100vh - var(--header-h));
+    transform: translateX(-100%);
+    transition: transform var(--transition-med);
+    z-index: 80; box-shadow: var(--shadow-modal);
+    background: var(--bg-1);
+  }
+  .app-sidebar.open { transform: translateX(0); }
+  .btn-label { display: none; }
+  .btn#add-task-btn .btn-label { display: none; }
+  #filters-btn, #sort-btn, #add-task-btn { padding: 9px 11px; }
+}
+
+@media (max-width: 900px) {
+  .board-name-wrap { display: none; }
+}
+
+/* ---------- Mobile: header compacts, mobile action bar appears ---------- */
+@media (max-width: 767px) {
+  .app-header { padding: 0 10px; gap: 8px; }
+  .brand-sub { display: none; }
+  .brand-text h1 { font-size: 0.9rem; }
+  .header-center { order: 3; flex-basis: 100%; padding: 0 0 8px; }
+  .app-header { flex-wrap: wrap; height: auto; padding-top: 8px; padding-bottom: 0; row-gap: 6px; }
+  .header-right #filters-btn .btn-label,
+  .header-right #sort-btn .btn-label { display: none; }
+
+  .app-shell { padding-bottom: 64px; }
+  .board-main { padding: 12px 12px 24px; }
+
+  .mobile-action-bar {
+    display: flex; position: fixed; bottom: 0; left: 0; right: 0; z-index: 70;
+    background: rgba(4,31,48,0.95); backdrop-filter: blur(10px);
+    border-top: 1px solid var(--border-soft);
+    padding: 6px 4px calc(6px + env(safe-area-inset-bottom));
+    justify-content: space-around;
+  }
+  [data-theme="light"] .mobile-action-bar { background: rgba(255,255,255,0.95); }
+  .mab-btn {
+    display: flex; flex-direction: column; align-items: center; gap: 2px;
+    background: none; border: none; color: var(--text-muted); font-size: 0.62rem; padding: 4px 8px; cursor: pointer;
+  }
+  .mab-btn span { line-height: 1; }
+  .mab-btn:hover, .mab-btn:active { color: var(--green); }
+  .mab-btn-primary {
+    background: var(--green); color: var(--text-on-accent); border-radius: 50%;
+    width: 46px; height: 46px; justify-content: center; margin-top: -18px; box-shadow: var(--glow-green);
+  }
+  .mab-btn-primary span { display: none; }
+
+  .popover-panel { left: 10px; right: 10px; width: auto; top: auto; bottom: 70px; }
+
+  .modal { max-width: calc(100vw - 24px); max-height: 92vh; }
+  .form-grid { grid-template-columns: 1fr; }
+}
+
+/* ---------- Kanban board horizontal scroll workspace on small/medium screens ---------- */
+@media (max-width: 900px) {
+  .board-columns {
+    scroll-snap-type: x proximity;
+    padding-bottom: 6px;
+  }
+  .column { scroll-snap-align: start; }
+}
+
+/* ---------- Small mobile: narrower columns so 1.15 columns peek ---------- */
+@media (max-width: 430px) {
+  .column { flex-basis: 84vw; width: 84vw; max-height: none; }
+  .task-title { font-size: 0.85rem; }
+  .modal-footer { flex-direction: column-reverse; align-items: stretch; }
+  .modal-footer-right { width: 100%; }
+  .modal-footer-right .btn { flex: 1; }
+  .stats-card { padding: 12px; }
+}
+
+@media (max-width: 375px) {
+  .brand-text h1 { font-size: 0.82rem; }
+  .header-right { gap: 4px; }
+  .icon-btn { width: 34px; height: 34px; }
+}
+
+/* ---------- Compact mode (user setting, applies at any width) ---------- */
+body.compact-mode .task-card { padding: 8px; }
+body.compact-mode .column-body { gap: 6px; padding: 8px; }
+body.compact-mode .task-title { font-size: 0.82rem; margin-bottom: 2px; }
+body.compact-mode .task-desc { font-size: 0.72rem; margin-bottom: 4px; -webkit-line-clamp: 1; }
+body.compact-mode .task-meta-row { margin-bottom: 3px; }
+body.compact-mode .column { flex-basis: 260px; width: 260px; }
+body.compact-mode .stats-card { padding: 10px; }
+
+/* ---------- Print (export-friendly, not required but harmless) ---------- */
+@media print {
+  .app-header, .app-sidebar, .mobile-action-bar, .popover-panel, .modal-overlay { display: none !important; }
+}
