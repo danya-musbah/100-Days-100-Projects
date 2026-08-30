@@ -8,6 +8,23 @@ A premium, dependency-free weather app: current conditions, an hourly scroller, 
 
 [View Weather App](https://danya-musbah.github.io/100-Days-100-Projects/weather-app/)
 
+## Screenshots
+
+<p align="center">
+  <img src="../images/weather-sun-1.png" alt="SkyCast sunny weather app" width="48%" />
+  <img src="../images/weather-sun-2.png" alt="SkyCast sunny weather details" width="48%" />
+</p>
+
+<p align="center">
+  <img src="../images/weather-mid-1.png" alt="SkyCast mid-day weather app" width="48%" />
+  <img src="../images/weather-night-1.png" alt="SkyCast night weather app" width="48%" />
+</p>
+
+<p align="center">
+  <img src="../images/weather-night-2.png" alt="SkyCast nighttime forecast view" width="48%" />
+  <img src="../images/weather-night-3.png" alt="SkyCast stormy night view" width="48%" />
+</p>
+
 ---
 
 ## Features
