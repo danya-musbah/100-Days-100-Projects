@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notes App</title>
+<meta name="description" content="A simple, fast and private notes app. Your notes stay in your browser and are never sent anywhere.">
+<link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to notes</a>
+
+<div class="app" id="app">
+
+  <!-- ============ HEADER ============ -->
+  <header class="app-header">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="26" height="26" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5 3.5C5 2.67 5.67 2 6.5 2H15l4 4v14.5c0 .83-.67 1.5-1.5 1.5h-11A1.5 1.5 0 0 1 5 20.5v-17Z" fill="var(--cream)" stroke="var(--raspberry)" stroke-width="1.4" stroke-linejoin="round"/>
+          <path d="M15 2v3.5A1.5 1.5 0 0 0 16.5 7H19" stroke="var(--raspberry)" stroke-width="1.4" stroke-linejoin="round"/>
+          <path d="M8 11h8M8 14.3h8M8 17.6h5" stroke="var(--rose)" stroke-width="1.4" stroke-linecap="round"/>
+        </svg>
+      </span>
+      <div class="brand-text">
+        <h1>Notes</h1>
+        <p class="tagline">Capture your ideas, organize your thoughts.</p>
+      </div>
+    </div>
+
+    <div class="header-search">
+      <label class="visually-hidden" for="search-input">Search notes</label>
+      <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/>
+        <path d="m20 20-3.2-3.2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      <input type="search" id="search-input" placeholder="Search notes..." autocomplete="off">
+      <button type="button" id="clear-search" class="clear-search" aria-label="Clear search" hidden>&times;</button>
+    </div>
+  </header>
+
+  <div class="app-body">
+
+    <!-- ============ SIDEBAR ============ -->
+    <aside class="sidebar" id="sidebar" aria-label="Note actions">
+      <div class="binder-holes" aria-hidden="true">
+        <span></span><span></span><span></span><span></span><span></span><span></span>
+      </div>
+
+      <button type="button" class="btn-new-note" id="new-note-btn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+        New Note
+      </button>
+
+      <div class="sidebar-section">
+        <h2 class="sidebar-heading">Categories</h2>
+        <button type="button" class="category-item is-active" id="all-notes-btn">
+          <span>All Notes</span>
+          <span class="count-pill" id="all-notes-count">0</span>
+        </button>
+      </div>
+
+      <div class="sidebar-section">
+        <h2 class="sidebar-heading" id="sort-label">Sort by</h2>
+        <select id="sort-select" aria-labelledby="sort-label">
+          <option value="updated-desc">Recently Updated</option>
+          <option value="created-desc">Recently Created</option>
+          <option value="created-asc">Oldest</option>
+          <option value="az">A&ndash;Z</option>
+          <option value="za">Z&ndash;A</option>
+        </select>
+      </div>
+
+      <p class="privacy-note">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.4 8.7 8 11 4.6-2.3 8-6 8-11V5l-8-3Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+        Your notes are stored locally in your browser and never sent to a server.
+      </p>
+    </aside>
+
+    <!-- ============ MAIN ============ -->
+    <main id="main-content">
+
+      <!-- Notes list view -->
+      <section id="list-view" class="view">
+        <div class="list-status-bar">
+          <p id="results-status" aria-live="polite">0 Notes</p>
+        </div>
+
+        <div id="notes-grid" class="notes-grid"></div>
+
+        <div id="empty-state" class="empty-state" hidden>
+          <svg width="120" height="120" viewBox="0 0 120 120" fill="none" aria-hidden="true">
+            <rect x="26" y="14" width="60" height="92" rx="6" fill="var(--apricot)" stroke="var(--raspberry)" stroke-width="2"/>
+            <path d="M40 38h32M40 52h32M40 66h20" stroke="var(--raspberry)" stroke-width="2.4" stroke-linecap="round"/>
+            <circle cx="90" cy="90" r="16" fill="var(--rose)"/>
+            <path d="M90 83v14M83 90h14" stroke="var(--cream)" stroke-width="2.6" stroke-linecap="round"/>
+          </svg>
+          <h2 id="empty-title">No notes yet</h2>
+          <p id="empty-message">Capture your first idea and keep everything organized.</p>
+          <button type="button" class="btn-primary" id="empty-new-note-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+            Create Your First Note
+          </button>
+        </div>
+      </section>
+
+      <!-- Editor view -->
+      <section id="editor-view" class="view" hidden>
+        <div class="editor-topbar">
+          <button type="button" class="btn-back" id="back-btn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m15 5-7 7 7 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Back
+          </button>
+          <span class="editor-title-label">Edit Note</span>
+          <span class="save-status" id="save-status" aria-live="polite">Saved</span>
+        </div>
+
+        <div class="editor-body">
+          <label class="visually-hidden" for="note-title-input">Note title</label>
+          <input type="text" id="note-title-input" class="note-title-input" placeholder="Note title" maxlength="200">
+
+          <label class="visually-hidden" for="note-content-input">Note content</label>
+          <textarea id="note-content-input" class="note-content-input" placeholder="Write your note here..."></textarea>
+        </div>
+
+        <div class="editor-footer">
+          <span class="counter" id="word-char-count">0 characters · 0 words</span>
+          <div class="editor-actions">
+            <button type="button" class="btn-pin" id="pin-btn" aria-pressed="false">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2c-1.4 3.2-1.7 5.6-1 8L6 15l3 3 5-5c2.4.7 4.8.4 8-1-2.6-2.6-5-4-8-4V2Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 15 4 20" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+              <span id="pin-btn-label">Pin</span>
+            </button>
+            <button type="button" class="btn-copy" id="copy-btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M5 15V5a2 2 0 0 1 2-2h10" stroke="currentColor" stroke-width="1.6"/></svg>
+              Copy
+            </button>
+            <button type="button" class="btn-delete" id="delete-btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7h16M9 7V4h6v3m-9 0 1 13a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2l1-13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Delete
+            </button>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+</div>
+
+<!-- ============ CONFIRM DIALOG ============ -->
+<dialog id="confirm-dialog" class="confirm-dialog" aria-labelledby="confirm-title">
+  <form method="dialog">
+    <h2 id="confirm-title">Delete this note?</h2>
+    <p>This action cannot be undone.</p>
+    <div class="confirm-actions">
+      <button type="button" id="confirm-cancel" class="btn-secondary">Cancel</button>
+      <button type="button" id="confirm-delete" class="btn-danger">Delete</button>
+    </div>
+  </form>
+</dialog>
+
+<!-- ============ TOAST ============ -->
+<div id="toast-region" class="toast-region" aria-live="polite" aria-atomic="true"></div>
+
+<script src="js/script.js"></script>
+</body>
+</html>

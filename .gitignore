@@ -67,3 +67,5 @@ desktop.ini
 
 data/board.json
 !data/demo-board.json
+
+config.js
