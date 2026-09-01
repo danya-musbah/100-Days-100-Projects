@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>QR Code Generator</title>
+<meta name="description" content="Create, customize and download QR codes quickly and easily.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <div class="brand">
+      <span class="brand-icon" aria-hidden="true">
+        <svg viewBox="0 0 48 48" width="40" height="40">
+          <rect x="4" y="4" width="16" height="16" rx="3" fill="#F2C230"/>
+          <rect x="8" y="8" width="8" height="8" rx="1" fill="#46334F"/>
+          <rect x="28" y="4" width="16" height="16" rx="3" fill="#F2921D"/>
+          <rect x="32" y="8" width="8" height="8" rx="1" fill="#46334F"/>
+          <rect x="4" y="28" width="16" height="16" rx="3" fill="#F24F13"/>
+          <rect x="8" y="32" width="8" height="8" rx="1" fill="#46334F"/>
+          <rect x="28" y="28" width="6" height="6" fill="#8082A6"/>
+          <rect x="36" y="28" width="6" height="6" fill="#46334F"/>
+          <rect x="28" y="36" width="6" height="6" fill="#46334F"/>
+          <rect x="36" y="36" width="6" height="6" fill="#8082A6"/>
+        </svg>
+      </span>
+      <div>
+        <h1>QR Code Generator</h1>
+        <p class="tagline">Create, customize, and download QR codes instantly.</p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="main-content" class="wrap">
+
+  <!-- QR Type Selector -->
+  <nav class="type-selector" aria-label="QR Code Type">
+    <div class="tablist" role="tablist">
+      <button type="button" class="type-tab" role="tab" id="tab-text" aria-controls="panel-text" aria-selected="true" data-type="text">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16M4 12h16M4 19h10"/></svg>
+        Text
+      </button>
+      <button type="button" class="type-tab" role="tab" id="tab-url" aria-controls="panel-url" aria-selected="false" tabindex="-1" data-type="url">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1.5 1.5"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1.5-1.5"/></svg>
+        URL
+      </button>
+      <button type="button" class="type-tab" role="tab" id="tab-email" aria-controls="panel-email" aria-selected="false" tabindex="-1" data-type="email">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v12H4z"/><path d="m4 7 8 6 8-6"/></svg>
+        Email
+      </button>
+      <button type="button" class="type-tab" role="tab" id="tab-phone" aria-controls="panel-phone" aria-selected="false" tabindex="-1" data-type="phone">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/></svg>
+        Phone
+      </button>
+      <button type="button" class="type-tab" role="tab" id="tab-wifi" aria-controls="panel-wifi" aria-selected="false" tabindex="-1" data-type="wifi">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 8.5a16 16 0 0 1 20 0"/><path d="M5.5 12.5a11 11 0 0 1 13 0"/><path d="M9 16.5a6 6 0 0 1 6 0"/><circle cx="12" cy="20" r="1"/></svg>
+        Wi-Fi
+      </button>
+      <button type="button" class="type-tab" role="tab" id="tab-sms" aria-controls="panel-sms" aria-selected="false" tabindex="-1" data-type="sms">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v12H8l-4 4z"/></svg>
+        SMS
+      </button>
+      <button type="button" class="type-tab" role="tab" id="tab-contact" aria-controls="panel-contact" aria-selected="false" tabindex="-1" data-type="contact">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c0-3.5 3-6 7-6s7 2.5 7 6"/></svg>
+        Contact
+      </button>
+    </div>
+  </nav>
+
+  <div class="workspace">
+
+    <!-- INPUT PANEL -->
+    <section class="panel input-panel" aria-labelledby="input-panel-heading">
+      <h2 id="input-panel-heading" class="visually-hidden">Content settings</h2>
+
+      <form id="qr-form" novalidate>
+
+        <!-- TEXT -->
+        <fieldset class="type-panel" id="panel-text" role="tabpanel" aria-labelledby="tab-text" data-type="text">
+          <legend>Text</legend>
+          <div class="field">
+            <label for="text-content">Enter your text</label>
+            <textarea id="text-content" name="text-content" rows="4" placeholder="Write something to encode..."></textarea>
+          </div>
+        </fieldset>
+
+        <!-- URL -->
+        <fieldset class="type-panel" id="panel-url" role="tabpanel" aria-labelledby="tab-url" data-type="url" hidden>
+          <legend>Website URL</legend>
+          <div class="field">
+            <label for="url-content">Website URL</label>
+            <input type="text" id="url-content" name="url-content" placeholder="https://example.com" inputmode="url" autocomplete="url">
+            <p class="hint">If you leave off "https://", we'll add it automatically.</p>
+          </div>
+        </fieldset>
+
+        <!-- EMAIL -->
+        <fieldset class="type-panel" id="panel-email" role="tabpanel" aria-labelledby="tab-email" data-type="email" hidden>
+          <legend>Email</legend>
+          <div class="field">
+            <label for="email-address">Email Address</label>
+            <input type="email" id="email-address" name="email-address" placeholder="name@example.com" autocomplete="email">
+          </div>
+          <div class="field">
+            <label for="email-subject">Subject <span class="optional">(optional)</span></label>
+            <input type="text" id="email-subject" name="email-subject" placeholder="Subject line">
+          </div>
+          <div class="field">
+            <label for="email-message">Message <span class="optional">(optional)</span></label>
+            <textarea id="email-message" name="email-message" rows="3" placeholder="Your message..."></textarea>
+          </div>
+        </fieldset>
+
+        <!-- PHONE -->
+        <fieldset class="type-panel" id="panel-phone" role="tabpanel" aria-labelledby="tab-phone" data-type="phone" hidden>
+          <legend>Phone Number</legend>
+          <div class="field">
+            <label for="phone-number">Phone Number</label>
+            <input type="tel" id="phone-number" name="phone-number" placeholder="+1 555 123 4567" autocomplete="tel">
+          </div>
+        </fieldset>
+
+        <!-- WIFI -->
+        <fieldset class="type-panel" id="panel-wifi" role="tabpanel" aria-labelledby="tab-wifi" data-type="wifi" hidden>
+          <legend>Wi-Fi Network</legend>
+          <div class="field">
+            <label for="wifi-ssid">Network Name (SSID)</label>
+            <input type="text" id="wifi-ssid" name="wifi-ssid" placeholder="My Home Wi-Fi">
+          </div>
+          <div class="field">
+            <label for="wifi-password">Password</label>
+            <div class="password-field">
+              <input type="password" id="wifi-password" name="wifi-password" placeholder="Network password" autocomplete="off">
+              <button type="button" class="ghost-btn small" id="toggle-wifi-password" aria-label="Show password" aria-pressed="false">Show</button>
+            </div>
+          </div>
+          <div class="field">
+            <label for="wifi-security">Security Type</label>
+            <select id="wifi-security" name="wifi-security">
+              <option value="WPA" selected>WPA/WPA2</option>
+              <option value="WEP">WEP</option>
+              <option value="nopass">None</option>
+            </select>
+          </div>
+        </fieldset>
+
+        <!-- SMS -->
+        <fieldset class="type-panel" id="panel-sms" role="tabpanel" aria-labelledby="tab-sms" data-type="sms" hidden>
+          <legend>SMS Message</legend>
+          <div class="field">
+            <label for="sms-number">Phone Number</label>
+            <input type="tel" id="sms-number" name="sms-number" placeholder="+1 555 123 4567" autocomplete="tel">
+          </div>
+          <div class="field">
+            <label for="sms-message">Message <span class="optional">(optional)</span></label>
+            <textarea id="sms-message" name="sms-message" rows="3" placeholder="Your message..."></textarea>
+          </div>
+        </fieldset>
+
+        <!-- CONTACT / VCARD -->
+        <fieldset class="type-panel" id="panel-contact" role="tabpanel" aria-labelledby="tab-contact" data-type="contact" hidden>
+          <legend>Contact Card</legend>
+          <div class="field-row">
+            <div class="field">
+              <label for="contact-first">First Name</label>
+              <input type="text" id="contact-first" name="contact-first" placeholder="Jane" autocomplete="given-name">
+            </div>
+            <div class="field">
+              <label for="contact-last">Last Name</label>
+              <input type="text" id="contact-last" name="contact-last" placeholder="Doe" autocomplete="family-name">
+            </div>
+          </div>
+          <div class="field">
+            <label for="contact-org">Organization <span class="optional">(optional)</span></label>
+            <input type="text" id="contact-org" name="contact-org" placeholder="Company name" autocomplete="organization">
+          </div>
+          <div class="field">
+            <label for="contact-phone">Phone <span class="optional">(optional)</span></label>
+            <input type="tel" id="contact-phone" name="contact-phone" placeholder="+1 555 123 4567" autocomplete="tel">
+          </div>
+          <div class="field">
+            <label for="contact-email">Email <span class="optional">(optional)</span></label>
+            <input type="email" id="contact-email" name="contact-email" placeholder="name@example.com" autocomplete="email">
+          </div>
+          <div class="field">
+            <label for="contact-website">Website <span class="optional">(optional)</span></label>
+            <input type="text" id="contact-website" name="contact-website" placeholder="https://example.com" autocomplete="url">
+          </div>
+        </fieldset>
+
+        <!-- VALIDATION MESSAGE -->
+        <p class="form-error" id="form-error" role="alert" aria-live="assertive" hidden></p>
+
+        <!-- CUSTOMIZATION -->
+        <details class="customization" open>
+          <summary>Customize QR Code</summary>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="fg-color">Foreground Color</label>
+              <div class="color-field">
+                <input type="color" id="fg-color" value="#46334F">
+                <input type="text" id="fg-color-text" value="#46334F" maxlength="7" aria-label="Foreground color hex value">
+              </div>
+            </div>
+            <div class="field">
+              <label for="bg-color">Background Color</label>
+              <div class="color-field">
+                <input type="color" id="bg-color" value="#FFFFFF">
+                <input type="text" id="bg-color-text" value="#FFFFFF" maxlength="7" aria-label="Background color hex value">
+              </div>
+            </div>
+          </div>
+          <p class="hint contrast-warning" id="contrast-warning" role="status" hidden>
+            ⚠ Low contrast between colors may reduce scan reliability. Try darker foreground / lighter background.
+          </p>
+
+          <div class="field">
+            <span class="fieldset-label" id="size-label">QR Size</span>
+            <div class="segmented" role="radiogroup" aria-labelledby="size-label">
+              <label class="segmented-option">
+                <input type="radio" name="qr-size" value="256">
+                <span>Small · 256px</span>
+              </label>
+              <label class="segmented-option">
+                <input type="radio" name="qr-size" value="512" checked>
+                <span>Medium · 512px</span>
+              </label>
+              <label class="segmented-option">
+                <input type="radio" name="qr-size" value="1024">
+                <span>Large · 1024px</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="error-correction">Error Correction</label>
+              <select id="error-correction">
+                <option value="L">Low</option>
+                <option value="M" selected>Medium</option>
+                <option value="Q">Quartile</option>
+                <option value="H">High</option>
+              </select>
+              <p class="hint">Higher correction improves recovery from damage but may increase QR complexity.</p>
+            </div>
+            <div class="field">
+              <label for="qr-margin">Quiet Zone Margin: <span id="margin-value">4</span> modules</label>
+              <input type="range" id="qr-margin" min="2" max="8" value="4" step="1">
+              <p class="hint">A margin keeps scanners reliable — we won't let it go below the recommended minimum.</p>
+            </div>
+          </div>
+        </details>
+
+        <button type="submit" class="btn btn-primary btn-generate" id="generate-btn">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3h7v7H3zM14 3h7v7h-7zM3 14h7v7H3z"/><path d="M14 14h3v3h-3zM19 14h2v2h-2zM14 19h2v2h-2zM17 17h2v2h-2zM19 19h2v2h-2z"/></svg>
+          Generate QR Code
+        </button>
+      </form>
+    </section>
+
+    <!-- PREVIEW PANEL -->
+    <section class="panel preview-panel" aria-labelledby="preview-panel-heading">
+      <h2 id="preview-panel-heading" class="visually-hidden">QR Code Preview</h2>
+
+      <div class="preview-stage">
+
+        <!-- Empty state -->
+        <div class="preview-state" id="state-empty">
+          <svg class="empty-illustration" viewBox="0 0 120 120" aria-hidden="true">
+            <rect x="10" y="10" width="30" height="30" rx="4" fill="none" stroke="#8082A6" stroke-width="4"/>
+            <rect x="20" y="20" width="10" height="10" fill="#8082A6"/>
+            <rect x="80" y="10" width="30" height="30" rx="4" fill="none" stroke="#8082A6" stroke-width="4"/>
+            <rect x="90" y="20" width="10" height="10" fill="#8082A6"/>
+            <rect x="10" y="80" width="30" height="30" rx="4" fill="none" stroke="#8082A6" stroke-width="4"/>
+            <rect x="20" y="90" width="10" height="10" fill="#8082A6"/>
+            <rect x="55" y="55" width="10" height="10" fill="#8082A6"/>
+            <rect x="70" y="55" width="10" height="10" fill="#F2C230"/>
+            <rect x="55" y="70" width="10" height="10" fill="#F2921D"/>
+            <rect x="70" y="70" width="10" height="10" fill="#F24F13"/>
+            <rect x="90" y="90" width="10" height="10" fill="#8082A6"/>
+          </svg>
+          <p>Your QR code will appear here</p>
+        </div>
+
+        <!-- Loading state -->
+        <div class="preview-state" id="state-loading" hidden>
+          <div class="spinner" aria-hidden="true"></div>
+          <p>Generating QR Code...</p>
+        </div>
+
+        <!-- Error state -->
+        <div class="preview-state" id="state-error" hidden>
+          <svg viewBox="0 0 24 24" class="error-illustration" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 7v6M12 16.5v.01" stroke="#fff" stroke-width="1.6"/></svg>
+          <p id="error-message">Unable to generate the QR code right now.<br>Please check your connection and try again.</p>
+          <button type="button" class="btn btn-secondary" id="retry-btn">Try Again</button>
+        </div>
+
+        <!-- Result state -->
+        <div class="preview-state" id="state-result" hidden>
+          <div class="qr-frame">
+            <canvas id="qr-canvas" width="512" height="512" role="img" aria-label="Generated QR code"></canvas>
+          </div>
+          <p class="qr-ready-label">QR Code Ready</p>
+          <p class="qr-meta" id="qr-meta">Type: Text · Size: 512 × 512</p>
+
+          <div class="preview-actions">
+            <button type="button" class="btn btn-primary" id="download-btn">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v13m0 0-5-5m5 5 5-5"/><path d="M4 19h16v2H4z"/></svg>
+              Download PNG
+            </button>
+            <button type="button" class="btn btn-secondary" id="copy-qr-btn">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M4 16V6a2 2 0 0 1 2-2h10"/></svg>
+              Copy QR Code
+            </button>
+            <button type="button" class="btn btn-ghost" id="copy-content-btn">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 12h6M9 16h6M9 8h2"/><path d="M7 3h7l5 5v13H7z"/></svg>
+              Copy Content
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <p class="privacy-note">
+        🔒 Generation happens entirely in your browser using a local QR engine — your content is never sent to any server or third party.
+      </p>
+    </section>
+  </div>
+
+  <!-- RECENT HISTORY -->
+  <section class="history-section" aria-labelledby="history-heading">
+    <div class="history-header">
+      <h2 id="history-heading">Recent</h2>
+      <button type="button" class="btn btn-ghost small" id="clear-history-btn">Clear History</button>
+    </div>
+    <p class="hint">We only remember the QR type and time — never your content, passwords, or personal details.</p>
+    <ul class="history-list" id="history-list">
+      <li class="history-empty" id="history-empty">No QR codes generated yet.</li>
+    </ul>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how-it-works" aria-labelledby="how-heading">
+    <h2 id="how-heading">How to create a QR code</h2>
+    <ol>
+      <li><strong>Choose</strong> the type of information.</li>
+      <li><strong>Enter</strong> your content.</li>
+      <li><strong>Customize</strong> the QR code if needed.</li>
+      <li><strong>Generate</strong> the QR code.</li>
+      <li><strong>Download</strong> or share it.</li>
+    </ol>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div>
+      <strong>QR Code Generator</strong>
+      <p>Create QR codes quickly and easily.</p>
+    </div>
+    <div class="footer-meta">
+      <p>© 2026 QR Code Generator</p>
+      <p>Built with HTML, CSS &amp; JavaScript</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Toast container -->
+<div class="toast-container" id="toast-container" role="status" aria-live="polite" aria-atomic="true"></div>
+
+<script src="js/qrcode.lib.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>
