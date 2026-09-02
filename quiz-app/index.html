@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Quiz Night — Interactive Quiz App</title>
+<meta name="description" content="Challenge yourself with an interactive quiz and discover your score.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- Ambient botanical backdrop, decorative only -->
+<div class="backdrop" aria-hidden="true">
+  <svg class="backdrop__sprig backdrop__sprig--a" viewBox="0 0 200 260" xmlns="http://www.w3.org/2000/svg">
+    <path d="M100 260 C 96 190 96 130 100 40" fill="none" stroke="currentColor" stroke-width="2"/>
+    <path d="M100 210 C 70 195 50 170 40 140" fill="none" stroke="currentColor" stroke-width="2"/>
+    <path d="M100 170 C 130 155 150 130 158 100" fill="none" stroke="currentColor" stroke-width="2"/>
+    <path d="M100 120 C 74 108 58 88 50 62" fill="none" stroke="currentColor" stroke-width="2"/>
+    <path d="M100 70 C 122 58 136 40 142 18" fill="none" stroke="currentColor" stroke-width="2"/>
+  </svg>
+  <svg class="backdrop__sprig backdrop__sprig--b" viewBox="0 0 200 260" xmlns="http://www.w3.org/2000/svg">
+    <path d="M100 260 C 96 190 96 130 100 40" fill="none" stroke="currentColor" stroke-width="2"/>
+    <path d="M100 210 C 70 195 50 170 40 140" fill="none" stroke="currentColor" stroke-width="2"/>
+    <path d="M100 170 C 130 155 150 130 158 100" fill="none" stroke="currentColor" stroke-width="2"/>
+    <path d="M100 120 C 74 108 58 88 50 62" fill="none" stroke="currentColor" stroke-width="2"/>
+  </svg>
+  <div class="backdrop__moon"></div>
+  <div class="backdrop__glow"></div>
+</div>
+
+<div id="app" class="app">
+
+  <!-- ===================== START SCREEN ===================== -->
+  <section id="screen-start" class="screen screen--start" aria-labelledby="start-heading">
+    <div class="panel panel--hero">
+      <p class="eyebrow">A ten-minute ritual for the curious</p>
+      <h1 id="start-heading" class="display-title">Quiz&nbsp;Night</h1>
+      <p class="subtitle">Test your knowledge. Challenge yourself. See how much you really know.</p>
+
+      <button id="btn-start" class="btn btn--primary btn--lg" type="button">Start Quiz</button>
+
+      <dl class="fact-row">
+        <div class="fact-row__item">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v16H4z" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 9h8M8 13h8M8 17h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          <dt>Questions</dt><dd id="fact-question-count">10 Questions</dd>
+        </div>
+        <div class="fact-row__item">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M9 12l2 2 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <dt>Format</dt><dd>Multiple Choice</dd>
+        </div>
+        <div class="fact-row__item">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v6l4 2" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+          <dt>Feedback</dt><dd>Instant Results</dd>
+        </div>
+      </dl>
+
+      <button id="btn-view-stats" class="link-btn" type="button">View my statistics</button>
+    </div>
+  </section>
+
+  <!-- ===================== SETUP SCREEN ===================== -->
+  <section id="screen-setup" class="screen" hidden aria-labelledby="setup-heading">
+    <div class="panel">
+      <button class="btn-back" id="btn-setup-back" type="button" aria-label="Back to start">← Back</button>
+      <h2 id="setup-heading" class="section-title">Choose your challenge</h2>
+
+      <div class="field-group">
+        <h3 class="field-label" id="label-category">Category</h3>
+        <div id="category-grid" class="chip-grid" role="group" aria-labelledby="label-category"></div>
+      </div>
+
+      <div class="field-group">
+        <h3 class="field-label" id="label-difficulty">Difficulty</h3>
+        <div id="difficulty-grid" class="chip-row" role="group" aria-labelledby="label-difficulty">
+          <button class="chip" data-difficulty="easy" type="button">Easy</button>
+          <button class="chip" data-difficulty="medium" type="button">Medium</button>
+          <button class="chip" data-difficulty="hard" type="button">Hard</button>
+        </div>
+      </div>
+
+      <div class="field-group field-group--split">
+        <div>
+          <h3 class="field-label" id="label-count">Question Count</h3>
+          <div id="count-grid" class="chip-row" role="group" aria-labelledby="label-count">
+            <button class="chip" data-count="5" type="button">5</button>
+            <button class="chip chip--active" data-count="10" type="button">10</button>
+            <button class="chip" data-count="15" type="button">15</button>
+            <button class="chip" data-count="20" type="button">20</button>
+          </div>
+        </div>
+        <div>
+          <h3 class="field-label" id="label-timer">Timer</h3>
+          <div id="timer-grid" class="chip-row" role="group" aria-labelledby="label-timer">
+            <button class="chip" data-timer="0" type="button">No Timer</button>
+            <button class="chip chip--active" data-timer="5" type="button">5 Min</button>
+            <button class="chip" data-timer="10" type="button">10 Min</button>
+            <button class="chip" data-timer="15" type="button">15 Min</button>
+          </div>
+        </div>
+      </div>
+
+      <p id="setup-hint" class="hint" role="status"></p>
+
+      <button id="btn-begin" class="btn btn--primary btn--lg" type="button" disabled>Begin Quiz</button>
+    </div>
+  </section>
+
+  <!-- ===================== QUIZ SCREEN ===================== -->
+  <section id="screen-quiz" class="screen" hidden aria-labelledby="quiz-heading">
+    <div class="panel panel--quiz">
+      <header class="quiz-header">
+        <div class="quiz-header__top">
+          <h2 id="quiz-heading" class="quiz-title">Quiz Night</h2>
+          <div class="quiz-meta">
+            <span id="quiz-timer" class="timer-pill" hidden>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="13" r="8" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M12 9v4l3 2" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M9 3h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              <span id="timer-display">10:00</span>
+            </span>
+            <span id="quiz-counter" class="counter-pill">01 / 10</span>
+          </div>
+        </div>
+        <div class="progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="10" aria-label="Quiz progress">
+          <div id="progress-fill" class="progress-track__fill"></div>
+        </div>
+      </header>
+
+      <nav id="question-nav" class="question-nav" aria-label="Question navigator"></nav>
+
+      <div id="question-live" class="sr-only" role="status" aria-live="polite"></div>
+
+      <h3 id="question-text" class="question-text"></h3>
+
+      <div id="answers-list" class="answers-list" role="radiogroup" aria-labelledby="question-text"></div>
+
+      <footer class="quiz-footer">
+        <button id="btn-prev" class="btn btn--ghost" type="button">← Previous</button>
+        <button id="btn-next" class="btn btn--primary" type="button" disabled>Next Question →</button>
+      </footer>
+    </div>
+  </section>
+
+  <!-- ===================== RESULTS SCREEN ===================== -->
+  <section id="screen-results" class="screen" hidden aria-labelledby="results-heading">
+    <div class="panel panel--results">
+      <h2 id="results-heading" class="section-title">Quiz Complete</h2>
+
+      <div class="score-ring-wrap">
+        <svg id="score-ring" class="score-ring" viewBox="0 0 160 160" aria-hidden="true">
+          <circle class="score-ring__track" cx="80" cy="80" r="70"/>
+          <circle id="score-ring__value" class="score-ring__value" cx="80" cy="80" r="70"/>
+        </svg>
+        <div class="score-ring__label">
+          <span id="score-percent">0%</span>
+          <span id="score-fraction">0 / 0</span>
+        </div>
+      </div>
+
+      <p id="score-message-title" class="score-message-title"></p>
+      <p id="score-message-body" class="score-message-body"></p>
+
+      <dl class="stat-grid">
+        <div><dt>Correct</dt><dd id="stat-correct">0</dd></div>
+        <div><dt>Incorrect</dt><dd id="stat-incorrect">0</dd></div>
+        <div><dt>Accuracy</dt><dd id="stat-accuracy">0%</dd></div>
+        <div><dt>Time</dt><dd id="stat-time">00:00</dd></div>
+      </dl>
+
+      <div class="btn-stack">
+        <button id="btn-review" class="btn btn--ghost" type="button">Review Answers</button>
+        <button id="btn-restart" class="btn btn--primary" type="button">Play Again</button>
+        <button id="btn-change-quiz" class="link-btn" type="button">Choose Another Quiz</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== REVIEW SCREEN ===================== -->
+  <section id="screen-review" class="screen" hidden aria-labelledby="review-heading">
+    <div class="panel">
+      <button class="btn-back" id="btn-review-back" type="button" aria-label="Back to results">← Back to results</button>
+      <h2 id="review-heading" class="section-title">Review Answers</h2>
+      <div id="review-list" class="review-list"></div>
+      <button id="btn-review-restart" class="btn btn--primary" type="button">Play Again</button>
+    </div>
+  </section>
+
+  <!-- ===================== STATISTICS SCREEN ===================== -->
+  <section id="screen-stats" class="screen" hidden aria-labelledby="stats-heading">
+    <div class="panel">
+      <button class="btn-back" id="btn-stats-back" type="button" aria-label="Back to start">← Back</button>
+      <h2 id="stats-heading" class="section-title">Your Statistics</h2>
+      <dl class="stat-grid stat-grid--big">
+        <div><dt>Quizzes Completed</dt><dd id="stats-completed">0</dd></div>
+        <div><dt>Best Score</dt><dd id="stats-best">0%</dd></div>
+        <div><dt>Average Score</dt><dd id="stats-average">0%</dd></div>
+        <div><dt>Questions Answered</dt><dd id="stats-answered">0</dd></div>
+      </dl>
+      <button id="btn-reset-stats" class="link-btn link-btn--danger" type="button">Reset Statistics</button>
+    </div>
+  </section>
+
+</div>
+
+<!-- ===================== RESET CONFIRM DIALOG ===================== -->
+<div id="confirm-dialog" class="dialog-overlay" hidden>
+  <div class="dialog" role="alertdialog" aria-modal="true" aria-labelledby="dialog-title" aria-describedby="dialog-desc">
+    <p id="dialog-title" class="dialog__title">Reset your quiz statistics?</p>
+    <p id="dialog-desc" class="dialog__desc">This will permanently remove your saved quiz progress.</p>
+    <div class="dialog__actions">
+      <button id="btn-dialog-cancel" class="btn btn--ghost" type="button">Cancel</button>
+      <button id="btn-dialog-confirm" class="btn btn--danger" type="button">Reset</button>
+    </div>
+  </div>
+</div>
+
+<!-- Toast region -->
+<div id="toast-region" class="toast-region" role="status" aria-live="polite" aria-atomic="true"></div>
+
+<div id="loading-overlay" class="loading-overlay" hidden>
+  <p>Preparing your quiz…</p>
+</div>
+
+<script src="data/questions.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>
