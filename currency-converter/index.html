@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Currency Converter — Live Exchange Rates</title>
+<meta name="description" content="Convert currencies using up-to-date exchange rates with a fast and simple currency converter.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="toast-region" id="toastRegion" aria-live="polite" aria-atomic="true"></div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <div class="brand">
+      <span class="brand-icon" aria-hidden="true">
+        <svg viewBox="0 0 48 48" width="34" height="34">
+          <circle cx="24" cy="24" r="22" fill="var(--primary)"/>
+          <path d="M16 20h10M16 20l4-4M16 20l4 4" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M32 28H22M32 28l-4-4M32 28l-4 4" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+      <div>
+        <h1>Currency Converter</h1>
+        <p class="subtitle">Convert currencies using up-to-date exchange rates.</p>
+      </div>
+    </div>
+    <button type="button" class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" aria-pressed="false">
+      <span class="theme-icon" aria-hidden="true"></span>
+      <span class="theme-label">Dark</span>
+    </button>
+  </div>
+
+  <div class="container stats-row" id="statsRow">
+    <div class="stat-pill"><span class="dot" aria-hidden="true"></span> Live Exchange Rates</div>
+    <div class="stat-pill" id="currencyCountPill">— Currencies</div>
+    <div class="stat-pill">Fast Conversion</div>
+  </div>
+</header>
+
+<main class="container main-grid">
+
+  <section class="card converter-card" aria-labelledby="converterHeading">
+    <h2 id="converterHeading" class="visually-hidden">Currency Converter Form</h2>
+
+    <div id="globalError" class="error-banner" role="alert" hidden>
+      <div class="error-banner-text">
+        <strong id="globalErrorTitle">Something went wrong.</strong>
+        <p id="globalErrorMessage">We couldn't retrieve the exchange rate. Please try again.</p>
+      </div>
+      <button type="button" class="btn btn-secondary btn-small" id="retryBtn">Retry</button>
+    </div>
+
+    <form id="converterForm" novalidate>
+      <div class="field-group">
+        <label for="amountInput">Amount</label>
+        <input
+          type="text"
+          inputmode="decimal"
+          id="amountInput"
+          name="amount"
+          placeholder="Enter amount"
+          value="100"
+          autocomplete="off"
+          aria-describedby="amountError"
+        >
+        <p class="field-error" id="amountError" role="alert"></p>
+
+        <div class="quick-amounts" id="quickAmounts" aria-label="Quick amount selection">
+          <span class="quick-amounts-label">Quick amounts</span>
+          <div class="quick-amounts-buttons">
+            <button type="button" class="chip" data-amount="10">10</button>
+            <button type="button" class="chip" data-amount="50">50</button>
+            <button type="button" class="chip" data-amount="100">100</button>
+            <button type="button" class="chip" data-amount="500">500</button>
+            <button type="button" class="chip" data-amount="1000">1000</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="currency-row">
+        <div class="field-group currency-field">
+          <label id="fromLabel" for="fromSelectTrigger">From</label>
+          <div class="currency-select" id="fromSelect" data-target="from"></div>
+        </div>
+
+        <button type="button" class="swap-btn" id="swapBtn" aria-label="Swap currencies" title="Swap currencies">
+          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+            <path d="M7 7h11m0 0-4-4m4 4-4 4M17 17H6m0 0 4 4m-4-4 4-4" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+
+        <div class="field-group currency-field">
+          <label id="toLabel" for="toSelectTrigger">To</label>
+          <div class="currency-select" id="toSelect" data-target="to"></div>
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-primary btn-full" id="convertBtn">
+        <span id="convertBtnText">Convert Currency</span>
+      </button>
+    </form>
+
+    <div class="result-area" id="resultArea" aria-live="polite">
+      <p class="result-empty" id="resultEmpty">Enter an amount and press Convert to see your result.</p>
+
+      <div class="result-box" id="resultBox" hidden>
+        <div class="result-main">
+          <span class="result-from" id="resultFrom">100.00 USD</span>
+          <span class="result-equals" aria-hidden="true">=</span>
+          <span class="result-to" id="resultTo">92.34 EUR</span>
+        </div>
+        <div class="result-formatted" id="resultFormatted"></div>
+      </div>
+    </div>
+
+    <div class="rate-card" id="rateCard" hidden>
+      <div class="rate-card-header">
+        <h3>Exchange Rate</h3>
+        <button type="button" class="btn btn-ghost btn-small" id="refreshBtn">
+          <span id="refreshBtnText">Refresh Rates</span>
+        </button>
+      </div>
+      <div class="rate-lines">
+        <p id="rateLineForward" class="rate-line"></p>
+        <p id="rateLineReverse" class="rate-line rate-line-muted"></p>
+      </div>
+      <p class="rate-updated" id="rateUpdated"></p>
+      <p class="rate-cached-note" id="rateCachedNote" hidden></p>
+    </div>
+  </section>
+
+  <section class="card side-card" aria-labelledby="popularPairsHeading" id="popularPairsSection">
+    <h2 id="popularPairsHeading">Popular Pairs</h2>
+    <div class="pairs-list" id="pairsList"></div>
+  </section>
+
+  <section class="card side-card" aria-labelledby="historyHeading">
+    <div class="history-header">
+      <h2 id="historyHeading">Recent Conversions</h2>
+      <button type="button" class="btn btn-ghost btn-small" id="clearHistoryBtn">Clear History</button>
+    </div>
+    <ul class="history-list" id="historyList">
+      <li class="history-empty" id="historyEmpty">No conversions yet. Your recent conversions will appear here.</li>
+    </ul>
+  </section>
+
+  <section class="card side-card" aria-labelledby="infoHeading" id="currencyInfoSection" hidden>
+    <h2 id="infoHeading">Currency Information</h2>
+    <div class="currency-info-grid" id="currencyInfoGrid"></div>
+  </section>
+
+  <section class="how-it-works" aria-labelledby="howHeading">
+    <h2 id="howHeading">How it works</h2>
+    <ol>
+      <li>Enter the amount.</li>
+      <li>Select the currencies.</li>
+      <li>Click Convert.</li>
+      <li>Get the latest available exchange rate.</li>
+    </ol>
+  </section>
+
+  <section class="privacy-note" aria-labelledby="privacyHeading">
+    <h2 id="privacyHeading" class="visually-hidden">Privacy</h2>
+    <p>Exchange rates are retrieved from the selected exchange-rate service. No personal information is required to use this converter.</p>
+    <p>Your conversion history is stored locally in your browser.</p>
+  </section>
+
+</main>
+
+<dialog id="clearHistoryDialog" class="confirm-dialog">
+  <h2>Clear conversion history?</h2>
+  <p>This will remove all saved conversions from this browser.</p>
+  <div class="dialog-actions">
+    <button type="button" class="btn btn-secondary" id="cancelClearBtn">Cancel</button>
+    <button type="button" class="btn btn-danger" id="confirmClearBtn">Clear History</button>
+  </div>
+</dialog>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Currency Converter — rates provided by a public exchange-rate API. Not financial advice.</p>
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>
