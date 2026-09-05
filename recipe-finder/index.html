@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recipe Finder — Find Your Next Favorite Recipe</title>
+<meta name="description" content="Search thousands of real recipes by name, ingredient, cuisine or category. Save favorites, get full instructions, and cook something new tonight.">
+<link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="#" data-nav="home">
+      <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true">
+        <circle cx="20" cy="20" r="20" fill="var(--coral-glow)"/>
+        <path d="M20 9c-4.4 0-7 3.4-7 6.9 0 2.5 1.2 4.1 2.5 5.2V29.5c0 .8.7 1.5 1.5 1.5h6c.8 0 1.5-.7 1.5-1.5V21.1c1.3-1.1 2.5-2.7 2.5-5.2 0-3.5-2.6-6.9-7-6.9Z" fill="var(--honeydew)"/>
+        <circle cx="16.5" cy="14" r="1.5" fill="var(--coral-glow)"/>
+        <circle cx="20" cy="12.3" r="1.5" fill="var(--coral-glow)"/>
+        <circle cx="23.5" cy="14" r="1.5" fill="var(--coral-glow)"/>
+      </svg>
+      <span class="brand-name">Recipe Finder</span>
+    </a>
+
+    <nav class="main-nav" aria-label="Main navigation">
+      <button class="nav-link" type="button" data-nav="home" aria-current="page">Home</button>
+      <button class="nav-link" type="button" data-nav="explore">Explore</button>
+      <button class="nav-link" type="button" data-nav="favorites">
+        Favorites
+        <span class="fav-count" id="favCount" aria-label="0 favorites">0</span>
+      </button>
+    </nav>
+
+    <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+
+  <div class="mobile-menu" id="mobileMenu" hidden>
+    <button class="mobile-menu-link" type="button" data-nav="home">Home</button>
+    <button class="mobile-menu-link" type="button" data-nav="explore">Explore</button>
+    <button class="mobile-menu-link" type="button" data-nav="favorites">Favorites <span class="fav-count" id="favCountMobile">0</span></button>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ============ HOME VIEW ============ -->
+  <section class="view" id="view-home" data-view="home">
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-blobs" aria-hidden="true">
+        <span class="blob blob-coral"></span>
+        <span class="blob blob-peach"></span>
+        <span class="blob blob-sky"></span>
+      </div>
+      <div class="hero-inner">
+        <p class="hero-badge">Fresh ideas &bull; Easy cooking &bull; Endless flavor</p>
+        <h1 class="hero-heading">Find Your Next<br><em>Favorite Recipe</em></h1>
+        <p class="hero-sub">Discover delicious recipes, explore new flavors, and find something perfect for your next meal.</p>
+      </div>
+    </section>
+
+    <!-- Search -->
+    <section class="search-section" aria-label="Recipe search">
+      <div class="search-card">
+        <h2 class="search-heading">What are you craving?</h2>
+
+        <form class="search-form" id="searchForm" role="search">
+          <div class="search-input-wrap">
+            <svg class="icon icon-search" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2" fill="none"/><path d="M20 20l-3.2-3.2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            <input
+              type="text"
+              id="searchInput"
+              class="search-input"
+              placeholder="Search recipes, ingredients, or dishes..."
+              autocomplete="off"
+              aria-label="Search recipes, ingredients, or dishes"
+              aria-expanded="false"
+              aria-controls="suggestionsList"
+              role="combobox"
+              aria-autocomplete="list">
+            <button type="button" class="clear-btn" id="clearBtn" aria-label="Clear search" hidden>
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </button>
+          </div>
+          <button type="submit" class="search-btn" id="searchBtn">
+            <span class="search-btn-label">Search</span>
+            <span class="search-btn-spinner" hidden aria-hidden="true"></span>
+          </button>
+
+          <ul class="suggestions-list" id="suggestionsList" role="listbox" hidden></ul>
+        </form>
+
+        <div class="recent-searches" id="recentSearches" hidden>
+          <div class="recent-searches-head">
+            <span>Recent searches</span>
+            <button type="button" class="text-btn" id="clearRecentBtn">Clear</button>
+          </div>
+          <div class="recent-chip-row" id="recentChipRow"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Categories -->
+    <section class="categories-section" aria-label="Browse by category">
+      <div class="categories-row" id="categoriesRow"></div>
+    </section>
+
+    <!-- Filter bar -->
+    <section class="results-toolbar">
+      <div class="results-toolbar-left">
+        <button class="filter-btn" id="filterBtn" type="button" aria-haspopup="dialog" aria-controls="filterDrawer">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M7 12h10M10 18h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          Filters
+          <span class="filter-badge" id="filterBadge" hidden>0</span>
+        </button>
+        <p class="results-count" id="resultsCount" aria-live="polite">Loading recipes&hellip;</p>
+      </div>
+
+      <div class="sort-wrap">
+        <label class="sort-label" for="sortSelect">Sort by</label>
+        <select class="sort-select" id="sortSelect">
+          <option value="relevance">Relevance</option>
+          <option value="name-asc">Name A&ndash;Z</option>
+          <option value="name-desc">Name Z&ndash;A</option>
+        </select>
+      </div>
+    </section>
+
+    <!-- Active filter chips -->
+    <div class="active-filters" id="activeFilters" hidden></div>
+
+    <!-- Results -->
+    <section class="results-section" aria-label="Recipe results">
+      <div class="recipe-grid" id="recipeGrid"></div>
+
+      <div class="state-panel" id="emptyState" hidden>
+        <svg class="state-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.6" fill="none"/><path d="M20 20l-3.2-3.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        <h3>No recipes found</h3>
+        <p>Try another ingredient, dish, or cuisine.</p>
+        <div class="try-row">
+          <span>Try:</span>
+          <button class="chip-btn" data-try="Chicken">Chicken</button>
+          <button class="chip-btn" data-try="Pasta">Pasta</button>
+          <button class="chip-btn" data-try="Rice">Rice</button>
+          <button class="chip-btn" data-try="Chocolate">Chocolate</button>
+        </div>
+      </div>
+
+      <div class="state-panel" id="errorState" hidden>
+        <svg class="state-icon state-icon-error" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6" fill="none"/><path d="M12 8v5M12 16h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        <h3>Something went wrong</h3>
+        <p>We couldn't load recipes right now. Please check your connection and try again.</p>
+        <button class="btn-primary" id="retryBtn">Try Again</button>
+      </div>
+
+      <button class="load-more-btn" id="loadMoreBtn" type="button" hidden>Load More</button>
+    </section>
+
+  </section>
+
+  <!-- ============ FAVORITES VIEW ============ -->
+  <section class="view" id="view-favorites" data-view="favorites" hidden>
+    <div class="view-header">
+      <h1>Your Favorite Recipes</h1>
+      <p id="favSubtitle"></p>
+    </div>
+
+    <div class="recipe-grid" id="favoritesGrid"></div>
+
+    <div class="state-panel" id="favEmptyState" hidden>
+      <svg class="state-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.4-9.3-8.7C1.1 8 2.5 4.8 5.7 4.1 8 3.6 10 4.7 12 7c2-2.3 4-3.4 6.3-2.9 3.2.7 4.6 3.9 3 7.2C19 15.6 12 20 12 20Z" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+      <h3>No favorite recipes yet.</h3>
+      <p>Save recipes you love and find them here later.</p>
+      <button class="btn-primary" id="exploreFromFavBtn">Explore Recipes</button>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ RECIPE DETAILS MODAL ============ -->
+<div class="modal-backdrop" id="modalBackdrop" hidden>
+  <div class="recipe-modal" id="recipeModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <button class="modal-close" id="modalCloseBtn" aria-label="Close recipe details">
+      <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+    <div class="modal-scroll" id="modalScroll" tabindex="-1"></div>
+  </div>
+</div>
+
+<!-- ============ FILTER DRAWER ============ -->
+<div class="drawer-backdrop" id="drawerBackdrop" hidden>
+  <div class="filter-drawer" id="filterDrawer" role="dialog" aria-modal="true" aria-labelledby="drawerTitle">
+    <div class="filter-drawer-head">
+      <h2 id="drawerTitle">Filters</h2>
+      <button class="modal-close" id="drawerCloseBtn" aria-label="Close filters">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+
+    <div class="filter-drawer-body">
+      <fieldset class="filter-group">
+        <legend>Cuisine</legend>
+        <div class="filter-options" id="cuisineOptions"></div>
+      </fieldset>
+
+      <fieldset class="filter-group">
+        <legend>Dietary</legend>
+        <div class="filter-options" id="dietaryOptions">
+          <label class="filter-pill"><input type="checkbox" name="dietary" value="Vegetarian"><span>Vegetarian</span></label>
+          <label class="filter-pill"><input type="checkbox" name="dietary" value="Vegan"><span>Vegan</span></label>
+        </div>
+      </fieldset>
+    </div>
+
+    <div class="filter-drawer-foot">
+      <button class="text-btn" id="resetFiltersBtn" type="button">Reset</button>
+      <button class="btn-primary" id="applyFiltersBtn" type="button">Apply Filters</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <p class="footer-brand">Recipe Finder</p>
+      <p class="footer-tag">Discover something delicious.</p>
+    </div>
+    <p class="footer-meta">Built with HTML, CSS &amp; Vanilla JavaScript &middot; Recipe data via TheMealDB</p>
+    <p class="footer-copy">&copy; 2026 Recipe Finder</p>
+  </div>
+</footer>
+
+<template id="recipeCardTemplate">
+  <article class="recipe-card">
+    <button class="fav-btn" aria-label="Save to favorites">
+      <svg class="heart-outline" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.4-9.3-8.7C1.1 8 2.5 4.8 5.7 4.1 8 3.6 10 4.7 12 7c2-2.3 4-3.4 6.3-2.9 3.2.7 4.6 3.9 3 7.2C19 15.6 12 20 12 20Z" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+      <svg class="heart-filled" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.4-9.3-8.7C1.1 8 2.5 4.8 5.7 4.1 8 3.6 10 4.7 12 7c2-2.3 4-3.4 6.3-2.9 3.2.7 4.6 3.9 3 7.2C19 15.6 12 20 12 20Z" fill="currentColor"/></svg>
+    </button>
+    <div class="card-media">
+      <img class="card-img" loading="lazy" alt="">
+    </div>
+    <div class="card-body">
+      <h3 class="card-title"></h3>
+      <p class="card-meta"></p>
+      <div class="card-tags"></div>
+      <span class="card-cta">View Recipe <svg class="icon icon-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    </div>
+  </article>
+</template>
+
+<template id="skeletonCardTemplate">
+  <div class="recipe-card skeleton-card" aria-hidden="true">
+    <div class="skeleton-media"></div>
+    <div class="card-body">
+      <div class="skeleton-line skeleton-line-lg"></div>
+      <div class="skeleton-line skeleton-line-sm"></div>
+    </div>
+  </div>
+</template>
+
+<script src="js/script.js"></script>
+</body>
+</html>
