@@ -2,6 +2,10 @@
 
 A premium, fully functional recipe discovery web app built with plain HTML, CSS, and JavaScript. Search real recipes by name or ingredient, browse by category and cuisine, save favorites, and read full step-by-step instructions — no framework, no build step.
 
+## Live Demo
+
+[View Recipe Finder](https://danya-musbah.github.io/100-Days-100-Projects/recipe-finder/)
+
 ## Features
 
 - **Live recipe search** against a real API, with an ingredient-search fallback when a name search returns nothing
@@ -16,14 +20,6 @@ A premium, fully functional recipe discovery web app built with plain HTML, CSS,
 - **Load More** pagination that appends results without duplicating cards
 - **Responsive design** from 320px phones to large desktop monitors, including a bottom-sheet-style filter drawer and full-screen recipe modal on mobile
 - **Accessible by default**: semantic landmarks, ARIA labels on every icon-only control, keyboard-operable search/suggestions/modal/drawer, visible focus states, `Escape`-to-close, and `prefers-reduced-motion` support
-
-## Screenshots
-
-_Add a screenshot after running the app locally:_
-
-```markdown
-![Recipe Finder](images/screenshot.png)
-```
 
 ## Tech Stack
 
@@ -53,37 +49,6 @@ Endpoints used:
 | Category list | `GET /categories.php` |
 | Cuisine (area) list | `GET /list.php?a=list` |
 
-**Configuration:** none required. TheMealDB's test tier (key `1`) needs no signup and no API key to store or expose, so there's nothing to configure and nothing that could leak into the repository.
-
-**Rate limits / attribution:** TheMealDB's free tier is meant for development and moderate use, not high-traffic production; recipe data and images are provided by TheMealDB.
-
-**A note on scope:** the brief's example category, cuisine, and dietary lists (e.g. "Lunch", "Healthy", "Mediterranean", "Gluten-Free") don't all correspond to real, filterable fields in TheMealDB. To avoid shipping filters that silently do nothing, this build fetches the *actual* categories and cuisines from the API and only exposes **Vegetarian** and **Vegan** as dietary filters, since those are the only diet-type values TheMealDB actually supports as categories. Similarly, no star ratings, cook times, servings, or difficulty levels are shown anywhere, because the API doesn't return that data — nothing on screen is invented.
-
-## Installation
-
-No build tools or package manager are required.
-
-1. Download or clone this folder.
-2. Open `index.html` directly in a browser, **or** serve it locally (recommended, so relative fetches and the URL search-state feature behave exactly like a deployed site):
-
-   ```bash
-   cd recipe-finder
-   python3 -m http.server 8000
-   # then open http://localhost:8000
-   ```
-
-## Configuration
-
-Nothing to configure — see **API** above.
-
-## Usage
-
-1. Type a dish, ingredient, or cuisine into the search bar (or tap a suggestion) and press **Search**.
-2. Narrow results with the category pills or the **Filters** drawer (cuisine, dietary).
-3. Click any recipe card to open full details, ingredients, and instructions.
-4. Tap the heart to save a recipe — find it later under **Favorites**.
-5. From a recipe's detail view, use **Share Recipe** or **Copy Ingredients**.
-
 ## Project Structure
 
 ```text
@@ -98,13 +63,6 @@ recipe-finder/
 │   └── favicon.svg
 └── README.md
 ```
-
-## Security
-
-- No API key is used or stored — TheMealDB's public test tier requires none.
-- Recipe data (names, instructions, ingredient text) is inserted via explicit escaping, never `innerHTML`'d verbatim from the API, to avoid injecting unsanitized third-party content.
-- External links (original recipe source, YouTube video) always open with `target="_blank" rel="noopener noreferrer"`.
-- All user data (favorites, recent searches) stays in the browser's `localStorage` — nothing is sent to a server. Malformed/corrupted stored data is caught and reset rather than crashing the app.
 
 ## License
 
