@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HabitFlow — Build better habits, one day at a time</title>
+<link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- Decorative organic background shapes -->
+<div class="bg-decor" aria-hidden="true">
+  <div class="blob blob--peach"></div>
+  <div class="blob blob--moss"></div>
+  <div class="blob blob--violet"></div>
+</div>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="#" data-nav="dashboard">
+      <svg class="brand-icon" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+        <path d="M16 4C10 4 6 9 6 15c0 6 4.5 11 10 13 5.5-2 10-7 10-13 0-6-4-11-10-11z" fill="var(--lime-moss)"/>
+        <path d="M16 8c-2.8 3-4 6.5-4 10 0 2.5 1 4.7 2.4 6.3M16 8c2.8 3 4 6.5 4 10" stroke="var(--olive-leaf)" stroke-width="1.4" stroke-linecap="round" fill="none"/>
+      </svg>
+      <span>HabitFlow</span>
+    </a>
+
+    <nav class="main-nav" aria-label="Primary">
+      <button class="nav-link is-active" data-nav="dashboard" aria-current="page">Dashboard</button>
+      <button class="nav-link" data-nav="habits">Habits</button>
+      <button class="nav-link" data-nav="calendar">Calendar</button>
+      <button class="nav-link" data-nav="statistics">Statistics</button>
+      <button class="nav-link" data-nav="archived">Archived</button>
+    </nav>
+
+    <div class="header-actions">
+      <button class="btn btn--primary" id="btn-new-habit">
+        <svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><path d="M10 3v14M3 10h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        New Habit
+      </button>
+      <button class="icon-btn menu-toggle" id="btn-menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+        <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile nav -->
+  <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile primary" hidden>
+    <button class="mobile-nav-link is-active" data-nav="dashboard">Dashboard</button>
+    <button class="mobile-nav-link" data-nav="habits">Habits</button>
+    <button class="mobile-nav-link" data-nav="calendar">Calendar</button>
+    <button class="mobile-nav-link" data-nav="statistics">Statistics</button>
+    <button class="mobile-nav-link" data-nav="archived">Archived</button>
+  </nav>
+</header>
+
+<main id="main-content">
+
+  <!-- ============ DASHBOARD VIEW ============ -->
+  <section class="view" id="view-dashboard" data-view="dashboard">
+    <div class="container">
+
+      <div class="hero">
+        <span class="badge">Your daily progress</span>
+        <h1 class="hero-title">Build better habits,<br>one day at a time.</h1>
+        <p class="hero-sub">Small consistent actions create meaningful change. Keep going and make today count.</p>
+        <p class="hero-date" id="hero-date"></p>
+      </div>
+
+      <div class="stat-row" id="stat-row">
+        <!-- summary cards injected by JS -->
+      </div>
+
+      <div class="grid-2">
+        <div class="panel panel--progress">
+          <h2 class="panel-title">Today's Progress</h2>
+          <div class="progress-count" id="progress-count">0 / 0 habits completed</div>
+          <div class="progress-track" role="progressbar" aria-label="Today's progress" aria-valuemin="0" aria-valuemax="100" id="progress-bar-wrap">
+            <div class="progress-fill" id="progress-fill" style="width:0%"></div>
+          </div>
+          <div class="progress-pct" id="progress-pct">0% complete</div>
+          <div class="perfect-day" id="perfect-day-msg" hidden>
+            <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path d="M12 2l2.6 6.2L21 9l-5 4.4L17.4 21 12 17.3 6.6 21 8 13.4 3 9l6.4-.8L12 2z" fill="var(--burnt-peach)"/></svg>
+            <div>
+              <strong>Amazing!</strong>
+              <p>You've completed all your habits today. Keep the momentum going!</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h2 class="panel-title">Weekly Overview</h2>
+          <div class="weekly-overview" id="weekly-overview"></div>
+        </div>
+      </div>
+
+      <div class="section-block">
+        <div class="section-header">
+          <h2 class="section-title">Today's Habits</h2>
+          <div class="search-filter-row">
+            <label class="visually-hidden" for="search-input">Search habits</label>
+            <div class="search-box">
+              <svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><circle cx="9" cy="9" r="6" stroke="currentColor" stroke-width="1.6" fill="none"/><path d="M14 14l4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+              <input type="search" id="search-input" placeholder="Search habits…" autocomplete="off">
+            </div>
+            <button class="icon-btn" id="btn-toggle-filters" aria-expanded="false" aria-controls="filter-panel" aria-label="Toggle filters">
+              <svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M3 5h14M6 10h8M8 15h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="filter-panel" id="filter-panel" hidden>
+          <div class="filter-group">
+            <span class="filter-label">Status</span>
+            <div class="chip-row" id="filter-status" data-group="status">
+              <button class="chip is-active" data-value="all">All</button>
+              <button class="chip" data-value="active">Active</button>
+              <button class="chip" data-value="completed-today">Completed Today</button>
+              <button class="chip" data-value="incomplete-today">Incomplete Today</button>
+            </div>
+          </div>
+          <div class="filter-group">
+            <span class="filter-label">Category</span>
+            <div class="chip-row" id="filter-category" data-group="category">
+              <button class="chip is-active" data-value="all">All</button>
+            </div>
+          </div>
+          <div class="filter-group">
+            <label class="filter-label" for="sort-select">Sort by</label>
+            <select id="sort-select" class="select-input">
+              <option value="default">Newest</option>
+              <option value="name-asc">Name A–Z</option>
+              <option value="name-desc">Name Z–A</option>
+              <option value="oldest">Oldest</option>
+              <option value="streak-desc">Highest Streak</option>
+              <option value="streak-asc">Lowest Streak</option>
+              <option value="rate-desc">Highest Completion Rate</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="habit-grid" id="habit-grid"></div>
+        <div class="empty-state" id="empty-state-habits" hidden></div>
+      </div>
+
+      <div class="grid-2">
+        <div class="panel">
+          <h2 class="panel-title">Calendar</h2>
+          <div id="calendar-mini"></div>
+        </div>
+        <div class="panel">
+          <h2 class="panel-title">Your Habits</h2>
+          <div id="category-breakdown"></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ HABITS VIEW ============ -->
+  <section class="view" id="view-habits" data-view="habits" hidden>
+    <div class="container">
+      <div class="section-header">
+        <h1 class="section-title">Habits</h1>
+        <div class="search-filter-row">
+          <div class="search-box">
+            <svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><circle cx="9" cy="9" r="6" stroke="currentColor" stroke-width="1.6" fill="none"/><path d="M14 14l4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+            <input type="search" id="search-input-2" placeholder="Search habits…" autocomplete="off">
+          </div>
+        </div>
+      </div>
+      <div class="chip-row" id="filter-status-2" data-group="status"></div>
+      <div class="habit-grid" id="habit-grid-2"></div>
+      <div class="empty-state" id="empty-state-habits-2" hidden></div>
+    </div>
+  </section>
+
+  <!-- ============ CALENDAR VIEW ============ -->
+  <section class="view" id="view-calendar" data-view="calendar" hidden>
+    <div class="container">
+      <h1 class="section-title">Calendar</h1>
+      <div class="panel calendar-panel">
+        <div class="calendar-header">
+          <button class="icon-btn" id="cal-prev" aria-label="Previous month">
+            <svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M12 4l-6 6 6 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <h2 id="cal-title">September 2026</h2>
+          <button class="icon-btn" id="cal-next" aria-label="Next month">
+            <svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M8 4l6 6-6 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <button class="btn btn--ghost btn--sm" id="cal-today">Today</button>
+        </div>
+        <div class="calendar-grid" id="calendar-grid-full"></div>
+        <div class="heatmap-legend">
+          <span>Less</span>
+          <span class="heat-swatch heat-0"></span>
+          <span class="heat-swatch heat-1"></span>
+          <span class="heat-swatch heat-2"></span>
+          <span class="heat-swatch heat-3"></span>
+          <span>More</span>
+        </div>
+      </div>
+      <div class="panel" id="day-detail-panel" hidden></div>
+    </div>
+  </section>
+
+  <!-- ============ STATISTICS VIEW ============ -->
+  <section class="view" id="view-statistics" data-view="statistics" hidden>
+    <div class="container">
+      <h1 class="section-title">Statistics</h1>
+      <div class="stat-row" id="stat-row-2"></div>
+
+      <div class="grid-2">
+        <div class="panel">
+          <h2 class="panel-title">Habit Performance</h2>
+          <div id="performance-list"></div>
+        </div>
+        <div class="panel">
+          <h2 class="panel-title">Longest Streaks</h2>
+          <div id="leaderboard-list"></div>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="panel">
+          <h2 class="panel-title">Category Breakdown</h2>
+          <div id="category-breakdown-2"></div>
+        </div>
+        <div class="panel">
+          <h2 class="panel-title">Achievements</h2>
+          <div id="achievements-list"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ARCHIVED VIEW ============ -->
+  <section class="view" id="view-archived" data-view="archived" hidden>
+    <div class="container">
+      <h1 class="section-title">Archived Habits</h1>
+      <div class="habit-grid" id="archived-grid"></div>
+      <div class="empty-state" id="empty-state-archived" hidden></div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p>Your data stays in this browser. Nothing is uploaded anywhere.</p>
+    <div class="footer-actions">
+      <button class="btn btn--ghost btn--sm" id="btn-export">Export Data</button>
+      <button class="btn btn--ghost btn--sm" id="btn-import">Import Data</button>
+      <input type="file" id="import-file-input" accept="application/json" hidden>
+      <button class="btn btn--ghost btn--sm btn--danger" id="btn-clear-data">Clear All Data</button>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ MOBILE FLOATING ACTION ============ -->
+<button class="fab" id="btn-fab-new" aria-label="Create new habit">
+  <svg viewBox="0 0 20 20" width="22" height="22" aria-hidden="true"><path d="M10 3v14M3 10h14" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+</button>
+
+<!-- ============ HABIT FORM MODAL (Add/Edit) ============ -->
+<div class="modal-overlay" id="modal-habit-form" hidden>
+  <div class="modal modal--form" role="dialog" aria-modal="true" aria-labelledby="habit-form-title">
+    <div class="modal-header">
+      <h2 id="habit-form-title">New Habit</h2>
+      <button class="icon-btn" id="btn-close-form" aria-label="Close">
+        <svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M5 5l10 10M15 5L5 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+    <form id="habit-form" class="modal-body" novalidate>
+      <input type="hidden" id="habit-id" value="">
+
+      <div class="form-field">
+        <label for="habit-name">Habit Name</label>
+        <input type="text" id="habit-name" placeholder="e.g. Read for 20 minutes" required maxlength="60">
+        <span class="field-error" id="err-habit-name" role="alert"></span>
+      </div>
+
+      <div class="form-field">
+        <label for="habit-desc">Description <span class="optional-tag">Optional</span></label>
+        <textarea id="habit-desc" placeholder="Why is this habit important to you?" rows="2" maxlength="200"></textarea>
+      </div>
+
+      <div class="form-row">
+        <div class="form-field">
+          <label for="habit-category">Category</label>
+          <select id="habit-category">
+            <option>Health</option>
+            <option>Fitness</option>
+            <option>Learning</option>
+            <option>Productivity</option>
+            <option>Mindfulness</option>
+            <option>Personal</option>
+            <option>Finance</option>
+            <option>Social</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label for="habit-goal">Goal (times per period)</label>
+          <input type="number" id="habit-goal" min="1" max="30" value="1">
+        </div>
+      </div>
+
+      <div class="form-field">
+        <span class="field-legend">Frequency</span>
+        <div class="segmented" id="frequency-segmented" role="radiogroup" aria-label="Frequency">
+          <button type="button" class="segmented-btn is-active" data-value="daily" role="radio" aria-checked="true">Daily</button>
+          <button type="button" class="segmented-btn" data-value="weekly" role="radio" aria-checked="false">Weekly</button>
+          <button type="button" class="segmented-btn" data-value="custom" role="radio" aria-checked="false">Custom Days</button>
+        </div>
+      </div>
+
+      <div class="form-field" id="custom-days-field" hidden>
+        <span class="field-legend">Select Days</span>
+        <div class="day-picker" id="day-picker">
+          <button type="button" class="day-btn" data-day="1">Mon</button>
+          <button type="button" class="day-btn" data-day="2">Tue</button>
+          <button type="button" class="day-btn" data-day="3">Wed</button>
+          <button type="button" class="day-btn" data-day="4">Thu</button>
+          <button type="button" class="day-btn" data-day="5">Fri</button>
+          <button type="button" class="day-btn" data-day="6">Sat</button>
+          <button type="button" class="day-btn" data-day="0">Sun</button>
+        </div>
+      </div>
+
+      <div class="form-field">
+        <span class="field-legend">Icon</span>
+        <div class="icon-picker" id="icon-picker"></div>
+      </div>
+
+      <div class="form-field">
+        <span class="field-legend">Color</span>
+        <div class="color-picker" id="color-picker"></div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn--ghost" id="btn-cancel-form">Cancel</button>
+        <button type="submit" class="btn btn--primary" id="btn-submit-form">Create Habit</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- ============ HABIT DETAIL MODAL ============ -->
+<div class="modal-overlay" id="modal-habit-detail" hidden>
+  <div class="modal modal--detail" role="dialog" aria-modal="true" aria-labelledby="detail-title">
+    <div class="modal-header">
+      <h2 id="detail-title">Habit</h2>
+      <button class="icon-btn" id="btn-close-detail" aria-label="Close">
+        <svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M5 5l10 10M15 5L5 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+    <div class="modal-body" id="detail-body"></div>
+  </div>
+</div>
+
+<!-- ============ CONFIRMATION DIALOG ============ -->
+<div class="modal-overlay" id="modal-confirm" hidden>
+  <div class="modal modal--confirm" role="alertdialog" aria-modal="true" aria-labelledby="confirm-title" aria-describedby="confirm-body">
+    <h2 id="confirm-title">Are you sure?</h2>
+    <p id="confirm-body">This action cannot be undone.</p>
+    <div class="modal-footer">
+      <button class="btn btn--ghost" id="btn-confirm-cancel">Cancel</button>
+      <button class="btn btn--danger-solid" id="btn-confirm-ok">Confirm</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============ IMPORT MERGE DIALOG ============ -->
+<div class="modal-overlay" id="modal-import" hidden>
+  <div class="modal modal--confirm" role="dialog" aria-modal="true" aria-labelledby="import-title">
+    <h2 id="import-title">Import Data</h2>
+    <p>A valid backup file was found. How would you like to import it?</p>
+    <div class="modal-footer modal-footer--stack">
+      <button class="btn btn--primary" id="btn-import-merge">Merge Data</button>
+      <button class="btn btn--danger-solid" id="btn-import-replace">Replace Existing Data</button>
+      <button class="btn btn--ghost" id="btn-import-cancel">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============ ACHIEVEMENT TOAST (milestone) ============ -->
+<div class="milestone-banner" id="milestone-banner" hidden>
+  <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M12 2c-1.5 3-4 4.8-4 8a4 4 0 008 0c0-3.2-2.5-5-4-8z" fill="var(--burnt-peach)"/><path d="M8 15c0 3 2 5 4 5s4-2 4-5" stroke="var(--olive-leaf)" stroke-width="1.4" fill="none"/></svg>
+  <div>
+    <strong id="milestone-title">30-Day Streak!</strong>
+    <p id="milestone-text">You've completed this habit for 30 consecutive scheduled days.</p>
+  </div>
+</div>
+
+<!-- ============ TOAST CONTAINER ============ -->
+<div class="toast-container" id="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+<!-- Screen-reader live region for status announcements -->
+<div class="visually-hidden" id="sr-status" role="status" aria-live="polite"></div>
+
+<script src="js/script.js"></script>
+</body>
+</html>
