@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GitScope — See the developer behind the code</title>
+<meta name="description" content="GitScope turns a public GitHub profile into an interactive Developer DNA Observatory built from real repository, language and activity data.">
+<link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ================= TOP BAR ================= -->
+<header class="topbar" id="topbar" hidden>
+  <div class="topbar-inner">
+    <button class="brand" id="brand-home" type="button" aria-label="GitScope home">
+      <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true">
+        <circle cx="32" cy="32" r="29" fill="none" stroke="currentColor" stroke-width="1.4" opacity=".55"/>
+        <circle cx="32" cy="32" r="20" fill="none" stroke="currentColor" stroke-width="1" opacity=".35"/>
+        <circle cx="32" cy="32" r="5.5" fill="currentColor"/>
+      </svg>
+      <span>GitScope</span>
+    </button>
+
+    <form class="topbar-search" id="topbar-search-form" role="search">
+      <label class="sr-only" for="topbar-search-input">Search GitHub username</label>
+      <input type="text" id="topbar-search-input" name="username" placeholder="github.com/username" autocomplete="off" inputmode="text" maxlength="39">
+      <button type="submit" class="btn btn-primary btn-sm">Explore</button>
+    </form>
+
+    <nav class="topbar-actions" aria-label="Utility">
+      <button class="icon-btn" id="btn-compare" type="button" title="Compare developers" aria-label="Compare developers">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3v18M3 8h10M16 3v18M11 16h10" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg>
+      </button>
+      <button class="icon-btn" id="btn-favorites" type="button" title="Favorites" aria-label="View favorites">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9l-5.2 2.7 1-5.8-4.3-4.1 5.9-.9L12 3.5z" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linejoin="round"/></svg>
+      </button>
+      <button class="icon-btn" id="btn-settings" type="button" title="Settings" aria-label="Open settings">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3.2" stroke="currentColor" stroke-width="1.4" fill="none"/><path d="M12 2.5v3M12 18.5v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2.5 12h3M18.5 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ================= LANDING ================= -->
+  <section class="view" id="view-landing">
+    <div class="grid-backdrop" aria-hidden="true"></div>
+
+    <div class="landing-wrap">
+      <p class="eyebrow">GitScope</p>
+      <h1 class="hero-title">See the developer<br>behind the code.</h1>
+      <p class="hero-sub">Enter a GitHub username and explore their public coding DNA, projects, activity and evolution.</p>
+
+      <form class="search-hero" id="landing-search-form">
+        <div class="search-hero-field">
+          <span class="search-hero-prefix">github.com/</span>
+          <label class="sr-only" for="landing-search-input">GitHub username</label>
+          <input type="text" id="landing-search-input" placeholder="username" autocomplete="off" maxlength="39" autofocus>
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg" id="landing-search-btn">Explore Developer</button>
+      </form>
+      <p class="search-hint" id="search-hint" role="status" aria-live="polite"></p>
+
+      <div class="try-row">
+        <span class="try-label">Try:</span>
+        <button class="chip" type="button" data-example="octocat">octocat</button>
+        <button class="chip" type="button" data-example="torvalds">torvalds</button>
+        <button class="chip" type="button" data-example="gaearon">gaearon</button>
+      </div>
+
+      <section class="history-panel" id="history-panel" hidden aria-label="Recently explored">
+        <div class="history-head">
+          <h2>Recent explorers</h2>
+          <button class="link-btn" id="clear-history-btn" type="button">Clear history</button>
+        </div>
+        <ul class="history-list" id="history-list"></ul>
+      </section>
+    </div>
+  </section>
+
+  <!-- ================= LOADING ================= -->
+  <section class="view" id="view-loading" hidden aria-live="polite">
+    <div class="scan-wrap">
+      <div class="scan-ring" aria-hidden="true">
+        <div class="scan-ring-inner"></div>
+        <div class="scan-sweep"></div>
+      </div>
+      <p class="scan-title">SCANNING GITHUB</p>
+      <ul class="scan-stages" id="scan-stages">
+        <li data-stage="identity"><span class="stage-label">Fetching identity…</span><span class="stage-bar"><span class="stage-fill"></span></span></li>
+        <li data-stage="repos"><span class="stage-label">Mapping repositories…</span><span class="stage-bar"><span class="stage-fill"></span></span></li>
+        <li data-stage="languages"><span class="stage-label">Analyzing languages…</span><span class="stage-bar"><span class="stage-fill"></span></span></li>
+        <li data-stage="activity"><span class="stage-label">Reading public activity…</span><span class="stage-bar"><span class="stage-fill"></span></span></li>
+        <li data-stage="dna"><span class="stage-label">Constructing Developer DNA…</span><span class="stage-bar"><span class="stage-fill"></span></span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ================= ERROR ================= -->
+  <section class="view" id="view-error" hidden>
+    <div class="error-wrap">
+      <div class="error-icon" id="error-icon" aria-hidden="true">◌</div>
+      <h1 id="error-title">Developer not found</h1>
+      <p id="error-message">We couldn't find a public GitHub profile.</p>
+      <form class="search-hero search-hero--compact" id="error-search-form">
+        <div class="search-hero-field">
+          <span class="search-hero-prefix">github.com/</span>
+          <label class="sr-only" for="error-search-input">GitHub username</label>
+          <input type="text" id="error-search-input" placeholder="username" autocomplete="off" maxlength="39">
+        </div>
+        <button type="submit" class="btn btn-primary">Try another username</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ================= RESULTS ================= -->
+  <section class="view" id="view-results" hidden>
+
+    <!-- Profile header -->
+    <section class="section profile-header" aria-labelledby="profile-name">
+      <div class="profile-header-inner">
+        <div class="profile-avatar-wrap">
+          <div class="skeleton skeleton-avatar" id="avatar-skeleton"></div>
+          <img id="profile-avatar" class="profile-avatar" alt="" hidden>
+        </div>
+        <div class="profile-main">
+          <h1 id="profile-name" class="profile-name">&nbsp;</h1>
+          <p id="profile-username" class="profile-username"></p>
+          <p id="profile-bio" class="profile-bio" hidden></p>
+          <ul class="profile-meta" id="profile-meta"></ul>
+          <ul class="profile-links" id="profile-links"></ul>
+        </div>
+        <div class="profile-stats" id="profile-stats"></div>
+      </div>
+
+      <p class="snapshot-line" id="snapshot-line" aria-live="polite"></p>
+
+      <div class="header-actions">
+        <button class="btn btn-ghost btn-sm" id="btn-refresh">
+          <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M20 11A8 8 0 1 0 19 15" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"/><path d="M20 5v6h-6" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Refresh
+        </button>
+        <button class="btn btn-ghost btn-sm" id="btn-favorite">☆ Add to favorites</button>
+        <button class="btn btn-ghost btn-sm" id="btn-share">Share analysis</button>
+        <button class="btn btn-ghost btn-sm" id="btn-export">Export snapshot</button>
+        <button class="btn btn-ghost btn-sm" id="btn-print">Print analysis</button>
+        <a class="btn btn-ghost btn-sm" id="btn-view-github" href="#" target="_blank" rel="noopener noreferrer">View on GitHub ↗</a>
+      </div>
+      <p class="timestamp" id="data-timestamp"></p>
+      <p class="partial-warning" id="partial-warning" hidden role="status"></p>
+    </section>
+
+    <!-- Observatory -->
+    <section class="section" aria-labelledby="observatory-title">
+      <h2 id="observatory-title" class="section-title">Developer Observatory</h2>
+      <p class="section-sub">A map of this developer's public footprint. Each node leads to a deeper view below.</p>
+      <div class="observatory" id="observatory"></div>
+    </section>
+
+    <!-- Developer DNA -->
+    <section class="section" id="section-dna" aria-labelledby="dna-title">
+      <h2 id="dna-title" class="section-title">Developer DNA</h2>
+      <p class="section-sub">A visual summary built from observable public GitHub signals.</p>
+      <div class="dna-layout">
+        <div class="dna-chart-wrap">
+          <svg id="dna-radar" viewBox="0 0 340 340" role="img" aria-labelledby="dna-radar-desc"></svg>
+          <p id="dna-radar-desc" class="sr-only">Radar chart of developer DNA dimensions</p>
+        </div>
+        <ul class="dna-values" id="dna-values"></ul>
+      </div>
+      <p class="disclaimer">Developer DNA is a visual summary of observable public GitHub activity and metadata. It is not a measure of skill, intelligence, personality, seniority or professional ability.</p>
+
+      <div class="signals-block">
+        <h3 class="subsection-title">Signals detected</h3>
+        <ul class="signals-list" id="signals-list"></ul>
+        <button class="link-btn" id="btn-transparency">How is this calculated?</button>
+      </div>
+    </section>
+
+    <!-- Language DNA -->
+    <section class="section" aria-labelledby="lang-dna-title">
+      <h2 id="lang-dna-title" class="section-title">Language DNA</h2>
+      <div id="language-empty" class="empty-note" hidden>Language analysis unavailable.</div>
+      <div id="language-dna-bars" class="lang-bars"></div>
+
+      <h3 class="subsection-title">Language Orbit</h3>
+      <p class="section-sub">Node size reflects relative usage across analyzed repositories. Hover or focus a node for details.</p>
+      <div class="orbit-wrap" id="language-orbit-wrap">
+        <svg id="language-orbit" viewBox="0 0 480 480" role="img" aria-label="Language orbit visualization"></svg>
+      </div>
+      <div class="tooltip" id="tooltip" role="tooltip" hidden></div>
+    </section>
+
+    <!-- Repository Universe + Explorer -->
+    <section class="section" aria-labelledby="repo-universe-title">
+      <h2 id="repo-universe-title" class="section-title">Repository Universe</h2>
+      <p class="section-sub">Planet size ≈ stars · distance from center ≈ recency · color ≈ primary language.</p>
+      <div class="universe-wrap" id="universe-wrap">
+        <svg id="repo-universe" viewBox="0 0 640 480" role="img" aria-label="Repository universe visualization"></svg>
+      </div>
+
+      <h3 class="subsection-title" id="explorer-title">Repository Explorer</h3>
+
+      <div class="radar-tabs" role="tablist" aria-label="Project radar" id="radar-tabs">
+        <button role="tab" aria-selected="true" class="radar-tab active" data-sort="popular">Most Popular</button>
+        <button role="tab" aria-selected="false" class="radar-tab" data-sort="recent">Most Recent</button>
+        <button role="tab" aria-selected="false" class="radar-tab" data-sort="active">Most Active</button>
+        <button role="tab" aria-selected="false" class="radar-tab" data-sort="starred">Most Starred</button>
+        <button role="tab" aria-selected="false" class="radar-tab" data-sort="forked">Most Forked</button>
+      </div>
+
+      <div class="repo-controls">
+        <label class="sr-only" for="repo-search-input">Search repositories</label>
+        <input type="search" id="repo-search-input" placeholder="Search repositories…" class="repo-search">
+        <div class="filter-group" role="group" aria-label="Filter repositories">
+          <button class="filter-chip active" data-filter="all" type="button">All</button>
+          <button class="filter-chip" data-filter="forks" type="button">Forks</button>
+          <button class="filter-chip" data-filter="original" type="button">Original</button>
+          <button class="filter-chip" data-filter="archived" type="button">Archived</button>
+          <button class="filter-chip" data-filter="active" type="button">Active</button>
+        </div>
+      </div>
+
+      <p class="repo-count" id="repo-count" aria-live="polite"></p>
+      <div class="repo-grid" id="repo-grid"></div>
+      <div class="repo-load-more-wrap">
+        <button class="btn btn-ghost" id="btn-load-more" hidden>Load more</button>
+      </div>
+    </section>
+
+    <!-- Activity Pulse -->
+    <section class="section" aria-labelledby="activity-title">
+      <h2 id="activity-title" class="section-title">Activity Pulse</h2>
+      <div id="activity-empty" class="empty-note" hidden>Recent public activity is unavailable.</div>
+
+      <h3 class="subsection-title">Developer Rhythm</h3>
+      <p class="section-sub" id="rhythm-caption">Based on available public activity</p>
+      <div class="rhythm-wrap">
+        <svg id="rhythm-chart" viewBox="0 0 640 160" role="img" aria-label="Activity rhythm over recent days"></svg>
+      </div>
+      <ul class="rhythm-insights" id="rhythm-insights"></ul>
+
+      <ol class="activity-list" id="activity-list" aria-label="Recent public activity"></ol>
+      <div class="activity-legend" id="activity-legend"></div>
+    </section>
+
+    <!-- Project Evolution -->
+    <section class="section" aria-labelledby="timeline-title">
+      <h2 id="timeline-title" class="section-title">Project Evolution</h2>
+      <div class="timeline-wrap" id="timeline-wrap"></div>
+
+      <div class="then-now" id="then-now-block" hidden>
+        <h3 class="subsection-title">Then vs Now</h3>
+        <div class="then-now-grid" id="then-now-grid"></div>
+      </div>
+
+      <div class="evolution-block" id="evolution-block" hidden>
+        <h3 class="subsection-title">Developer Evolution</h3>
+        <p class="section-sub">Based on repository language history.</p>
+        <ol class="evolution-list" id="evolution-list"></ol>
+      </div>
+    </section>
+
+    <!-- Topic Galaxy -->
+    <section class="section" aria-labelledby="topic-title">
+      <h2 id="topic-title" class="section-title">Topic Galaxy</h2>
+      <div id="topic-empty" class="empty-note" hidden>No public topics found on this developer's repositories.</div>
+      <div class="topic-galaxy" id="topic-galaxy"></div>
+    </section>
+
+    <!-- Community Footprint + Star Map -->
+    <section class="section" aria-labelledby="community-title">
+      <h2 id="community-title" class="section-title">Community Footprint</h2>
+      <div class="community-layout">
+        <svg id="impact-ring" viewBox="0 0 240 240" role="img" aria-label="Community footprint ring"></svg>
+        <ul class="community-stats" id="community-stats"></ul>
+      </div>
+
+      <h3 class="subsection-title">Star Map</h3>
+      <div id="starmap-empty" class="empty-note" hidden>No starred repositories to map yet.</div>
+      <ol class="star-map" id="star-map"></ol>
+    </section>
+
+    <!-- Compare CTA -->
+    <section class="section compare-cta">
+      <h2 class="section-title">Compare Developers</h2>
+      <p class="section-sub">See how this developer's public footprint compares with another's.</p>
+      <button class="btn btn-primary" id="btn-open-compare">Compare with another developer</button>
+    </section>
+
+  </section>
+
+  <!-- ================= COMPARE ================= -->
+  <section class="view" id="view-compare" hidden>
+    <div class="compare-head">
+      <h1 class="section-title">Compare Developers</h1>
+      <p class="section-sub">Comparisons reflect public GitHub metrics only. They do not determine which developer is better.</p>
+      <form class="compare-form" id="compare-form">
+        <div class="compare-field">
+          <span class="compare-label">Developer A</span>
+          <input type="text" id="compare-input-a" placeholder="username" autocomplete="off" maxlength="39">
+        </div>
+        <span class="compare-vs">vs</span>
+        <div class="compare-field">
+          <span class="compare-label">Developer B</span>
+          <input type="text" id="compare-input-b" placeholder="username" autocomplete="off" maxlength="39">
+        </div>
+        <button type="submit" class="btn btn-primary">Compare</button>
+      </form>
+    </div>
+    <div id="compare-results" hidden>
+      <div class="compare-dna-wrap">
+        <svg id="compare-dna-svg" viewBox="0 0 340 340" role="img" aria-label="Overlaid Developer DNA comparison"></svg>
+        <div class="compare-dna-legend" id="compare-dna-legend"></div>
+      </div>
+      <div class="compare-table-wrap">
+        <table class="compare-table" id="compare-table">
+          <thead>
+            <tr><th scope="col">Metric</th><th scope="col" id="compare-col-a">A</th><th scope="col" id="compare-col-b">B</th><th scope="col">Signal</th></tr>
+          </thead>
+          <tbody id="compare-table-body"></tbody>
+        </table>
+      </div>
+      <div class="compare-repos" id="compare-repos"></div>
+    </div>
+    <p class="error-inline" id="compare-error" hidden></p>
+  </section>
+
+</main>
+
+<!-- ================= FAVORITES DRAWER ================= -->
+<div class="drawer" id="favorites-drawer" hidden role="dialog" aria-modal="true" aria-labelledby="favorites-title">
+  <div class="drawer-panel">
+    <div class="drawer-head">
+      <h2 id="favorites-title">Favorites</h2>
+      <button class="icon-btn" id="favorites-close" aria-label="Close favorites">✕</button>
+    </div>
+    <ul class="favorites-list" id="favorites-list"></ul>
+    <p class="empty-note" id="favorites-empty" hidden>No favorites saved yet. Add a developer to see them here.</p>
+  </div>
+</div>
+
+<!-- ================= SETTINGS MODAL ================= -->
+<div class="modal-backdrop" id="settings-modal" hidden role="dialog" aria-modal="true" aria-labelledby="settings-title">
+  <div class="modal-panel">
+    <div class="modal-head">
+      <h2 id="settings-title">Settings</h2>
+      <button class="icon-btn" id="settings-close" aria-label="Close settings">✕</button>
+    </div>
+    <div class="settings-row">
+      <label for="toggle-animations">Animations</label>
+      <input type="checkbox" id="toggle-animations" checked>
+    </div>
+    <div class="settings-row">
+      <label for="toggle-reduced-motion">Reduced motion</label>
+      <input type="checkbox" id="toggle-reduced-motion">
+    </div>
+    <div class="settings-row">
+      <label for="toggle-cache">Use cached GitHub data</label>
+      <input type="checkbox" id="toggle-cache" checked>
+    </div>
+    <div class="settings-actions">
+      <button class="btn btn-ghost btn-sm" id="btn-clear-search-history">Clear search history</button>
+      <button class="btn btn-ghost btn-sm" id="btn-clear-favorites">Clear favorites</button>
+      <button class="btn btn-ghost btn-sm" id="btn-clear-cache">Clear cached GitHub data</button>
+    </div>
+  </div>
+</div>
+
+<!-- ================= REPO DETAIL MODAL ================= -->
+<div class="modal-backdrop" id="repo-modal" hidden role="dialog" aria-modal="true" aria-labelledby="repo-modal-title">
+  <div class="modal-panel">
+    <div class="modal-head">
+      <h2 id="repo-modal-title">Repository</h2>
+      <button class="icon-btn" id="repo-modal-close" aria-label="Close repository details">✕</button>
+    </div>
+    <div id="repo-modal-body"></div>
+  </div>
+</div>
+
+<!-- ================= TRANSPARENCY PANEL ================= -->
+<div class="modal-backdrop" id="transparency-modal" hidden role="dialog" aria-modal="true" aria-labelledby="transparency-title">
+  <div class="modal-panel">
+    <div class="modal-head">
+      <h2 id="transparency-title">How we calculate this</h2>
+      <button class="icon-btn" id="transparency-close" aria-label="Close panel">✕</button>
+    </div>
+    <div class="transparency-body">
+      <h3>Language Diversity</h3>
+      <p>Based on the number of distinct programming languages detected across analyzed public repositories, weighted by how evenly they're used.</p>
+      <h3>Repository Diversity</h3>
+      <p>Based on the mix of languages, topics and repository types (original, fork, archived) across the developer's public repositories.</p>
+      <h3>Activity &amp; Recency</h3>
+      <p>Based on repository <code>pushed_at</code> / <code>updated_at</code> timestamps and, where available, recent public events.</p>
+      <h3>Community Signal</h3>
+      <p>Based on public stars, forks and followers as reported by the GitHub API. It reflects reach, not quality.</p>
+      <h3>Consistency</h3>
+      <p>Based on how many distinct recent time periods (weeks) show at least one repository update.</p>
+      <h3>Developer DNA</h3>
+      <p>A visualization derived from observable GitHub metadata. It is not a psychological or professional assessment.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ================= TOASTS ================= -->
+<div class="toast-container" id="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+<footer class="site-footer">
+  <p class="footer-brand">GitScope</p>
+  <p>Explore public GitHub data. Built with HTML, CSS, JavaScript &amp; the GitHub API.</p>
+  <p class="footer-muted">GitHub API data belongs to GitHub and its users. Only public information is analyzed — private repositories are never accessed.</p>
+  <p class="footer-links"><a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a></p>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>
