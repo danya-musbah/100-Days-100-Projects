@@ -1,229 +1,224 @@
-# 100-Days-100-Projects
-A 100-day software engineering challenge featuring 100 projects across web development, mobile apps, data analytics, machine learning, and AI.
+# 100 Days, 100 Projects
 
-> **Building one project every day for 100 days to strengthen my software engineering skills, expand my portfolio, and build real-world experience.**
+A portfolio repository of independent projects created as a software engineering and learning challenge. The repository brings together practical web apps, utility tools, data analysis work, and machine-learning experiments into one place so they can be explored, reused, and improved over time.
 
-Welcome to my **100 Days, 100 Projects** challenge.
+## Why this repository exists
 
-As a Software Engineering graduate, I created this challenge to turn my knowledge into practical experience by building and publishing **one project every day for 100 consecutive days**.
+This repository was created to turn learning into applied practice. Instead of focusing only on theory, the goal is to build small but meaningful software products that solve real problems, strengthen technical fundamentals, and create a trackable portfolio of work.
 
-The projects range from small experiments and practical tools to full-stack applications, data analytics projects, machine learning models, and AI-powered applications.
+The ideas behind the collection are simple but important:
 
-The goal is not simply to write code every day, but to **build, solve problems, learn, document, and ship.**
+- practice building complete, usable software from idea to implementation
+- improve JavaScript, Python, UI, analytics, and workflow skills
+- make learning visible through real project folders and documentation
+- create a reusable portfolio of work that demonstrates breadth and depth
 
----
+This is not a single application with one server or one user flow. It is a curated collection of independent mini-projects that share a common goal: building useful, demonstrable software in a consistent engineering workflow.
 
-## Goals
+## Problem and solution
 
-*  Strengthen my software engineering skills
-*  Build modern web applications
-*  Explore mobile application development
-*  Improve backend and database development
-*  Develop practical data analysis skills
-*  Build machine learning and AI applications
-*  Work with APIs and external services
-*  Practice testing and debugging
-*  Learn deployment and production practices
-*  Improve technical documentation
-*  Build a strong GitHub portfolio for future career opportunities
+Software learning is often fragmented: tutorials teach isolated concepts, but portfolios require proof of practical capability. This repository addresses that gap by combining many small implementations under one challenge framework.
 
----
+Each project focuses on a specific type of problem or skill, such as:
 
-## Technologies
+- task management and personal productivity
+- data exploration and dashboarding
+- health, finance, and planning tools
+- browser-based utilities and interactive interfaces
+- practical automation and analysis scripts
 
-Throughout the challenge, I will work with technologies including:
+The result is a broad and practical body of work that showcases implementation skills, problem-solving, and iterative improvement.
 
-**Languages**
+## Project categories
 
-* Python
-* JavaScript
-* TypeScript
-* SQL
-* HTML
-* CSS
+The repository currently contains a mix of independent projects across several domains:
 
-**Frontend**
+- Frontend and utility apps
+- Data analysis and dashboarding
+- Machine learning and predictive modeling
+- Workflow and productivity tools
+- Platform-style web apps and multi-page interfaces
 
-* React
-* Responsive Web Design
+## Featured project collection
 
-**Backend**
+| Folder | Area | Notes |
+| --- | --- | --- |
+| Calculator | Frontend utility | Simple arithmetic and UI interaction demo |
+| Digital Clock | Frontend utility | Real-time time display and themed layouts |
+| To-do list | Productivity | Task list functionality with browser behavior |
+| currency-converter | Utility app | Exchange-rate conversion interface |
+| expense-tracker | Finance | Personal budget and expense tracking |
+| github-analytics | Developer tooling | GitHub data presentation and summary views |
+| github-profile-finder | Developer tooling | Search and display profile information |
+| habit-tracker | Productivity | Daily routine and habit tracking |
+| kanban-board | Workflow app | Drag-and-drop task organization |
+| markdown-previewer | Web utility | Live Markdown rendering in the browser |
+| notes-app | Productivity | Note-taking and local data management |
+| parks-platform | Platform app | Multi-page park booking and info portal |
+| password-generator | Security utility | Random password generation |
+| pharmatrack | Healthcare platform | Inventory and pharmacy management demo |
+| pomo | Productivity | Pomodoro timer app |
+| qr-code-generator | Utility app | QR code generation demo |
+| quiz-app | Learning app | Quiz interaction and scoring |
+| recipe-finder | Utility app | Recipe discovery and UI flow |
+| url-shortener | Utility app | Shortened URL workflow |
+| weather-app | Frontend utility | Weather display and dynamic styling |
+| Titanic-Data-Analysis | Data science | Exploratory data analysis and reports |
+| diabetes-prediction | Machine learning | Predictive modeling with datasets |
+| netflix-data-analysis | Data science | Dataset analysis and visual exploration |
 
-* Node.js
-* Express
-* REST APIs
-* WebSockets
+The exact set of projects can evolve as new work is added and existing folders are refined.
 
-**Databases**
+## At a glance
 
-* PostgreSQL
-* MySQL
-* MongoDB
-* SQLite
-* Redis
+This repository is designed as a broad portfolio of practical software work, combining multiple project types under one learning challenge:
 
-**Data & AI**
+- web apps and UI experiments
+- productivity and lifecycle tools
+- analysis and reporting work
+- predictive modeling and ML examples
+- platform-style demos and multi-page interfaces
 
-* Pandas
-* NumPy
-* Matplotlib
-* Scikit-learn
-* Natural Language Processing
-* Generative AI
-* AI APIs
+## Project collection by type
 
-**Tools**
+| Type | Examples | Purpose |
+| --- | --- | --- |
+| Frontend utilities | Calculator, Digital Clock, weather-app | Small interactive browser experiences |
+| Productivity tools | To-do list, notes-app, habit-tracker, pomo | Personal organization and task workflows |
+| Platform apps | parks-platform, pharmatrack, github-analytics | Multi-screen, user-focused product demos |
+| Data and analytics | Titanic-Data-Analysis, netflix-data-analysis | Exploratory analysis and business insights |
+| Machine learning | diabetes-prediction | Predictive modeling and practical ML workflow |
+| Developer tools | github-profile-finder, markdown-previewer, qr-code-generator | Utility apps for common digital tasks |
 
-* Git
-* GitHub
-* VS Code
-* Docker
-* GitHub Actions
-
-> The technology stack will vary depending on the requirements of each project.
-
----
-
-## Project Progress
-
-| Day | Project             | Category        | Technologies          | Status |
-| --: | ------------------- | --------------- | --------------------- | :----: |
-|  01 | To-Do List          | Web             | JavaScript            |    ⬜   |
-| ... | ...                 | ...             | ...                   |    ⬜   |
-| 100 | AI-Powered Platform | AI / Full Stack | TBD                   |    ⬜   |
-
----
-
-## Repository Structure
-
-Each project has its own directory:
+## Repository structure
 
 ```text
 100-Days-100-Projects/
-│
-├── Todo-App/
-├── Calculator/
-├── Pomodoro-Timer/
-├── Digital-Clock/
-├── ...
-├── AI-Platform/
-│
-└── README.md
-```
-
-Each project may include:
-
-```text
-project/
-├── src/
-├── tests/
-├── assets/
 ├── README.md
-├── package.json
-└── .gitignore
+├── SRS.md
+├── LICENSE
+├── .gitignore
+├── Calculator/
+├── Digital Clock/
+├── To-do list/
+├── currency-converter/
+├── diabetes-prediction/
+├── expense-tracker/
+├── github-analytics/
+├── github-profile-finder/
+├── habit-tracker/
+├── kanban-board/
+├── markdown-previewer/
+├── netflix-data-analysis/
+├── notes-app/
+├── parks-platform/
+├── password-generator/
+├── pharmatrack/
+├── pomo/
+├── qr-code-generator/
+├── quiz-app/
+├── recipe-finder/
+├── url-shortener/
+├── weather-app/
+└── ...
 ```
 
-The structure will vary depending on the project.
+Each project directory is intended to be mostly self-contained. In most cases, the project folder contains its own HTML, CSS, JavaScript, Python scripts, data, or documentation, depending on the technology used.
 
----
+## Quick navigation
 
-## What I Focus On
+Explore some of the most representative projects in the repository:
 
-For each project, I aim to go beyond simply making the application work.
+- [Calculator](./Calculator)
+- [Digital Clock](./Digital%20Clock)
+- [To-do list](./To-do%20list)
+- [expense-tracker](./expense-tracker)
+- [weather-app](./weather-app)
+- [github-profile-finder](./github-profile-finder)
+- [notes-app](./notes-app)
+- [pharmatrack](./pharmatrack)
+- [Titanic-Data-Analysis](./Titanic-Data-Analysis)
+- [diabetes-prediction](./diabetes-prediction)
+- [netflix-data-analysis](./netflix-data-analysis)
 
-I focus on:
+## Technologies used
 
-* Clean and maintainable code
-* Meaningful project structure
-* Responsive UI
-* Error handling
-* Testing where appropriate
-* API integration
-* Database design
-* Security fundamentals
-* Git and version control
-* Documentation
-* Deployment
-* Real-world problem solving
+This repository spans multiple technologies, depending on each project's goal:
 
----
+- Languages: JavaScript, Python, HTML, CSS, SQL
+- Frontend: static HTML/CSS/JS, responsive layouts, browser interactivity
+- Data and analytics: pandas, NumPy, matplotlib, Jupyter-style analysis workflows
+- Machine learning: scikit-learn and related modeling workflows
+- Backend and platform work: multi-page apps and local data flows
+- Tooling: Git, GitHub, VS Code, virtual environments, package management, documentation
 
-## Daily Workflow
+## How to use this repository
 
-Each project follows a simple workflow:
+Because this is a multi-project repository, there is no single global install command for every folder.
 
-```text
-💡 Idea
-   ↓
-📋 Requirements
-   ↓
-🎨 Design
-   ↓
-💻 Development
-   ↓
-🧪 Testing
-   ↓
-📝 Documentation
-   ↓
-🚀 Deployment
-   ↓
-📦 GitHub
-   ↓
-➡️ Next Project
+1. Clone the repository.
+2. Open the project folder you want to run.
+3. Read that project's README for specific setup instructions.
+4. For static web apps, open the index file in a browser or run a local server when required.
+5. For Python projects, create a virtual environment and install the dependencies from the project's requirements file.
+
+Example:
+
+```bash
+git clone https://github.com/danya-musbah/100-Days-100-Projects.git
+cd 100-Days-100-Projects
 ```
 
----
+Then go into a specific folder such as:
 
-## Challenge Rules
+```bash
+cd weather-app
+```
 
-1. Build **one project every day**.
-2. Publish the project to GitHub.
-3. Write documentation for every project.
-4. Use Git commits throughout development.
-5. Build projects that are actually functional.
-6. Learn something new whenever possible.
-7. Keep improving code quality throughout the challenge.
-8. Do not focus only on quantity — **quality matters**.
-9. When a project is small, add optional features to increase its complexity.
-10. Complete all **100 days**.
+and follow that folder's own instructions.
 
----
+## Documentation and quality focus
 
-## Featured Projects
+Each project aims to provide a practical learning outcome, not just a code artifact. The documentation, folder structure, and implementation quality are part of the value of the repository.
 
-As the challenge progresses, the strongest projects will be highlighted here.
+The collection emphasizes:
 
-| Project        | Description | Demo | Repository |
-| -------------- | ----------- | ---- | ---------- |
-| 🚧 Coming Soon | —           | —    | —          |
-| 🚧 Coming Soon | —           | —    | —          |
-| 🚧 Coming Soon | —           | —    | —          |
+- readable project structure
+- clear user-facing behavior
+- local reproducibility where possible
+- project-specific setup and usage instructions
+- straightforward maintenance and extension
 
----
+## Current status
 
-## What I Expect to Gain
+This repository is a learning and portfolio collection in active development. Some projects are browser-only demos, while others are more complete data-science or platform-style implementations. The repository is best understood as a broad practice environment rather than a single deployed product.
 
-By the end of this challenge, I aim to have:
+## Contribution and improvement
 
-* 100 completed projects
-* A stronger GitHub portfolio
-* Practical experience across multiple technology areas
-* Better software architecture skills
-* More confidence building applications from scratch
-* A collection of projects demonstrating my technical abilities
-* Several portfolio-level projects suitable for my CV
+This repository is intended to support learning, iteration, and improvement. Contributions are welcome in the form of:
 
----
+- bug fixes in a project folder
+- UI or workflow improvements
+- clearer documentation
+- refactoring for maintainability
+- additional features that fit the project context
 
-## Connect With Me
+Before making changes, review the relevant project folder and its local README to confirm the expected behavior and setup.
 
-If you are interested in software engineering, AI, data science, or technology, feel free to explore the projects and follow the journey.
+## License
 
-**GitHub:** github.com/danya-musbah
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-**LinkedIn:** linkedin.com/in/danya-musbah-87098838b 
+## Summary
 
-**Email:** danyamusbah8@gmail.com
+This repository demonstrates a practical engineering challenge: build a wide range of small software products, learn from each one, and leave behind a portfolio of working, documented projects. The value is not in a single app, but in the breadth of skills, the consistency of the workflow, and the utility of the final collection.
+
+
+**GitHub:** [github.com/danya-musbah](https://github.com/danya-musbah)
+
+**LinkedIn:** [linkedin.com/in/danya-musbah-87098838b](https://www.linkedin.com/in/danya-musbah-87098838b/)
+
+**Email:** [danyamusbah8@gmail.com](mailto:danyamusbah8@gmail.com)
 
 ---
 
